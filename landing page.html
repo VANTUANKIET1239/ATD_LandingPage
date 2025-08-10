@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Purpose</title>
+<style>
+    /* General Reset */
+   /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #222;
+}
+
+/* Sections */
+section {
+    margin: auto;
+}
+
+/* Hero Section */
+#hero {
+    color: white;
+    text-align: left;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#hero h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.media-links a {
+    background: white;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.media-links a:hover {
+    background: #ffcc00;
+}
+
+.container-title {
+      padding: 0px 100px;
+}
+
+/* Title */
+.container-title h1 {
+    font-family: SourceSans3, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 106px);
+    color: rgb(18, 45, 119);
+
+}
+.container-title .line {
+    width: 150px;
+    height: 12px;
+    background-color: rgb(255, 123, 0);
+    margin-top: -20px;
+}
+
+/* Section Container */
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(143, 164, 221);
+    margin: 300px 0;
+    padding: 0px 100px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Left Column */
+.left-column h1 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: bold;
+    color: #2e3d3b;
+    padding: 20px;
+}
+.left-column img {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    transform: translateY(100px);
+}
+
+/* Right Column */
+.right-column img {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+        transform: translateY(-110px);
+}
+.right-column .text-box {
+    padding: 20px;
+}
+.right-column .text-box h2 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-bottom: 15px;
+}
+.right-column .text-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Arrow */
+.arrow-style {
+     display: block;
+    margin: 20px auto;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    /* bottom: 0; */
+transform: translate(-600px, 790px);
+}
+
+.arrow-style-right {
+     display: block;
+    margin: 20px auto;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    transform: translate(-525px, 280px);
+    /* bottom: 0; */
+}
+
+
+.arrow-style-right-reverse {
+     display: block;
+    margin: 20px auto;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    transform: translate(-525px, 280px);
+    /* bottom: 0; */
+}
+
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .section-container {
+        flex-direction: column;
+    }
+    .left-column img, .right-column img {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-title h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    .left-column h1 {
+        font-size: 1.8rem;
+    }
+    .arrow-style {
+        width: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-column h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .right-column .text-box {
+        text-align: center;
+    }
+    .container-title .line {
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
+    .detail-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        max-width: 2000px;
+        margin:100px auto;
+        align-items: center;
+    }
+
+    /* LEFT PANEL */
+    .detail-section .left {
+        background-color: #d8e0da; /* light green-grey */
+        flex: 1;
+        min-width: 300px;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        height: 50%;
+    }
+
+    .detail-section .left .big-number {
+        font-size: 8rem;
+        font-weight: 900;
+        color: rgba(44, 62, 80, 0.2);
+        line-height: 0.8;
+    }
+
+    .detail-section .left h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-top: -40px;
+    }
+
+    .detail-section .left p {
+        margin-top: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .detail-section .left p strong {
+        font-weight: bold;
+    }
+
+    /* RIGHT PANEL */
+    .detail-section .right {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: start;
+    }
+
+       .detail-section .right-reverse {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: end;
+    }
+
+    .detail-section .right img {
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        
+    }
+
+
+
+  @media (max-width: 768px) {
+        .detail-section {
+            flex-direction: column;
+        }
+        .detail-section .left {
+            padding: 30px;
+        }
+        .detail-section .left .big-number {
+            font-size: 5rem;
+        }
+        .detail-section .left h2 {
+            font-size: 2rem;
+            margin-top: -20px;
+        }
+    }
+
+
+
+    /* footer css */
+
+
+     footer {
+        background-color: rgb(18, 45, 119);
+        color: white;
+        padding: 20px 40px;
+    }
+    .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-bottom: 15px;
+    }
+    .footer-logo img {
+        height: 80px;
+    }
+    .footer-text {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    .footer-text a {
+        color: white;
+        text-decoration: underline;
+        margin: 0 5px;
+    }
+    .back-to-top {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+    .back-to-top span {
+        margin-right: 5px;
+    }
+    .back-to-top img {
+        width: 20px;
+        height: 20px;
+    }
+    .partner-logos, .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+    .partner-logos img {
+        height: 25px;
+        filter: brightness(0) invert(1); /* white effect */
+    }
+    .social-icons img {
+        width: 22px;
+        height: 22px;
+        filter: brightness(0) invert(1);
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section id="hero">
+    <img src="./Assets/images/posterATD.png" alt="Leader Photo">
+    <!-- <h1>
+        WE IMAGINE<br>
+        BETTER WAYS<br>
+        TO SERVE<br>
+        A WORLD<br>
+        IN MOTION
+    </h1>
+    <div class="media-links">
+        <a href="#video">Watch the Video</a>
+        <a href="#podcast">Listen to the Podcast</a>
+    </div> -->
+</section>
+
+<!-- Purpose -->
+<section id="purpose">
+   
+</section>
+
+<!-- Leader -->
+<!-- <section id="leader">
+    <div>
+        <h1>
+            OUR PURPOSE
+        </h1>
+        <div class="line"></div>
+    </div>
+    <div class="overview-body">
+        <h1 class="overview-title">
+            We imagine better ways
+            to serve a world in motion
+        </h1>
+    </div>
+</section> -->
+
+     <div class="container-title">
+        <h1>
+            OUR PURPOSE
+        </h1>
+        <div class="line"></div>
+    </div>
+<section class="section-container">
+   
+    <!-- Left Column -->
+            <div class="left-column">
+            <h1>WE IMAGINE BETTER WAYS<br>TO SERVE A WORLD IN MOTION</h1>
+            <img src="https://picsum.photos/id/1011/800/500" alt="Ship Image">
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <img src="https://picsum.photos/id/1005/800/400" alt="Navy Officers">
+            <div class="text-box">
+                <h2>Our four guiding principles</h2>
+                <p>We have articulated four guiding principles, in line with our values. They are strengths that define us and empower us to accomplish great things.</p>
+                <p>They shape how we collaborate within teams, engage with clients, and partner with providers. They inspire each of us to strive for exemplarity.</p>
+                <p>They are non-negotiable, across every location, activity and entity throughout the Group.</p>
+            </div>
+         
+        </div>
+           <img alt="Down Arrow" loading="lazy" decoding="async" data-nimg="fill" class="arrow-style" src="./Assets/Icons/arrow-down.svg">
+</section>
+
+<section class="detail-section">
+    <div class="left">
+        <div class="big-number">1</div>
+        <h2>Forever Bold</h2>
+        <p><strong>We were born to dare and to build. Our original ambition remains our driving force – a precious legacy and our greatest source of energy.</strong></p>
+        <p>At CMA CGM, being bold means challenging the status quo, taking nothing for granted. It means thinking big and acting swiftly, because our industries demand agility.</p>
+        <p>We create our own opportunities. With imagination and the world as our playground, we drive innovation and embrace technology to address the logistical and environmental challenges of tomorrow.</p>
+         <img alt="Down Arrow" loading="lazy" decoding="async" data-nimg="fill" class="arrow-style-right" src="./Assets/Icons/arrow-down.svg">
+
+    </div>
+    <div class="right-reverse">
+        <img src="https://picsum.photos/id/1011/800/1000" alt="Ballet Dancer">
+    </div>
+</section>
+
+
+
+
+<section class="detail-section">
+    <div class="right">
+        <img src="https://picsum.photos/id/1011/800/1000" alt="Ballet Dancer">
+    </div>
+     <div class="left">
+        <div class="big-number">2</div>
+        <h2>Forever Bold</h2>
+        <p><strong>We were born to dare and to build. Our original ambition remains our driving force – a precious legacy and our greatest source of energy.</strong></p>
+        <p>At CMA CGM, being bold means challenging the status quo, taking nothing for granted. It means thinking big and acting swiftly, because our industries demand agility.</p>
+        <p>We create our own opportunities. With imagination and the world as our playground, we drive innovation and embrace technology to address the logistical and environmental challenges of tomorrow.</p>
+    <img alt="Down Arrow" loading="lazy" decoding="async" data-nimg="fill" class="arrow-style-right" src="./Assets/Icons/arrow-down.svg">
+
+    </div>
+</section>
+
+
+
+<!-- Principles -->
+<!-- <section id="principles">
+    <h2>Our Four Guiding Principles</h2>
+    <div class="principle">
+        <h3>1. Forever Bold</h3>
+        <p>We were born to dare, to innovate, and to lead change in our industry.</p>
+    </div>
+    <div class="principle">
+        <h3>2. People First</h3>
+        <p>We put people at the heart of our decisions, ensuring their safety and well-being.</p>
+    </div>
+    <div class="principle">
+        <h3>3. Sustainable Future</h3>
+        <p>We take action today to protect tomorrow’s environment.</p>
+    </div>
+    <div class="principle">
+        <h3>4. Connected World</h3>
+        <p>We create links that unite communities, businesses, and cultures globally.</p>
+    </div>
+</section> -->
+
+<!-- Footer -->
+<footer>
+    <!-- Top row -->
+    <div class="footer-top">
+        <div class="footer-logo">
+            <img src="./Assets/images/atdlogo.png" alt="CMA CGM Logo">
+        </div>
+        <div class="footer-text">
+            © CMA CGM 2025 - All rights reserved -
+            <a href="#">Legal Notices</a> -
+            <a href="#">Cookies Policy</a>
+        </div>
+        <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <span>Back to top</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Arrow_up_font_awesome.svg/1024px-Arrow_up_font_awesome.svg.png" alt="Up Arrow">
+        </div>
+    </div>
+
+    <!-- Partner logos -->
+    <div class="partner-logos">
+        <img src="https://dummyimage.com/60x20/fff/000.png&text=Mercosul" alt="Mercosul">
+        <img src="https://dummyimage.com/40x20/fff/000.png&text=CNC" alt="CNC">
+        <img src="https://dummyimage.com/40x20/fff/000.png&text=ANL" alt="ANL">
+        <img src="https://dummyimage.com/60x20/fff/000.png&text=APL" alt="APL">
+        <img src="https://dummyimage.com/60x20/fff/000.png&text=CEVA" alt="CEVA">
+        <img src="https://dummyimage.com/60x20/fff/000.png&text=AIR" alt="CMA CGM Air Cargo">
+        <img src="https://dummyimage.com/80x20/fff/000.png&text=La+Méridionale" alt="La Méridionale">
+        <img src="https://dummyimage.com/60x20/fff/000.png&text=Media" alt="CMA Media">
+    </div>
+
+    <!-- Social icons -->
+    <div class="social-icons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg" alt="Facebook">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="X">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/YouTube_social_white_square_%282017%29.svg" alt="YouTube">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </div>
+</footer>
+
+
+</body>
+</html>
