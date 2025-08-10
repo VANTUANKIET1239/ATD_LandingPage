@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Post UI</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f2ef;
+        padding: 20px;
+    }
+
+    .post {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        padding: 16px;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    /* Header */
+    .post-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .post-header img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .post-header .name {
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .post-header .headline {
+        font-size: 12px;
+        color: gray;
+    }
+    .post-header .time {
+        font-size: 12px;
+        color: gray;
+    }
+
+    /* Post text */
+    .post-text {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* Post image */
+    .post-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    /* Reactions & actions */
+    .post-footer {
+        margin-top: 8px;
+    }
+    .post-reactions {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        color: gray;
+        justify-content: space-between;
+    }
+    .post-actions {
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid #ddd;
+        margin-top: 8px;
+        padding-top: 8px;
+    }
+    .post-actions button {
+        background: none;
+        border: none;
+        font-size: 14px;
+        color: gray;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .post-actions button:hover {
+        color: black;
+    }
+
+    /* Comment section */
+    .comment {
+        margin-top: 12px;
+        font-size: 13px;
+    }
+    .comment-author {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="post">
+    <!-- Post header -->
+    <div class="post-header">
+        <img src="./Assets/images/atdlogo.png" alt="Profile Picture">
+        <div>
+            <div class="name">ATD - Academy of Technology and Design <span style="color:#0a66c2;">• 3rd+</span></div>
+            <div class="headline">I Teach You System Design • 20K+ Audience</div>
+            <div class="time">4h • 🌐</div>
+        </div>
+    </div>
+
+    <!-- Post text -->
+    <div class="post-text">
+       KHI KINH NGHIỆM TRỞ THÀNH GÁNH NẶNG: LÀM SAO ĐỂ "TÁI CẤU TRÚC" LỢI THẾ CẠNH TRANH CỦA BẠN? <br>
+       <br>
+       Bạn có 10 năm kinh nghiệm. Bạn tự hào về nó. Nhưng có bao giờ bạn cảm thấy bất an khi một đồng nghiệp trẻ có thể dùng một công cụ AI để hoàn thành công việc của bạn chỉ trong vài giờ? <br>
+       <br>
+
+Vấn đề không nằm ở chỗ kinh nghiệm của bạn vô giá trị. Vấn đề là, trong một thế giới vận hành bằng những con số (Run on Numbers),
+ "kinh nghiệm" đang được định nghĩa lại. Nó không còn là số năm làm việc, mà là khả năng chuyển hóa dữ liệu thành quyết định, biến sự hỗn loạn thành một chiến lược có thể đo lường được.   <br>
+ <br>
+ "Lối mòn kinh nghiệm" là một cái bẫy nguy hiểm. Nó khiến chúng ta giải quyết vấn đề của ngày hôm nay bằng tư duy của ngày hôm qua. <br>
+ <br>
+ Vậy câu hỏi đặt ra là:  <br>
+ <br>
+        ▶️ Làm thế nào để kinh nghiệm của bạn không bị "lỗi thời"?  <br>
+        ▶️ Làm thế nào để biến dữ liệu thành đồng minh, thay vì là một mối đe dọa? <br>
+ <br>
+
+Đã đến lúc chúng ta cần một cuộc "nâng cấp hệ điều hành tư duy". Đây không phải là học thêm một kỹ năng, đây là học một cách suy nghĩ mới. <br>
+<br>
+Tại ATD UEH, chúng tôi tin rằng giá trị lớn nhất nằm ở việc trang bị cho bạn một tư duy nền tảng vững chắc để bạn có thể tự tin dẫn đầu, thay vì chạy theo sự thay đổi. <br>
+<br>
+
+<b>#RunOnNumbers #StrategicUpgrade #FutureOfWork #Leadership #DataAnalytics #ATDUEH</b>
+
+</div>
+
+    <!-- Post image -->
+    <div class="post-image">
+        <img src="./Assets/images/nguoiai.png" alt="Post Image">
+    </div>
+
+    <!-- Footer -->
+    <div class="post-footer">
+        <div class="post-reactions">
+            <span>👍 ❤️ 🔥 320</span>
+            <span>36 comments • 32 reposts</span>
+        </div>
+        <div class="post-actions">
+            <button>👍 Like</button>
+            <button>💬 Comment</button>
+            <button>🔄 Repost</button>
+            <button>✉ Send</button>
+        </div>
+    </div>
+
+    <!-- Comment -->
+    <div class="comment">
+        <span class="comment-author">Aram Tchekrekjian</span> — Amazing books and tips, nice share.
+    </div>
+</div>
+
+</body>
+</html>

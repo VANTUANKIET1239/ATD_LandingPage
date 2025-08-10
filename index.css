@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: SourceSans3, Helvetica, sans-serif;
     line-height: 1.6;
     color: #222;
 }
@@ -92,9 +92,15 @@ section {
     flex-direction: column;
 }
 
+.text-box div{
+    font-size: 25px;
+    color: rgb(255, 123, 0);
+    font-family: SourceSans3, Helvetica, sans-serif;
+}
+
 /* Left Column */
 .left-column h1 {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-size: 5rem;
     font-weight: bold;
     color: rgb(255, 123, 0);
     padding: 20px;
@@ -134,8 +140,9 @@ section {
     height: auto;
     position: absolute;
     right: 0;
+    
     /* bottom: 0; */
-transform: translate(-600px, 1300px);
+transform: translate(-600px, 1340px);
 }
 .arrow-style-right {
      display: block;
@@ -205,7 +212,7 @@ transform: translate(-600px, 1300px);
         flex-wrap: wrap;
         align-items: stretch;
         max-width: 2000px;
-        margin:100px auto;
+        margin:15rem auto;
         align-items: center;
     }
 
@@ -220,6 +227,7 @@ transform: translate(-600px, 1300px);
         justify-content: center;
         position: relative;
         height: 50%;
+        min-height: 500px;
         color: white;
         background-color: rgb(18, 45, 119);
     }
@@ -232,9 +240,12 @@ transform: translate(-600px, 1300px);
     }
 
     .detail-section .left h2 {
+        /* font-size: 2.5rem;
+        font-weight: 800; */
+        margin-top: -50px;
         font-size: 2.5rem;
-        font-weight: 800;
-        margin-top: -40px;
+        font-weight: bold;
+        padding: 20px;
     }
 
     .detail-section .left p {
@@ -305,6 +316,7 @@ transform: translate(-600px, 1300px);
         flex-wrap: wrap;
         border-bottom: 1px solid rgba(255,255,255,0.2);
         padding-bottom: 15px;
+        padding: 0px 40px;
     }
     .footer-logo img {
         height: 80px;
@@ -342,7 +354,7 @@ transform: translate(-600px, 1300px);
         height: 25px;
         filter: brightness(0) invert(1); /* white effect */
     }
-    .social-icons img {
+    .social-icons a img {
         width: 22px;
         height: 22px;
         filter: brightness(0) invert(1);
