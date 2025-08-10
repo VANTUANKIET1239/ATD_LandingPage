@@ -9,23 +9,53 @@
 </head>
 
 <body>
+ <div class="poster">
+            <!-- Title -->
+            <div class="title">
+                <span>RUN</span>
+                <span>ON NUMBERS</span>
+                <div class="underline"></div>
+            </div>
 
+            <!-- Waves + binary -->
+            <div class="binary-wave">
+                <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="waveColor1" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#003366" />
+                            <stop offset="100%" stop-color="#0099cc" />
+                        </linearGradient>
+                        <linearGradient id="waveColor2" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#006699" />
+                            <stop offset="100%" stop-color="#66ccff" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Back wave -->
+                    <path id="wavePath1" d="M0 150 
+                     C 150 120, 300 180, 450 150 
+                     S 750 120, 900 150 
+                     S 1050 180, 1200 150" fill="none" stroke="url(#waveColor1)" stroke-width="2" />
+                    <!-- Front wave -->
+                    <path id="wavePath2" d="M0 160 
+                     C 150 110, 300 190, 450 160 
+                     S 750 110, 900 160 
+                     S 1050 190, 1200 160" fill="none" stroke="url(#waveColor2)" stroke-width="1.5" />
+                </svg>
+                <div class="binary-text" id="binaryContainer"></div>
+            </div>
+
+            <!-- Logo -->
+            <div style="display: flex;justify-content: end;width: 100%;">
+                <div class="logo">ATD</div>
+            </div>
+        </div>
     <!-- Hero Section -->
-    <section id="hero">
+    <!-- <section id="hero">
         <img src="./Assets/images/posterATD.png" alt="Leader Photo">
         <h2 >When numbers pave your way</h2>
-        <!-- <h1>
-        WE IMAGINE<br>
-        BETTER WAYS<br>
-        TO SERVE<br>
-        A WORLD<br>
-        IN MOTION
-    </h1>
-    <div class="media-links">
-        <a href="#video">Watch the Video</a>
-        <a href="#podcast">Listen to the Podcast</a>
-    </div> -->
-    </section>
+       
+
+    </section> -->
 
     <!-- Purpose -->
     <section id="purpose">
@@ -59,13 +89,13 @@
         <!-- Left Column -->
         <div class="left-column slide-left">
             <h1>WE IMAGINE BETTER WAYS<br>TO SERVE A WORLD IN MOTION</h1>
-            <img src="https://picsum.photos/id/1011/800/500" alt="Ship Image">
-         
+            <img src="./Assets/images/nguoiai.png" alt="Ship Image">
+
         </div>
 
         <!-- Right Column -->
         <div class="right-column slide-right">
-            <img src="https://picsum.photos/id/1005/800/400" alt="Navy Officers">
+            <img src="./Assets/images/doichan.png" alt="Navy Officers">
             <div class="text-box">
                 <h2>Our four guiding principles</h2>
                 <p>We have articulated four guiding principles, in line with our values. They are strengths that define
@@ -95,7 +125,7 @@
 
         </div>
         <div class="right-reverse">
-            <img src="https://picsum.photos/id/1011/800/1000" alt="Ballet Dancer">
+            <img style="max-height: 700px" src="./Assets/images/locxoay.png" alt="Ballet Dancer">
         </div>
     </section>
 
@@ -104,7 +134,7 @@
 
     <section class="detail-section slide-right">
         <div class="right">
-            <img src="https://picsum.photos/id/1011/800/1000" alt="Ballet Dancer">
+            <img src="./Assets/images/Gemini_Generated_Image_nrpywunrpywunrpy.png" alt="Ballet Dancer">
         </div>
         <div class="left">
             <div class="big-number">2</div>
