@@ -30,6 +30,14 @@ section {
     font-weight: bold;
     margin-bottom: 30px;
 }
+
+#hero h2{
+    font-family: SourceSans3, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #2938a2;
+    transform: translate(120px, -105px);
+}
 .media-links a {
     background: white;
     color: #000;
@@ -67,7 +75,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(143, 164, 221);
-    margin: 300px 0;
+    margin: 10rem 0;
     padding: 0px 100px;
 }
 
