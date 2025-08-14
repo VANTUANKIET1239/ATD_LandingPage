@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự kiện</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+      <div style="display: flex;width: 100%;justify-content: center;"> 
+           <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
+    </div>
+    <nav class="menu-bar">
+        <div class="menu-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="events.html">Sự kiện</a>
+            <a href="#dang-ky">Đăng ký</a>
+        </div>
+    </nav>
+    <div class="events-container">
+        <!-- Example Event Card -->
+        <div class="event-card">
+            <img src="./Assets/images/posterATD.png" alt="Event Poster">
+            <div class="event-info">
+                <h2>Tên Sự Kiện 1</h2>
+                <p>Mô tả ngắn về sự kiện này...</p>
+                <div class="event-actions">
+                    <a href="event-detail.html" class="event-detail-btn">Chi tiết</a>
+                    <button class="event-interest-btn" onclick="openInterestPopup('Tên Sự Kiện 1')">Quan tâm</button>
+                </div>
+            </div>
+        </div>
+        <!-- Add more event cards as needed -->
+    </div>
+    <!-- Interest Popup -->
+    <div id="interest-popup" class="interest-popup">
+        <div class="popup-content">
+            <h3>Đăng ký nhận thông báo sự kiện</h3>
+            <p id="popup-event-name"></p>
+            <input type="email" id="user-email" placeholder="Nhập email của bạn">
+            <button onclick="submitInterest()">OK</button>
+            <button onclick="closeInterestPopup()">Hủy</button>
+        </div>
+    </div>
+    <!-- Success Notification -->
+    <div id="success-notification" class="success-notification">Đăng ký sự kiện thành công!</div>
+    <script src="./Assets/events.js"></script>
+</body>
+</html>

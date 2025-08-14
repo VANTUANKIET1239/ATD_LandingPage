@@ -1,0 +1,110 @@
+.podcast-player {
+  background-color: rgb(18, 45, 119);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+   margin: 10rem;
+
+}
+
+.podcast-text {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.play-btn {
+  background-color: #445b60;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.progress, .volume {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.controls .progress{
+    width: 100%;
+}
+
+.audio-content{
+    color: white;
+}
+
+.volume {
+  width: 80px;
+  min-width: 60px;
+  max-width: 100px;
+  margin-left: 8px;
+}
+
+.audio-image{
+    width: 50%;
+}
+
+
+.audio-image img{
+    width: 50%;
+    height: 50%;
+    min-height: 300px;
+    min-width: 300px;
+}
+.progress::-webkit-slider-thumb, 
+.volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #000;
+  width: 6px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.time {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.volume-icon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+
+.audio-overview{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio-content{
+
+}

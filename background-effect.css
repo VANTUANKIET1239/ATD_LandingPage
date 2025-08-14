@@ -1,0 +1,14 @@
+ canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+
+     #network {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+    }

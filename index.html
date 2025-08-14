@@ -6,9 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUN ON NUMBERS</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./audio.css">
+    <link rel="stylesheet" href="./footer.css">
 </head>
 
 <body>
+    <div style="display: flex;width: 100%;justify-content: center;">
+        <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
+    </div>
+    <nav class="menu-bar">
+
+        <div class="menu-links">
+            <a href="events.html">Sự kiện</a>
+            <a href="register-event.html">Đăng ký</a>
+        </div>
+    </nav>
     <div class="poster">
         <!-- Title -->
         <div class="title">
@@ -74,7 +86,31 @@
 
     <!-- Purpose -->
     <section id="purpose">
-
+        <div class="podcast-player">
+            <p class="podcast-text">To learn more about our Purpose, listen to the podcast</p>
+            <div class="audio-overview">
+                <div class="audio-image">
+                    <img src="./Assets/images/doichan.png"  alt="Podcast Cover">
+                </div>
+                <div class="audio-content">
+                    Trong một thế giới đầy biến động, ATD UEH không chỉ trang bị cho bạn kỹ năng nhất thời,<br>
+                    chúng tôi trao cho bạn một triết lý và một hệ thống tư duy để làm chủ tương lai sự nghiệp của mình.<br>
+                    Đây là lộ trình dành cho những người muốn kiến tạo nên cuộc đua của riêng mình.<br>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="icon-btn" id="back10">⟲<span>10</span></button>
+                <button class="play-btn" id="playPause">▶</button>
+                <button class="icon-btn" id="forward10"><span>10</span>⟳</button>
+                <span class="time" id="currentTime">0:00</span>
+                <input type="range" class="progress" id="progressBar" value="0" max="100">
+                <span class="time" id="duration">0:00</span>
+                <span class="volume-icon">🔊</span>
+                <input type="range" class="volume" id="volumeControl" value="80" max="100">
+            </div>
+            <!-- Hidden audio element -->
+            <audio id="audioPlayer" src="./Assets/m5b3nbikv5.mp3"></audio>
+        </div>
     </section>
 
     <!-- Leader -->
@@ -214,25 +250,21 @@
         <div class="social-icons">
             <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
                     alt="Facebook Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent"
-                    src="./Assets/images/facebook.svg"></a>
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg"></a>
             <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
                     alt="Linkedin Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent"
-                    src="./Assets/images/linkedin.svg"></a>
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg"></a>
             <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
                     alt="Youtube Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent"
-                    src="./Assets/images/youtube.svg"></a>
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg"></a>
             <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
                     alt="Instagram Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent"
-                    src="./Assets/images/instagram.svg"></a>
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg"></a>
         </div>
     </footer>
 
     <script src="./Assets/index.js"></script>
-
+    <script src="./Assets/audio.js"></script>
     </script>
 </body>
 

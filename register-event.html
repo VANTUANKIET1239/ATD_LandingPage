@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký sự kiện</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="./background-effect.css">
+     <link rel="stylesheet" href="./register-event.css">
+     
+    <style>
+        body.register-bg {
+            min-height: 100vh;
+        }
+
+        .register-form-2col {
+            max-width: 1500px;
+            /* margin: 80px auto 80px auto; */
+            margin: 8rem auto;
+            display: flex;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(18, 45, 119, 0.12);
+            overflow: hidden;
+            background: #fff;
+            flex-direction: column;
+        }
+
+        .register-form-2col-leftright {
+            max-width: 1500px;
+            /* margin: 80px auto 80px auto; */
+            display: flex;
+            /* border-radius: 18px; */
+            box-shadow: 0 4px 24px rgba(18, 45, 119, 0.12);
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .register-left {
+            background: rgb(18, 45, 119);
+            color: #fff;
+            flex: 1.1;
+            padding: 48px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .register-left h2 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .workshop-info p {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .register-right {
+            background: #fff;
+            color: rgb(18, 45, 119);
+            flex: 1.2;
+            padding: 48px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .register-right label {
+            display: block;
+            color: rgb(18, 45, 119);
+            font-weight: 600;
+            margin-bottom: 6px;
+            margin-top: 18px;
+            text-align: left;
+        }
+
+        .register-right input,
+        .register-right select {
+            width: 100%;
+            padding: 10px 0 10px 0;
+            border: none;
+            border-bottom: 2px solid rgb(18, 45, 119);
+            font-size: 1.08rem;
+            margin-bottom: 8px;
+            background: transparent;
+            color: rgb(18, 45, 119);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .register-right input:focus,
+        .register-right select:focus {
+            border-bottom: 2.5px solid rgb(255, 123, 0);
+        }
+
+        .register-btn {
+            background: rgb(18, 45, 119);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            width: 100%;
+            margin-top: 28px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .register-btn:hover {
+            background: rgb(255, 123, 0);
+        }
+
+        .ticket-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(18, 45, 119, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .ticket-content {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(18, 45, 119, 0.18);
+            padding: 38px 32px 32px 32px;
+            min-width: 340px;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .ticket-content h2 {
+            color: rgb(18, 45, 119);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .ticket-info p {
+            color: rgb(18, 45, 119);
+            font-size: 1.08rem;
+            margin-bottom: 8px;
+        }
+
+        .ticket-qr {
+            margin: 18px 0;
+        }
+
+        .ticket-qr img {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(18, 45, 119, 0.10);
+        }
+
+        .ticket-actions {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .ticket-actions button {
+            background: rgb(18, 45, 119);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 10px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .ticket-actions button:hover {
+            background: rgb(255, 123, 0);
+        }
+
+        @media (max-width: 900px) {
+            .register-form-2col {
+                flex-direction: column;
+            }
+
+            .register-left,
+            .register-right {
+                padding: 32px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body class="register-bg">
+  
+ <canvas id="network"></canvas>
+
+ 
+
+    <div style="display: flex;width: 100%;justify-content: center;">
+        <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
+    </div>
+    <nav class="menu-bar">
+        <div class="menu-links">
+            <a href="index.html">Trang chủ</a>
+            <a href="events.html">Sự kiện</a>
+            <a href="#dang-ky">Đăng ký</a>
+        </div>
+    </nav>
+     <div class="main-container w-full max-w-7xl mx-auto rounded-2xl  overflow-hidden">
+        <div class="p-8 md:p-12">
+            <!-- <div>
+                <img src="./Assets/images/backgroundPhase2-no.png" alt="">
+            </div> -->
+            <!-- Header Section -->
+            <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+                <div>
+                    <span style="color: rgb(18, 45, 119);" class="inline-block bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">OFFLINE WORKSHOP</span>
+                    <h1 style="color: rgb(18, 45, 119);" class="text-4xl md:text-5xl font-extrabold tracking-tight">AI in Learning – From Local to Global</h1>
+                    <p style="color: rgb(18, 45, 119);" class="text-lg text-white/70 mt-2">Vượt rào cản tiếng Anh bằng cách ứng dụng AI trong học tập</p>
+                </div>
+                <div class="flex items-center gap-2 mt-4 md:mt-0 flex-shrink-0">
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-full flex items-center gap-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                        </svg>
+                        <span>ĐĂNG KÝ THAM GIA</span>
+                    </button>
+                    <!-- <button class="bg-white/10 hover:bg-white/20 text-white font-bold py-2 px-4 rounded-full transition-colors">
+                        Follow
+                    </button> -->
+                </div>
+            </header>
+
+            <!-- Speakers Section -->
+            <div  style="display: flex; justify-content: center;" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Speaker 1 -->
+                <div class="speaker-card">
+                    <img src="https://placehold.co/120x120/E5E7EB/4B5563?text=Host" alt="Dr. Pham Quang Quy" class="speaker-img">
+                    <span class="inline-block bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Host</span>
+                    <h3 class="text-xl font-bold">Dr. Pham Quang Quy</h3>
+                    <p class="text-white/70 text-sm">Business Advisor | Professional Trainer<br>Founder & CEO of SalesDesign</p>
+                </div>
+                <!-- Speaker 2 -->
+                <div class="speaker-card">
+                    <img src="https://placehold.co/120x120/E5E7EB/4B5563?text=Speaker" alt="Mr. Duong Vo" class="speaker-img">
+                    <span class="inline-block bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Speaker</span>
+                    <h3 class="text-xl font-bold">Mr. Duong Vo</h3>
+                    <p class="text-white/70 text-sm">Strategic Director KOZEE Vietnam</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wavy Divider -->
+        <!-- <div>
+            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 26.0001C304 106 662 -66.0001 1440 26.0001V100H0V26.0001Z" fill="rgb(18, 45, 119)"/>
+            </svg>
+        </div> -->
+
+        <!-- Info Section -->
+        <div style="background-color: rgb(18, 45, 119);" class="bg-[#F0F2F5] text-gray-800 p-8 md:p-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Info Box 1: Workshop -->
+                <div class="info-box">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-white">Workshop</h4>
+                    <p class="text-sm text-white">Tổ chức: IDEAS - Chief AI Officer</p>
+                </div>
+                <!-- Info Box 2: Time -->
+                <div class="info-box">
+                    <div class="info-icon">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-white">Thời gian</h4>
+                    <p class="text-sm text-white">Thứ bảy, 13:00 - 16/08/2025</p>
+                </div>
+                <!-- Info Box 3: Location -->
+                <div class="info-box">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-white">Địa điểm</h4>
+                    <p class="text-sm text-white">LYNK, THE VIBES<br>22B Nguyễn Thị Diệu, P. Xuân Hoà, TP.HCM</p>
+                </div>
+                <!-- Info Box 4: Event Type -->
+                <div class="info-box">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-12v.75m0 3v.75m0 3v.75m0 3V18m-3 .75h18A2.25 2.25 0 0021 16.5V7.5A2.25 2.25 0 0018.75 6H5.25A2.25 2.25 0 003 7.5v9A2.25 2.25 0 005.25 18.75z" /></svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-white">FREE EVENT</h4>
+                    <p class="text-sm text-white">Đăng ký miễn phí<br>Ai cũng có thể tham gia</p>
+                </div>
+            </div>
+        </div>
+        <!-- Registration Form -->
+
+  <div class=" w-full max-w-8xl mx-auto rounded-2xl shadow-xl overflow-hidden">
+        <div class="p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                
+                <!-- Left Column: Image -->
+                <div class="w-full">
+                    <img src="https://placehold.co/800x1000/1a1d24/ffffff?text=AI+Workshop+Flyer" 
+                         alt="Flyer for the AI in Learning workshop" 
+                         class="w-full h-auto object-cover rounded-xl shadow-lg"
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x1000/cccccc/333333?text=Image+Unavailable';">
+                </div>
+
+                <!-- Right Column: Details -->
+                <div class="flex flex-col h-full justify-center p-4">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Sắp diễn ra</h2>
+
+                    <!-- Countdown Timer -->
+                    <div id="countdown" class="grid grid-cols-4 gap-4 mb-12">
+                        <div class="countdown-box">
+                            <span id="days">00</span>
+                            <p>Ngày</p>
+                        </div>
+                        <div class="countdown-box">
+                            <span id="hours">00</span>
+                            <p>Giờ</p>
+                        </div>
+                        <div class="countdown-box">
+                            <span id="minutes">00</span>
+                            <p>Phút</p>
+                        </div>
+                         <div class="countdown-box">
+                            <span id="seconds">00</span>
+                            <p>Giây</p>
+                        </div>
+                    </div>
+
+                    <!-- Description Text -->
+                    <div class="text-gray-600 space-y-4 mb-8">
+                        <p>Không nhẹ kịp bài giảng, thiếu tự tin khi giao tiếp là những rào cản của rất nhiều người khi cân nhắc học chương trình quốc tế.</p>
+                        <p>Nhưng giờ đây tiếng Anh sẽ không còn là lý do cản bước nếu bạn biết ứng dụng trí tuệ nhân tạo (AI) đúng cách. Đã đến lúc chúng ta biến những "rào cản" thành "bệ phóng" để bứt phá!</p>
+                        <p>Đến với workshop, bạn sẽ được gỡ bỏ mọi nút thắt và khám phá cách AI biến mọi thách thức thành lợi thế:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-2 text-sm">
+                            <li>Tìm hiểu cách AI thay đổi học tập, đánh tan rào cản ngôn ngữ và hiểu bài giảng dễ dàng hơn bao giờ hết.</li>
+                            <li>Biết cách sử dụng AI thông minh để tối ưu hiệu quả, tăng năng suất trong công việc.</li>
+                            <li>Lắng nghe chia sẻ trực tiếp từ học viên của IDEAS về cách AI giúp học MBA dễ hơn như thế nào.</li>
+                        </ul>
+                         <p>Đặc biệt, tại workshop, bạn sẽ là một trong những người đầu tiên được trải nghiệm hệ sinh thái AI "tất cả trong một" của IDEAS - Buffet AI. Nền tảng độc quyền được thiết kế riêng biệt để cá nhân hóa việc học cho mọi học viên.</p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex items-center gap-4">
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">
+                            Đăng ký ngay
+                        </button>
+                        <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-8 rounded-lg transition-colors">
+                            Chia sẻ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Agenda Section -->
+        <div class="text-black p-8 md:p-12">
+            <h2 class="text-4xl font-extrabold mb-8">Agenda</h2>
+            <div class="relative">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-icon"><i class="fa-solid fa-info"></i></div>
+                    <p class="text-lg font-bold">13:30 - 13:40</p>
+                    <h3 class="text-xl font-semibold text-amber-400 mt-1">Check-in</h3>
+                    <p class="text-black/70">Nhận tài liệu - Bắt đầu và giới thiệu chương trình</p>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-icon bg-blue-500"><i class="fa-solid fa-user-tie"></i></div>
+                    <p class="text-lg font-bold">13:40 - 14:10</p>
+                    <p class="text-sm text-black/80 mb-1">Mr. Duong Vo</p>
+                    <h3 class="text-xl font-semibold text-amber-400">AI thay đổi cách học tập, không còn rào cản</h3>
+                    <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                        <li>Các rào cản thường gặp trong học tập hiện nay (thiếu thời gian, tiếng Anh, overload kiến thức, mất tập trung...)</li>
+                        <li>Demo: AI hỗ trợ tóm tắt tài liệu, dịch tiếng Anh, gợi ý idea khi làm Assignment</li>
+                        <li>Ứng dụng AI trong việc cá nhân hóa hành trình học (ví dụ: dùng ChatGPT lên kế hoạch ôn thi, thiết kế flashcard, luyện nói tiếng Anh...)</li>
+                        <li>Hướng dẫn các bước bài 1 bài nghiên cứu/luận văn sẽ qua các bước AI nào đang tối ưu</li>
+                    </ul>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-icon bg-blue-500"><i class="fa-solid fa-user-tie"></i></div>
+                    <p class="text-lg font-bold">14:10 - 14:40</p>
+                    <p class="text-sm text-black/80 mb-1">Mr. Ngo Tran Bao Hiep</p>
+                    <h3 class="text-xl font-semibold text-amber-400">Ứng dụng AI trong doanh nghiệp nhỏ – từ cá nhân đến tối ưu hệ thống</h3>
+                    <p class="text-black/70 mt-2">Có 3 tầng ứng dụng: cá nhân và phòng ban và cả tổ chức (văn phòng – nhân sự – tài chính – marketing...)</p>
+                    <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                        <li>Xác định được lộ trình từng bước để ứng dụng</li>
+                        <li>Đưa ra các ứng dụng thực tế phù hợp với các phòng ban</li>
+                    </ul>
+                </div>
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-icon bg-green-500"><i class="fa-solid fa-user-graduate"></i></div>
+                    <p class="text-lg font-bold">14:40 - 15:00</p>
+                    <p class="text-sm text-black/80 mb-1">Học viên chia sẻ</p>
+                    <h3 class="text-xl font-semibold text-amber-400">AI giúp tôi học MBA dễ hơn ra sao?</h3>
+                     <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                        <li>Trải nghiệm cụ thể: từng dùng AI khi làm gì (lên outline bài luận, luyện nghe, chuẩn bị thuyết trình, v.v.)</li>
+                        <li>Công cụ yêu thích và mẹo sử dụng hiệu quả</li>
+                    </ul>
+                </div>
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-icon bg-red-500"><i class="fa-solid fa-lightbulb"></i></div>
+                    <p class="text-lg font-bold">15:00 - 15:15</p>
+                    <p class="text-sm text-black/80 mb-1">Dr. Pham Quang Vinh</p>
+                    <h3 class="text-xl font-semibold text-amber-400">Trải nghiệm "Buffet AI" – Giới thiệu nền tảng của IDEAS</h3>
+                </div>
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-gray-500"><i class="fa-solid fa-comments"></i></div>
+                    <p class="text-lg font-bold">15:15 - 16:00</p>
+                    <h3 class="text-xl font-semibold text-amber-400 mt-1">Giao lưu</h3>
+                    <p class="text-black/70">Hỏi đáp – giao lưu và chia sẻ khó khăn, kinh nghiệm ứng dụng AI</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+     
+    <footer>
+        <!-- Top row -->
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="./Assets/images/atdlogo.png" alt="CMA CGM Logo">
+            </div>
+            <div class="footer-text">
+                © ATD 2025 - All rights reserved -
+                <a href="#">Legal Notices</a> -
+                <a href="#">Cookies Policy</a>
+            </div>
+            <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span>Back to top</span>
+                <img src="./Assets/images/up-arrow.png" alt="Up Arrow">
+            </div>
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Facebook Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Linkedin Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Youtube Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Instagram Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg"></a>
+        </div>
+    </footer>
+    <script>
+
+        function countdown(){
+            
+  const countDownDate = new Date("Aug 16, 2025 13:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+             document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<div class='col-span-3 text-center text-red-600 font-bold text-xl'>EVENT HAS STARTED</div>";
+            }
+        }, 1000);
+
+        }
+
+        countdown();
+        function toggleOtherRole() {
+            var role = document.getElementById('role').value;
+            var otherContainer = document.getElementById('otherRoleContainer');
+            if (role === 'khac') {
+                otherContainer.style.display = 'block';
+            } else {
+                otherContainer.style.display = 'none';
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            // Get values
+            var email = document.getElementById('email').value;
+            var fullname = document.getElementById('fullname').value;
+            var phone = document.getElementById('phone').value;
+            var role = document.getElementById('role').value;
+            var roleText = '';
+            if (role === 'sinhvien') roleText = 'Sinh viên UEH';
+            else if (role === 'nguoidilam') roleText = 'Người đi làm';
+            else if (role === 'cuusinhvien') roleText = 'Cựu sinh viên UEH';
+            else if (role === 'khac') roleText = document.getElementById('otherRole').value || 'Khác';
+            // Fill ticket
+            document.getElementById('ticketEmail').textContent = email;
+            document.getElementById('ticketName').textContent = fullname;
+            document.getElementById('ticketPhone').textContent = phone;
+            document.getElementById('ticketRole').textContent = roleText;
+            // Show popup
+            document.getElementById('ticketPopup').style.display = 'flex';
+            return false;
+        }
+
+        function closeTicketPopup() {
+            document.getElementById('ticketPopup').style.display = 'none';
+            document.getElementById('eventRegisterForm').reset();
+        }
+
+        function downloadTicket() {
+            var ticket = document.querySelector('.ticket-content');
+            html2canvas(ticket).then(function (canvas) {
+                var link = document.createElement('a');
+                link.download = 'Workshop-Ticket.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+
+
+
+
+const canvas = document.getElementById('network');
+const ctx = canvas.getContext('2d');
+
+let width, height;
+function resizeCanvas() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// Draw diagonal stripes
+function drawStripes() {
+    ctx.strokeStyle = "rgba(18, 45, 119, 0.05)";
+    ctx.lineWidth = 1;
+    const spacing = 25;
+    for (let x = -height; x < width; x += spacing) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x + height, height);
+        ctx.stroke();
+    }
+}
+
+// Create more particles
+const particles = [];
+const numParticles = 120; // Increased density
+for (let i = 0; i < numParticles; i++) {
+    particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 1,
+        vy: (Math.random() - 0.5) * 1
+    });
+}
+
+function drawNetwork() {
+    // Draw particles
+    ctx.fillStyle = "rgb(18, 45, 119)";
+    particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    // Draw more connections
+    ctx.strokeStyle = "rgba(18, 45, 119, 0.25)";
+    for (let i = 0; i < numParticles; i++) {
+        for (let j = i + 1; j < numParticles; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 200) { // Increased range
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, width, height);
+    drawStripes();
+    drawNetwork();
+
+    // Move particles
+    particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+
+</html>
