@@ -5,11 +5,13 @@
             /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); */
         }
         .speaker-card {
-            background-color: rgba(255, 255, 255, 0.05);
+            /* background-color: rgba(255, 255, 255, 0.3); */
+            background-color: rgb(18, 45, 119);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
             padding: 1.5rem;
             text-align: center;
+            width: 350px;
         }
         .speaker-img {
             width: 120px;
@@ -80,3 +82,36 @@
         .timeline-item:last-child .timeline-line {
             display: none;
         }
+
+
+        p, span, h1, h3{
+                 font-family: SourceSans3, Helvetica, sans-serif;
+             
+                 
+        }
+
+
+          .name-badge-container {
+    /* This is the outer, darker blue layer that acts as a border */
+    background-color: #183e84; /* Dark blue color from the image */
+    border-radius: 50px;       /* Creates the pill shape */
+    padding: 4px;              /* Creates the space for the "border" */
+    display: inline-block;     /* Ensures the container wraps the content */
+    display: flex;
+   flex-direction: column;
+    
+  }
+
+  .name-badge-content {
+    /* This is the inner, white element */
+    background-color: #ffffff;
+    color: #183e84;            /* Text color matches the outer border */
+    border-radius: 50px;       /* Matches the container's roundness */
+    padding: 12px 35px;        /* Vertical and horizontal space around the text */
+    font-size: 24px;           /* Adjust font size as needed */
+    font-weight: 700;          /* Bold text */
+    text-align: center;
+    white-space: nowrap;       /* Prevents the text from wrapping to a new line */
+        display: flex;
+    justify-content: center;
+  }
