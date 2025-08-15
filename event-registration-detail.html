@@ -7,6 +7,7 @@
     <title>Workshop: Ứng dụng AI để nâng cao hiệu suất công việc</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +28,22 @@
         }
           .agenda-item {
             border-left: 3px solid rgb(18, 45, 119);
+        }
+
+         @media print {
+            .no-print {
+                display: none;
+            }
+            .ticket-container {
+                box-shadow: none !important;
+                border: 1px solid #ddd;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
+        /* Dashed line effect */
+        .dashed-line {
+            border-style: dashed;
         }
     </style>
 </head>
@@ -259,7 +276,6 @@
         <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl transform transition-all">
             <div class="p-8">
                 <div class="flex flex-col md:flex-row gap-8">
-                    <!-- Left side: Information -->
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold text-green-600 mb-4">Đăng ký thành công!</h3>
                         <p class="text-gray-600 mb-6">Cảm ơn bạn đã đăng ký tham gia workshop. Vui lòng giữ lại thông
@@ -272,7 +288,6 @@
                             <p><strong>Thời gian:</strong> 8:30 - 11:30, 28/11/2025</p>
                         </div>
                     </div>
-                    <!-- Right side: QR Code -->
                     <div class="flex-shrink-0 flex flex-col items-center justify-center">
                         <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=example"
                             alt="QR Code" class="rounded-md">
@@ -280,7 +295,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Buttons -->
             <div class="bg-gray-50 px-8 py-4 flex flex-col sm:flex-row-reverse gap-3 rounded-b-lg">
                 <button id="closePopupBtn" type="button"
                     class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:w-auto sm:text-sm">
@@ -292,8 +306,12 @@
                 </button>
             </div>
         </div>
+
+     
+    </div>
     </div>
     <script>
+        const baseUrl = 'https://vantuankiet1239.github.io/ATD_LandingPage';
         const audience = document.getElementById('audience');
 
         audience.addEventListener('change', function () {
@@ -335,9 +353,11 @@
 
                 // Generate a unique QR code based on user info
                 const qrData = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`;
-                qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(qrData)}`;
+                const ticketUrl = `${baseUrl}/user-ticket.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
 
-                // Show the popup
+                    // Set QR code image source
+                    qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(ticketUrl)}`;
+
                 successPopup.classList.remove('hidden');
             });
 
@@ -356,15 +376,49 @@
                 }
             });
 
+
+
+            function fixOklchColors(rootElement) {
+                // Replace CSS variables on the root
+                const rootStyles = getComputedStyle(document.documentElement);
+                for (let i = 0; i < rootStyles.length; i++) {
+                    const propName = rootStyles[i];
+                    const value = rootStyles.getPropertyValue(propName);
+                    if (value.includes('oklch')) {
+                        document.documentElement.style.setProperty(propName, '#0A234E');
+                    }
+                }
+
+                // Replace inline/computed styles for each child element
+                rootElement.querySelectorAll('*').forEach(el => {
+                    const styles = getComputedStyle(el);
+                    ['color','backgroundColor','borderColor'].forEach(prop => {
+                        const val = styles[prop];
+                        if (val.includes('oklch')) {
+                            el.style[prop] = '#0A234E';
+                        }
+                    });
+                });
+            }
+
             // Handle the download button click
             downloadBtn.addEventListener('click', function () {
-                // Note: A real implementation for downloading the popup as an image
-                // would require a library like html2canvas.
-                // For now, this is a placeholder.
-                alert('Chức năng tải về đang được phát triển!');
-                console.log('Download button clicked. Implement download functionality here.');
+
+                const ticket = document.getElementById('ticket').outerHTML; // Get ticket HTML
+                    const originalContent = document.body.innerHTML; // Save full page
+
+                    // Replace page with ticket content
+                    document.body.innerHTML = ticket;
+
+                    window.print(); // Open print dialog
+
+                    // Restore original page after printing
+                    document.body.innerHTML = originalContent;
             });
         });
+
+
+
     </script>
 </body>
 

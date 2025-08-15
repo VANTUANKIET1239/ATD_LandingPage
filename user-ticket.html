@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vé Tham Dự Workshop</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Styles for printing */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact; /* Chrome, Safari */
+                color-adjust: exact; /* Firefox */
+            }
+            .no-print {
+                display: none;
+            }
+            .ticket-container {
+                box-shadow: none !important;
+                border: 1px solid #ddd;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
+        /* Dashed line effect */
+        .dashed-line {
+            border-style: dashed;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-md">
+        <!-- Ticket Container -->
+        <div id="ticket" class="ticket-container bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden">
+            
+            <!-- Top Side: Main Information -->
+            <div class="w-full p-8">
+                <div class="flex items-center mb-6">
+                    <div class="p-3 rounded-lg mr-4">
+                        <img style="width: 60px;height: 60px;" src="./Assets/images/atdlogo.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Vé Tham Dự Workshop</h1>
+                        <p class="text-gray-500">Event Admission Ticket</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-6">
+                    <h2 class="text-xl font-semibold text-[#0A234E] mb-4">ỨNG DỤNG AI ĐỂ NÂNG CAO HIỆU SUẤT CÔNG VIỆC</h2>
+                    
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <p class="text-gray-500 font-medium">THỜI GIAN</p>
+                            <p class="text-gray-800 font-semibold">8:30 - 11:30, 28/11/2025</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 font-medium">ĐỊA ĐIỂM</p>
+                            <p class="text-gray-800 font-semibold">Hội trường B1.302, UEH</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 font-medium">KHÁCH THAM DỰ</p>
+                            <p id="ticketName" class="text-gray-800 font-semibold">Nguyễn Văn A</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 font-medium">EMAIL</p>
+                            <p id="ticketEmail" class="text-gray-800 font-semibold">nguyenvana@email.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Side: QR Code and Ticket ID -->
+            <div class="w-full bg-gray-50 p-8 flex flex-col items-center justify-center border-t-2 border-gray-200 dashed-line">
+                <div class="text-center">
+                    <img id="ticketQrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Ticket12345" alt="QR Code" class="rounded-lg mx-auto">
+                    <p class="font-mono tracking-widest mt-4 text-gray-700" id="ticketId">ADC-12345XYZ</p>
+                    <p class="text-xs text-gray-500 mt-1">Mã vé / Ticket ID</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="text-center mt-8 no-print">
+            <button onclick="window.print()" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
+                Tải về hoặc In vé
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // This script would dynamically populate the ticket information
+        // For this static example, the data is hardcoded in the HTML.
+        // In a real application, you would get this data from the form or a database.
+        
+        // Example of how you might receive and use data:
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name') || 'Nguyễn Văn A';
+        const email = urlParams.get('email') || 'nguyenvana@email.com';
+        const ticketId = 'ADC-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+
+        document.getElementById('ticketName').textContent = name;
+        document.getElementById('ticketEmail').textContent = email;
+        document.getElementById('ticketId').textContent = ticketId;
+
+        const qrData = `TicketID: ${ticketId}\nName: ${name}\nEvent: AI Workshop`;
+        document.getElementById('ticketQrCode').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(qrData)}`;
+    </script>
+
+</body>
+</html>
