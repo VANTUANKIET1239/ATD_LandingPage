@@ -6,67 +6,7 @@
     box-sizing: border-box;
 }
 
-    /* Event List UI */
-    .events-container {
-        margin: 100px auto 40px auto;
-        max-width: 1200px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 32px;
-        justify-content: center;
-    }
-    .event-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 12px rgba(18,45,119,0.08);
-        overflow: hidden;
-        width: 340px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: box-shadow 0.2s;
-        position: relative;
-    }
-    .event-card img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-    }
-    .event-info {
-        padding: 18px 16px 16px 16px;
-        text-align: left;
-        width: 100%;
-    }
-    .event-info h2 {
-        font-size: 1.3rem;
-        color: rgb(18, 45, 119);
-        margin-bottom: 8px;
-    }
-    .event-info p {
-        font-size: 1rem;
-        color: #333;
-        margin-bottom: 16px;
-    }
-    .event-actions {
-        display: flex;
-        gap: 12px;
-    }
-    .event-detail-btn, .event-interest-btn {
-        background: rgb(18, 45, 119);
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        padding: 8px 18px;
-        font-size: 1rem;
-        cursor: pointer;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background 0.2s;
-    }
-    .event-detail-btn:hover, .event-interest-btn:hover {
-        background: rgb(255, 123, 0);
-        color: #fff;
-    }
+  
 
     /* Popup UI */
     .interest-popup {
@@ -214,7 +154,8 @@
         transition: color 0.2s;
         position: relative;
     }
-    .menu-bar .menu-links a:hover {
+    .menu-bar .menu-links a:hover,
+    .menu-bar .menu-links a.selected {
         color: rgb(255, 123, 0);
     }
     .menu-bar .menu-links a::after {
@@ -228,7 +169,8 @@
         left: 0;
         bottom: -2px;
     }
-    .menu-bar .menu-links a:hover::after {
+    .menu-bar .menu-links a:hover::after,
+    .menu-bar .menu-links a.selected::after {
         width: 100%;
     }
 
@@ -249,6 +191,8 @@ body {
     font-family: SourceSans3, Helvetica, sans-serif;
     line-height: 1.6;
     color: #222;
+    background: linear-gradient(90deg, #ffffff, #7fe9ff, #00d4ff);
+    background-size: 600% 600%;
 }
 
 /* Sections */
@@ -572,7 +516,7 @@ transform: translate(-600px, 1340px);
         height: 1000px;
          /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25),
                 0 4px 8px rgba(0, 0, 0, 0.15); */
-        background-color: white;
+   
         overflow: hidden;
         margin-bottom: 15rem;
         opacity: 0;
