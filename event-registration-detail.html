@@ -435,7 +435,7 @@
 
 
             function openSite(name, email, phone) {
-                const baseUrl = "http://127.0.0.1:5500/user-ticket.html";
+                const baseUrl = `${baseUrl}/user-ticket.html`;
                 const url = `${baseUrl}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
                 window.open(url, "_blank");
                 // Or use window.open(url, "_blank"); // To open in a new tab

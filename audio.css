@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.controls {
+.controls-audio {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -51,7 +51,7 @@
   cursor: pointer;
 }
 
-.controls .progress{
+.controls-audio .progress{
     width: 100%;
 }
 

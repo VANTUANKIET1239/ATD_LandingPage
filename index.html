@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./audio.css">
     <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="./carousel.css">
 </head>
 
 <body>
@@ -63,12 +64,67 @@
         </div> -->
     </div>
     <!-- Hero Section -->
-    <!-- <section id="hero">
-        <img src="./Assets/images/posterATD.png" alt="Leader Photo">
-        <h2 >When numbers pave your way</h2>
-       
+   <div class="wrap">
+            <h1 style="color: rgb(18, 45, 119);">Sự kiện đang diễn ra</h1>
 
-    </section> -->
+            <div class="carousel" role="region" aria-label="Image Carousel">
+                <!-- Radios control which slide is visible -->
+                <input type="radio" name="slides" id="s1" checked />
+                <input type="radio" name="slides" id="s2" />
+
+                <!-- Slides -->
+                <div class="slides">
+                    <div class="slide">
+                    <a href="register-event.html">    <img src="./Assets/images/backgroundPhase2.png" /></a>
+                    </div>
+                    <div class="slide">
+                    <a href="register-event.html">    <img src="./Assets/images/background_phase1.png" /></a>
+                    </div>
+                </div>
+
+                <!-- Arrow controls for each active slide (previous/next) -->
+                <div class="controls" aria-hidden="true">
+                    <!-- When slide 1 is active -->
+                    <div class="c1">
+                        <label class="ctrl prev" for="s4" title="Previous slide">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </label>
+                        <label class="ctrl next" for="s2" title="Next slide">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </label>
+                    </div>
+                    <!-- When slide 2 is active -->
+                    <div class="c2">
+                        <label class="ctrl prev" for="s1" title="Previous slide">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </label>
+                        <label class="ctrl next" for="s3" title="Next slide">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </label>
+                    </div>
+
+        
+                </div>
+
+                <!-- Dots / pagination -->
+                <div class="dots">
+                    <label for="s1" aria-label="Go to slide 1"></label>
+                    <label for="s2" aria-label="Go to slide 2"></label>
+                </div>
+            </div>
+        </div>
 
     <!-- Purpose -->
     <section id="purpose">
@@ -76,15 +132,16 @@
             <p class="podcast-text">To learn more about our Purpose, listen to the podcast</p>
             <div class="audio-overview">
                 <div class="audio-image">
-                    <img src="./Assets/images/doichan.png"  alt="Podcast Cover">
+                    <img src="./Assets/images/doichan.png" alt="Podcast Cover">
                 </div>
                 <div class="audio-content">
                     Trong một thế giới đầy biến động, ATD UEH không chỉ trang bị cho bạn kỹ năng nhất thời,<br>
-                    chúng tôi trao cho bạn một triết lý và một hệ thống tư duy để làm chủ tương lai sự nghiệp của mình.<br>
+                    chúng tôi trao cho bạn một triết lý và một hệ thống tư duy để làm chủ tương lai sự nghiệp của
+                    mình.<br>
                     Đây là lộ trình dành cho những người muốn kiến tạo nên cuộc đua của riêng mình.<br>
                 </div>
             </div>
-            <div class="controls">
+            <div class="controls-audio">
                 <button class="icon-btn" id="back10">⟲<span>10</span></button>
                 <button class="play-btn" id="playPause">▶</button>
                 <button class="icon-btn" id="forward10"><span>10</span>⟳</button>
@@ -249,9 +306,22 @@
         </div>
     </footer>
 
-    <script src="./Assets/index.js"></script>
-    <script src="./Assets/audio.js"></script>
-    </script>
+        <script src="./Assets/index.js"></script>
+        <script src="./Assets/audio.js"></script>
+        <script>
+        // Auto-advance carousel every 5 seconds
+        (function() {
+            const radios = [
+                document.getElementById('s1'),
+                document.getElementById('s2')
+            ];
+            let current = 0;
+            setInterval(() => {
+                current = (current + 1) % radios.length;
+                radios[current].checked = true;
+            }, 3000);
+        })();
+        </script>
 </body>
 
 </html>
