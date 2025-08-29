@@ -9,7 +9,11 @@
   --shadow: 0 10px 30px rgba(0,0,0,.15);
 }
 * { box-sizing: border-box; }
-.wrap { max-width: 1600px; margin: 0 auto; }
+.wrap { max-width: 1600px; margin: 0 auto;display: flex
+;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center; }
 h1 { font-size: clamp(20px, 2.5vw, 28px); margin: 0 0 16px; }
 p { color: #444; margin: 0 0 22px; }
 .carousel {

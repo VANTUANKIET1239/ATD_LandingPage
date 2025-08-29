@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./footer.css">
     <link rel="stylesheet" href="./background-effect.css">
     <link rel="stylesheet" href="./register-event.css">
+    <link rel="stylesheet" href="./header.css">
 
     <style>
         body.register-bg {
@@ -276,14 +277,13 @@
                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 <!-- Speaker 1 -->
                 <div class="speaker-card">
-                   
 
-                    <img src="./Assets/images/ths2.png" alt="Dr. Pham Quang Quy"
-                        class="speaker-img">
+
+                    <img src="./Assets/images/ths2.png" alt="Dr. Pham Quang Quy" class="speaker-img">
                     <span
                         class="inline-block bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Host</span>
                     <!-- <h3 class="text-xl font-bold">Dr. Pham Quang Quy</h3> -->
-                      <div class="name-badge-container">
+                    <div class="name-badge-container">
                         <div class="name-badge-content">
                             ThS. Lê Huỳnh Hải Sa
                         </div>
@@ -291,14 +291,13 @@
                 </div>
                 <!-- Speaker 2 -->
                 <div class="speaker-card">
-                    <img src="./Assets/images/ths1.png" alt="Mr. Duong Vo"
-                        class="speaker-img">
+                    <img src="./Assets/images/ths1.png" alt="Mr. Duong Vo" class="speaker-img">
                     <span
                         class="inline-block bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">Speaker</span>
                     <!-- <h3 class="text-xl font-bold">Mr. Duong Vo</h3> -->
-                      <div class="name-badge-container">
+                    <div class="name-badge-container">
                         <div class="name-badge-content">
-                           ThS. Lưu Toàn Định
+                            ThS. Lưu Toàn Định
                         </div>
                     </div>
                 </div>
@@ -313,7 +312,7 @@
         </div> -->
 
         <!-- Info Section -->
-    <div style="background-color: rgb(18, 45, 119);" class="bg-[#F0F2F5] text-gray-800 p-8 md:p-12 fade-in">
+        <div style="background-color: rgb(18, 45, 119);" class="bg-[#F0F2F5] text-gray-800 p-8 md:p-12 fade-in">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Info Box 1: Workshop -->
                 <div class="info-box">
@@ -440,121 +439,155 @@
                 </div>
             </div>
 
-            <!-- Agenda Section -->
             <div class="text-black p-8 md:p-12">
                 <h2 class="text-4xl font-extrabold mb-8">Agenda</h2>
-                <div class="relative">
-                    <!-- Timeline Item 1 -->
+
+                <!-- TIMELINE (đã chuyển sang dạng line + dot + card) -->
+                <div class="timeline">
+
+                    <!-- Item 1 -->
                     <div class="timeline-item">
-                        <div class="timeline-line"></div>
-                        <div class="timeline-icon"><i class="fa-solid fa-info"></i></div>
-                        <p class="text-lg font-bold">17:30 - 18:00</p>
-                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Tiếp đón khách tham dự</h3>
-                        <p class="text-black/70">Chào đón khách tham dự ký tên, phát tài liệu ghi chú, ổn định chỗ ngồi</p>
-                    </div>
-                    <!-- Timeline Item 2 -->
-                    <div class="timeline-item">
-                        <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-user-tie"></i></div>
-                        <p class="text-lg font-bold">18:00 - 18:10</p>
-                        <!-- <p class="text-sm text-black/80 mb-1">Mr. Duong Vo</p> -->
-                        <h3 class="text-xl font-semibold text-amber-400">MC giới thiệu
-                        </h3>
-                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
-                            <li>MC giới thiệu về các diễn giả</li>
-                            <li>MC mời khách ổn định chỗ ngồi</li>
-                            <li>MC giới thiệu về chủ đề sẽ chia sẻ</li>
-                        </ul>
-                    </div>
-                    <!-- Timeline Item 3 -->
-                    <div class="timeline-item">
-                        <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-user-tie"></i></div>
-                        <p class="text-lg font-bold">18:10 - 18:40</p>
-                        <p class="text-sm text-black/80 mb-1">Ths. Lê Huỳnh Hải Sa</p>
-                        <h3 class="text-xl font-semibold text-amber-400">Giới thiệu kiến thức / kỹ năng, ví dụ minh họa về chủ đề "Ứng dụng trí tuệ nhân tạo để tối ưu tiếp thị nội dung và mạng xã hội"</h3>
-                        <p class="text-black/70 mt-2">Có 3 tầng ứng dụng: cá nhân và phòng ban và cả tổ chức (văn phòng
-                            – nhân sự – tài chính – marketing...)</p>
-                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
-                            <li>Xác định được lộ trình từng bước để ứng dụng</li>
-                            <li>Đưa ra các ứng dụng thực tế phù hợp với các phòng ban</li>
-                        </ul>
-                    </div>
-                    <!-- Timeline Item 4 -->
-                    <div class="timeline-item">
-                        <div class="timeline-line"></div>
-                        <div class="timeline-icon"><i class="fa-solid fa-user-graduate"></i></div>
-                        <p class="text-lg font-bold">18:40 - 19:10</p>
-                        <p class="text-sm text-black/80 mb-1">Ths. Lưu Toàn Định</p>
-                        <h3 class="text-xl font-semibold text-amber-400">Giới thiệu kiến thức / kỹ năng, ví dụ minh họa về chủ đề "Ứng dụng AI qua phương pháp tiếp cận thực tiễn với các công cụ AI phổ biến như ChatGPT, DALL·E, Midjourney, AI Marketing Tools…, để tối ưu hoá công việc"</h3>
-                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
-                            <li>Trải nghiệm cụ thể: từng dùng AI khi làm gì (lên outline bài luận, luyện nghe, chuẩn bị
-                                thuyết trình, v.v.)</li>
-                            <li>Công cụ yêu thích và mẹo sử dụng hiệu quả</li>
-                        </ul>
-                    </div>
-                    <!-- Timeline Item 5 -->
-                    <div class="timeline-item">
-                        <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-lightbulb"></i></div>
-                        <p class="text-lg font-bold">19:10 - 19:30</p>
-                        <h3 class="text-xl font-semibold text-amber-400">Minigame</h3>
-                        <p>Chia nhóm, thảo luận, giải quyết tình huống:</p>
-                         <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
-                            <li>AI Guess Challenge – Đoán kết quả AI tạo</li>
-                            <li>AI Prompt Race – Viết câu lệnh AI nhanh nhất (tạo một post trên social tận dụng AI)</li>
-                        </ul>
-                    </div>
-                    <!-- Timeline Item 6 -->
-                    <div class="timeline-item">
-                          <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
-                        <p class="text-lg font-bold">19:30 - 19:40</p>
-                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Chia sẻ và phản hồi</h3>
-                        <p class="text-black/70">Đại diện nhóm trình bày, diễn giả nhận xét</p>
+                        <div class="tl-dot"><i class="fa-solid fa-info"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">17:30 - 18:00</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400 mt-1">Tiếp đón khách tham dự</h3>
+                            <p class="tl-desc text-black/70">Chào đón khách tham dự ký tên, phát tài liệu ghi chú, ổn
+                                định chỗ ngồi</p>
+                        </div>
                     </div>
 
-                      <!-- Timeline Item 7 -->
+                    <!-- Item 2 -->
                     <div class="timeline-item">
-                         <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
-                        <p class="text-lg font-bold">19:40 - 19:55</p>
-                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Q&A với các diễn giả trình bày</h3>
-                        <p class="text-black/70">Người tham dự đặt câu hỏi trực tiếp hoặc qua Mentimeter</p>
+                        <div class="tl-dot"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">18:00 - 18:10</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400">MC giới thiệu</h3>
+                            <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                                <li>MC giới thiệu về các diễn giả</li>
+                                <li>MC mời khách ổn định chỗ ngồi</li>
+                                <li>MC giới thiệu về chủ đề sẽ chia sẻ</li>
+                            </ul>
+                        </div>
                     </div>
-                        <!-- Timeline Item 8 -->
+
+                    <!-- Item 3 -->
                     <div class="timeline-item">
-                         <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
-                        <p class="text-lg font-bold">19:55 - 20:00</p>
-                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Trao quà</h3>
-                        <p class="text-black/70">Trao quà tặng cho các nhóm phản hồi tốt</p>
+                        <div class="tl-dot"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">18:10 - 18:40</p>
+                            <p class="text-sm text-black/80 mb-1">Ths. Lê Huỳnh Hải Sa</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400">
+                                Giới thiệu kiến thức / kỹ năng, ví dụ minh họa về chủ đề
+                                "Ứng dụng trí tuệ nhân tạo để tối ưu tiếp thị nội dung và mạng xã hội"
+                            </h3>
+                            <p class="tl-desc text-black/70 mt-2">
+                                Có 3 tầng ứng dụng: cá nhân và phòng ban và cả tổ chức (văn phòng – nhân sự – tài chính
+                                – marketing...)
+                            </p>
+                            <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                                <li>Xác định được lộ trình từng bước để ứng dụng</li>
+                                <li>Đưa ra các ứng dụng thực tế phù hợp với các phòng ban</li>
+                            </ul>
+                        </div>
                     </div>
-                        <!-- Timeline Item 9 -->
+
+                    <!-- Item 4 -->
                     <div class="timeline-item">
-                         <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
-                        <p class="text-lg font-bold">20:00 - 20:10</p>
-                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Cảm ơn + Tặng hoa</h3>
-                          <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
-                            <li>MC cảm ơn các diễn giả trả lời câu hỏi + tặng hoa cho các diễn giả</li>
-                            <li>MC kết thúc buổi Worshop</li>
-                        </ul>
+                        <div class="tl-dot"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">18:40 - 19:10</p>
+                            <p class="text-sm text-black/80 mb-1">Ths. Lưu Toàn Định</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400">
+                                Giới thiệu kiến thức / kỹ năng, ví dụ minh họa về chủ đề
+                                "Ứng dụng AI qua phương pháp tiếp cận thực tiễn với các công cụ AI phổ biến như ChatGPT,
+                                DALL·E, Midjourney,
+                                AI Marketing Tools…, để tối ưu hoá công việc"
+                            </h3>
+                            <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                                <li>Trải nghiệm cụ thể: từng dùng AI khi làm gì (lên outline bài luận, luyện nghe, chuẩn
+                                    bị thuyết trình, v.v.)</li>
+                                <li>Công cụ yêu thích và mẹo sử dụng hiệu quả</li>
+                            </ul>
+                        </div>
                     </div>
-                        <!-- Timeline Item 10 -->
+
+                    <!-- Item 5 -->
                     <div class="timeline-item">
-                         <div class="timeline-line"></div>
-                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
-                        <p class="text-lg font-bold">20:10 - 20:30</p>
-                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Phỏng vấn</h3>
-                        <p class="text-black/70">Phỏng vấn khách mời:</p>
-                             <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
-                            <li> ATD phỏng vấn hai diễn giả</li>
-                            <li>Phỏng vấn 3 người đã tham dự</li>
-                        </ul>
+                        <div class="tl-dot"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">19:10 - 19:30</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400">Minigame</h3>
+                            <p class="tl-desc text-black/80">Chia nhóm, thảo luận, giải quyết tình huống:</p>
+                            <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                                <li>AI Guess Challenge – Đoán kết quả AI tạo</li>
+                                <li>AI Prompt Race – Viết câu lệnh AI nhanh nhất (tạo một post trên social tận dụng AI)
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
+                    <!-- Item 6 -->
+                    <div class="timeline-item">
+                        <div class="tl-dot"><i class="fa-solid fa-comments"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">19:30 - 19:40</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400 mt-1">Chia sẻ và phản hồi</h3>
+                            <p class="tl-desc text-black/70">Đại diện nhóm trình bày, diễn giả nhận xét</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="timeline-item">
+                        <div class="tl-dot"><i class="fa-solid fa-circle-question"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">19:40 - 19:55</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400 mt-1">Q&amp;A với các diễn giả
+                                trình bày</h3>
+                            <p class="tl-desc text-black/70">Người tham dự đặt câu hỏi trực tiếp hoặc qua Mentimeter</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="timeline-item">
+                        <div class="tl-dot"><i class="fa-solid fa-gift"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">19:55 - 20:00</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400 mt-1">Trao quà</h3>
+                            <p class="tl-desc text-black/70">Trao quà tặng cho các nhóm phản hồi tốt</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="timeline-item">
+                        <div class="tl-dot"><i class="fa-solid fa-people-group"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">20:00 - 20:10</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400 mt-1">Cảm ơn + Tặng hoa</h3>
+                            <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                                <li>MC cảm ơn các diễn giả trả lời câu hỏi + tặng hoa cho các diễn giả</li>
+                                <li>MC kết thúc buổi Workshop</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="timeline-item">
+                        <div class="tl-dot"><i class="fa-solid fa-microphone"></i></div>
+                        <div class="tl-card">
+                            <p class="tl-time">20:10 - 20:30</p>
+                            <h3 class="tl-title text-xl font-semibold text-amber-400 mt-1">Phỏng vấn</h3>
+                            <p class="tl-desc text-black/70">Phỏng vấn khách mời:</p>
+                            <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                                <li>ATD phỏng vấn hai diễn giả</li>
+                                <li>Phỏng vấn 3 người đã tham dự</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
+
 
         </div>
 
@@ -669,7 +702,22 @@
         }
 
 
+         document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".timeline-item");
 
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          obs.unobserve(entry.target); // chỉ animate 1 lần
+        }
+      });
+    }, {
+      threshold: 0.15  // hiện khi 15% item vào viewport
+    });
+
+    items.forEach(item => observer.observe(item));
+  });
 
         // const canvas = document.getElementById('network');
         // const ctx = canvas.getContext('2d');
@@ -759,7 +807,7 @@
         const dangkythamgia = document.getElementById('dangkythamgia');
 
 
-        function navigateToDetail(){
+        function navigateToDetail() {
             window.location.href = "event-registration-detail.html";
         }
 

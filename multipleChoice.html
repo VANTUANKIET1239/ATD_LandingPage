@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Trắc Nghiệm Kiến Thức AI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="./header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        /* @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        } */
+
+        body {
+            font-family: SourceSans3, Helvetica, sans-serif;
+            background: linear-gradient(90deg, #ffffff, #7fe9ff, #00d4ff);
+            background-size: 600% 600%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        
+        /* Custom radio button style */
+        .quiz-option input[type="radio"] {
+            display: none;
+        }
+
+        .quiz-option label {
+            display: block;
+            padding: 1rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .quiz-option input[type="radio"]:checked + label {
+            background-color: #3b82f6;
+            border-color: #2563eb;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .quiz-option label:hover {
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+     <div style="display: flex;width: 100%;justify-content: center;">
+        <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
+    </div>
+    <nav class="menu-bar">
+
+        <div class="menu-links">
+            <a href="events.html">Sự kiện</a>
+            <!-- <a href="register-event.html">Đăng ký</a> -->
+        </div>
+    </nav>
+    <div style="max-width: 1200px;margin: 3rem auto;" class="bg-white w-full  mx-auto rounded-2xl shadow-xl overflow-hidden p-8 md:p-12">
+        <h1 style="font-weight: 700;" class="text-3xl  text-center text-gray-800 mb-8">Bài Trắc Nghiệm Vui Về AI</h1>
+        
+        <form id="quizForm">
+            <div class="space-y-8">
+                
+                <!-- Question 1 -->
+                <div class="question-block">
+                    <p class="text-lg font-semibold text-gray-700 mb-4">1. "AI" là viết tắt của cụm từ nào sau đây?</p>
+                    <div class="space-y-3">
+                        <div class="quiz-option">
+                            <input type="radio" id="q1a1" name="question1" value="a">
+                            <label for="q1a1">A) Automated Intelligence</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q1a2" name="question1" value="b">
+                            <label for="q1a2">B) Artificial Intelligence</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q1a3" name="question1" value="c">
+                            <label for="q1a3">C) Augmented Intellect</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-block">
+                    <p class="text-lg font-semibold text-gray-700 mb-4">2. Mô hình ngôn ngữ lớn (LLM) nào được phát triển bởi Google?</p>
+                    <div class="space-y-3">
+                        <div class="quiz-option">
+                            <input type="radio" id="q2a1" name="question2" value="a">
+                            <label for="q2a1">A) ChatGPT</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q2a2" name="question2" value="b">
+                            <label for="q2a2">B) LLaMA</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q2a3" name="question2" value="c">
+                            <label for="q2a3">C) Gemini</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-block">
+                    <p class="text-lg font-semibold text-gray-700 mb-4">3. Lĩnh vực nào của AI tập trung vào việc cho phép máy tính "nhìn" và diễn giải thế giới hình ảnh?</p>
+                    <div class="space-y-3">
+                        <div class="quiz-option">
+                            <input type="radio" id="q3a1" name="question3" value="a">
+                            <label for="q3a1">A) Natural Language Processing (NLP)</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q3a2" name="question3" value="b">
+                            <label for="q3a2">B) Computer Vision</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q3a3" name="question3" value="c">
+                            <label for="q3a3">C) Robotics</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question-block">
+                    <p class="text-lg font-semibold text-gray-700 mb-4">4. Phép thử nào được dùng để xác định xem một cỗ máy có thể thể hiện hành vi thông minh tương đương hoặc không thể phân biệt được với con người hay không?</p>
+                    <div class="space-y-3">
+                        <div class="quiz-option">
+                            <input type="radio" id="q4a1" name="question4" value="a">
+                            <label for="q4a1">A) Phép thử Turing</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q4a2" name="question4" value="b">
+                            <label for="q4a2">B) Phép thử Voight-Kampff</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" id="q4a3" name="question4" value="c">
+                            <label for="q4a3">C) Phép thử Bechdel</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-10 text-center">
+                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-12 rounded-lg transition-transform transform hover:scale-105">
+                    Nộp bài
+                </button>
+            </div>
+        </form>
+
+        <!-- Results Section -->
+        <div id="results" class="hidden text-center mt-8">
+            <h2 class="text-2xl font-bold text-gray-800">Kết quả của bạn</h2>
+            <p id="score" class="text-4xl font-extrabold text-blue-600 my-4"></p>
+            <p id="feedback" class="text-gray-600"></p>
+        </div>
+
+    </div>
+     <footer>
+        <!-- Top row -->
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="./Assets/images/atdlogo.png" alt="CMA CGM Logo">
+            </div>
+            <div class="footer-text">
+                © ATD 2025 - All rights reserved -
+                <a href="#">Legal Notices</a> -
+                <a href="#">Cookies Policy</a>
+            </div>
+            <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span>Back to top</span>
+                <img src="./Assets/images/up-arrow.png" alt="Up Arrow">
+            </div>
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Facebook Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Linkedin Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Youtube Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Instagram Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg"></a>
+        </div>
+    </footer>
+    <script>
+        const quizForm = document.getElementById('quizForm');
+        const resultsDiv = document.getElementById('results');
+        const scoreEl = document.getElementById('score');
+        const feedbackEl = document.getElementById('feedback');
+
+        quizForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const correctAnswers = {
+                question1: 'b',
+                question2: 'c',
+                question3: 'b',
+                question4: 'a'
+            };
+
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+
+            for (const [question, answer] of Object.entries(correctAnswers)) {
+                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption && selectedOption.value === answer) {
+                    score++;
+                }
+            }
+            
+            // Display results
+            scoreEl.textContent = `${score} / ${totalQuestions}`;
+            
+            if (score === totalQuestions) {
+                feedbackEl.textContent = "Tuyệt vời! Bạn là một chuyên gia AI thực thụ!";
+            } else if (score >= totalQuestions / 2) {
+                feedbackEl.textContent = "Làm tốt lắm! Bạn có kiến thức khá tốt về AI.";
+            } else {
+                feedbackEl.textContent = "Cố gắng lên nhé! Hãy tham gia workshop để tìm hiểu thêm.";
+            }
+
+            quizForm.style.display = 'none';
+            resultsDiv.classList.remove('hidden');
+        });
+    </script>
+
+</body>
+</html>

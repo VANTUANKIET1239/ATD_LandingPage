@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sự kiện</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./header.css">
+    <link rel="stylesheet" href="./footer.css">
     <style>
     /* Event List UI */
     .events-container {
@@ -26,6 +28,7 @@
         align-items: center;
         transition: box-shadow 0.3s, transform 0.3s;
         position: relative;
+        height: fit-content;
     }
     .event-card:hover {
         box-shadow: 0 8px 24px rgba(18,45,119,0.18);
@@ -169,7 +172,7 @@
     }
     </style>
 </head>
-<body>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
       <div style="display: flex;width: 100%;justify-content: center;"> 
            <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
     </div>
@@ -179,7 +182,17 @@
             <a class="selected" href="events.html">Sự kiện</a>
         </div>
     </nav>
-    <div class="events-container">
+    <div class="events-container" style="flex: 1 0 auto;">
+        <div class="event-card">
+            <img src="./Assets/images/background_phase1.png" alt="Event Poster">
+            <div class="event-info">
+                <h2>CHINH PHỤC AI, BỨC PHÁ SỰ NGHIỆP</h2>
+                <div class="event-actions">
+                    <a href="livestream-chat.html" class="event-detail-btn">Chi tiết</a>
+                    <button class="event-interest-btn" onclick="openInterestPopup('ỨNG DỤNG AI ĐỂ NÂNG CAO HIỆU SUẤT CÔNG VIỆC')">Quan tâm</button>
+                </div>
+            </div>
+        </div>
         <!-- Example Event Card -->
         <div class="event-card">
             <img src="./Assets/images/backgroundPhase2.png" alt="Event Poster">
@@ -191,6 +204,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- <div class="event-card">
             <img src="./Assets/images/backgroundPhase2.png" alt="Event Poster">
             <div class="event-info">
@@ -213,6 +227,39 @@
             <button onclick="closeInterestPopup()">Hủy</button>
         </div>
     </div>
+    <footer style="flex-shrink: 0; width: 100%;">
+        <!-- Top row -->
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="./Assets/images/atdlogo.png" alt="CMA CGM Logo">
+            </div>
+            <div class="footer-text">
+                © ATD 2025 - All rights reserved -
+                <a href="#">Legal Notices</a> -
+                <a href="#">Cookies Policy</a>
+            </div>
+            <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span>Back to top</span>
+                <img src="./Assets/images/up-arrow.png" alt="Up Arrow">
+            </div>
+        </div>
+
+        <!-- Social icons -->
+        <div class="social-icons">
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Facebook Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Linkedin Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Youtube Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Instagram Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg"></a>
+        </div>
+    </footer>
     <!-- Success Notification -->
     <div id="success-notification" class="success-notification">Đăng ký sự kiện thành công!</div>
     <script src="./Assets/events.js"></script>

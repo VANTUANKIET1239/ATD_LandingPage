@@ -1,193 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pure CSS Carousel</title>
-  <style>
-    :root {
-      --w: 100%;
-      --h: 56.25vw; /* 16:9 ratio (9/16 * 100) for responsive height */
-      --h-max: 480px; /* cap the height on large screens */
-      --dot-size: 10px;
-      --control-size: 42px;
-      --radius: 16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.15);
-    }
 
-    * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 24px; background: #f7f7fb; color: #111; }
+            <!-- Agenda Section -->
+            <div class="text-black p-8 md:p-12">
+                <h2 class="text-4xl font-extrabold mb-8">Agenda</h2>
+                <div class="relative">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-info"></i></div>
+                        <p class="text-lg font-bold">17:30 - 18:00</p>
+                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Tiếp đón khách tham dự</h3>
+                        <p class="text-black/70">Chào đón khách tham dự ký tên, phát tài liệu ghi chú, ổn định chỗ ngồi
+                        </p>
+                    </div>
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-user-tie"></i></div>
+                        <p class="text-lg font-bold">18:00 - 18:10</p>
+                        <!-- <p class="text-sm text-black/80 mb-1">Mr. Duong Vo</p> -->
+                        <h3 class="text-xl font-semibold text-amber-400">MC giới thiệu
+                        </h3>
+                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                            <li>MC giới thiệu về các diễn giả</li>
+                            <li>MC mời khách ổn định chỗ ngồi</li>
+                            <li>MC giới thiệu về chủ đề sẽ chia sẻ</li>
+                        </ul>
+                    </div>
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-user-tie"></i></div>
+                        <p class="text-lg font-bold">18:10 - 18:40</p>
+                        <p class="text-sm text-black/80 mb-1">Ths. Lê Huỳnh Hải Sa</p>
+                        <h3 class="text-xl font-semibold text-amber-400">Giới thiệu kiến thức / kỹ năng, ví dụ minh họa
+                            về chủ đề "Ứng dụng trí tuệ nhân tạo để tối ưu tiếp thị nội dung và mạng xã hội"</h3>
+                        <p class="text-black/70 mt-2">Có 3 tầng ứng dụng: cá nhân và phòng ban và cả tổ chức (văn phòng
+                            – nhân sự – tài chính – marketing...)</p>
+                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                            <li>Xác định được lộ trình từng bước để ứng dụng</li>
+                            <li>Đưa ra các ứng dụng thực tế phù hợp với các phòng ban</li>
+                        </ul>
+                    </div>
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                        <p class="text-lg font-bold">18:40 - 19:10</p>
+                        <p class="text-sm text-black/80 mb-1">Ths. Lưu Toàn Định</p>
+                        <h3 class="text-xl font-semibold text-amber-400">Giới thiệu kiến thức / kỹ năng, ví dụ minh họa
+                            về chủ đề "Ứng dụng AI qua phương pháp tiếp cận thực tiễn với các công cụ AI phổ biến như
+                            ChatGPT, DALL·E, Midjourney, AI Marketing Tools…, để tối ưu hoá công việc"</h3>
+                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                            <li>Trải nghiệm cụ thể: từng dùng AI khi làm gì (lên outline bài luận, luyện nghe, chuẩn bị
+                                thuyết trình, v.v.)</li>
+                            <li>Công cụ yêu thích và mẹo sử dụng hiệu quả</li>
+                        </ul>
+                    </div>
+                    <!-- Timeline Item 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-lightbulb"></i></div>
+                        <p class="text-lg font-bold">19:10 - 19:30</p>
+                        <h3 class="text-xl font-semibold text-amber-400">Minigame</h3>
+                        <p>Chia nhóm, thảo luận, giải quyết tình huống:</p>
+                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                            <li>AI Guess Challenge – Đoán kết quả AI tạo</li>
+                            <li>AI Prompt Race – Viết câu lệnh AI nhanh nhất (tạo một post trên social tận dụng AI)</li>
+                        </ul>
+                    </div>
+                    <!-- Timeline Item 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
+                        <p class="text-lg font-bold">19:30 - 19:40</p>
+                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Chia sẻ và phản hồi</h3>
+                        <p class="text-black/70">Đại diện nhóm trình bày, diễn giả nhận xét</p>
+                    </div>
 
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { font-size: clamp(20px, 2.5vw, 28px); margin: 0 0 16px; }
-    p { color: #444; margin: 0 0 22px; }
-
-    /* ---- Carousel ---- */
-    .carousel {
-      position: relative;
-      width: var(--w);
-      height: min(var(--h), var(--h-max));
-      margin: 0 auto 16px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      background: #000;
-      user-select: none;
-    }
-
-    /* Hide the radios */
-    .carousel > input { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
-
-    .slides { position: relative; width: 100%; height: 100%; }
-
-    .slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.02); transition: opacity .5s ease, transform .6s ease; }
-    .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .slide figcaption { position: absolute; left: 16px; bottom: 16px; padding: 10px 14px; background: rgba(0,0,0,.45); color: #fff; border-radius: 999px; font-size: 14px; backdrop-filter: blur(6px); }
-
-    /* Make the checked slide visible */
-    #s1:checked ~ .slides .slide:nth-child(1),
-    #s2:checked ~ .slides .slide:nth-child(2),
-    #s3:checked ~ .slides .slide:nth-child(3),
-    #s4:checked ~ .slides .slide:nth-child(4) {
-      opacity: 1; transform: scale(1);
-    }
-
-    /* Dots */
-    .dots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; gap: 10px; z-index: 5; }
-    .dots label { width: var(--dot-size); height: var(--dot-size); border-radius: 50%; background: rgba(255,255,255,.6); cursor: pointer; outline: none; border: 2px solid rgba(0,0,0,.15); box-shadow: 0 1px 2px rgba(0,0,0,.15) inset; }
-
-    #s1:checked ~ .dots label[for="s1"],
-    #s2:checked ~ .dots label[for="s2"],
-    #s3:checked ~ .dots label[for="s3"],
-    #s4:checked ~ .dots label[for="s4"] { background: #fff; }
-
-    /* Arrows (shown only on the active slide via overlay labels) */
-    .ctrl { position: absolute; top: 50%; width: var(--control-size); height: var(--control-size); margin-top: calc(var(--control-size) / -2); display: grid; place-items: center; background: rgba(255,255,255,.75); color: #111; border-radius: 50%; cursor: pointer; z-index: 6; box-shadow: 0 2px 10px rgba(0,0,0,.2); backdrop-filter: blur(6px); }
-    .ctrl:hover { background: #fff; }
-    .prev { left: 12px; }
-    .next { right: 12px; }
-
-    .ctrl svg { width: 22px; height: 22px; display: block; }
-
-    /* Create per-slide controls that only appear when that slide is active */
-    .controls { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
-
-    /* Enable pointer events only for visible slide's controls */
-    #s1:checked ~ .controls .c1,
-    #s2:checked ~ .controls .c2,
-    #s3:checked ~ .controls .c3,
-    #s4:checked ~ .controls .c4 { pointer-events: auto; }
-
-    .controls label { position: absolute; top: 50%; transform: translateY(-50%); }
-    .controls .c1 .prev { left: 12px; }
-    .controls .c1 .next { right: 12px; }
-    .controls .c2 .prev { left: 12px; }
-    .controls .c2 .next { right: 12px; }
-    .controls .c3 .prev { left: 12px; }
-    .controls .c3 .next { right: 12px; }
-    .controls .c4 .prev { left: 12px; }
-    .controls .c4 .next { right: 12px; }
-
-    /* Accessibility */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
-    /* Small screens: reduce caption and controls a bit */
-    @media (max-width: 480px) {
-      :root { --control-size: 36px; --dot-size: 9px; }
-      .slide figcaption { font-size: 12px; padding: 8px 10px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <h1>Pure CSS Carousel</h1>
-    <p>Fully responsive, keyboard-focusable, and works without JavaScript. Replace the <code>img</code> sources with your own.</p>
-
-    <div class="carousel" role="region" aria-label="Image Carousel">
-      <!-- Radios control which slide is visible -->
-      <input type="radio" name="slides" id="s1" checked />
-      <input type="radio" name="slides" id="s2" />
-      <input type="radio" name="slides" id="s3" />
-      <input type="radio" name="slides" id="s4" />
-
-      <!-- Slides -->
-      <div class="slides">
-        <figure class="slide">
-          <img src="https://picsum.photos/id/1015/1200/675" alt="Mountain lake at sunrise" />
-          <figcaption>Slide 1 — Mountain Lake</figcaption>
-        </figure>
-        <figure class="slide">
-          <img src="https://picsum.photos/id/1005/1200/675" alt="Forest road from above" />
-          <figcaption>Slide 2 — Forest Road</figcaption>
-        </figure>
-        <figure class="slide">
-          <img src="https://picsum.photos/id/1025/1200/675" alt="Close-up of a dog" />
-          <figcaption>Slide 3 — Good Boy</figcaption>
-        </figure>
-        <figure class="slide">
-          <img src="https://picsum.photos/id/1035/1200/675" alt="Seaside cliffs" />
-          <figcaption>Slide 4 — Seaside Cliffs</figcaption>
-        </figure>
-      </div>
-
-      <!-- Arrow controls for each active slide (previous/next) -->
-      <div class="controls" aria-hidden="true">
-        <!-- When slide 1 is active -->
-        <div class="c1">
-          <label class="ctrl prev" for="s4" title="Previous slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            <span class="sr-only">Previous</span>
-          </label>
-          <label class="ctrl next" for="s2" title="Next slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-            <span class="sr-only">Next</span>
-          </label>
-        </div>
-        <!-- When slide 2 is active -->
-        <div class="c2">
-          <label class="ctrl prev" for="s1" title="Previous slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            <span class="sr-only">Previous</span>
-          </label>
-          <label class="ctrl next" for="s3" title="Next slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-            <span class="sr-only">Next</span>
-          </label>
-        </div>
-        <!-- When slide 3 is active -->
-        <div class="c3">
-          <label class="ctrl prev" for="s2" title="Previous slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            <span class="sr-only">Previous</span>
-          </label>
-          <label class="ctrl next" for="s4" title="Next slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-            <span class="sr-only">Next</span>
-          </label>
-        </div>
-        <!-- When slide 4 is active -->
-        <div class="c4">
-          <label class="ctrl prev" for="s3" title="Previous slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            <span class="sr-only">Previous</span>
-          </label>
-          <label class="ctrl next" for="s1" title="Next slide">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-            <span class="sr-only">Next</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Dots / pagination -->
-      <div class="dots">
-        <label for="s1" aria-label="Go to slide 1"></label>
-        <label for="s2" aria-label="Go to slide 2"></label>
-        <label for="s3" aria-label="Go to slide 3"></label>
-        <label for="s4" aria-label="Go to slide 4"></label>
-      </div>
-    </div>
-
-    <p><strong>How to use:</strong> Copy this file, replace the <code>img</code> URLs, and adjust captions. Everything is HTML + CSS only.</p>
-  </div>
-</body>
-</html>
+                    <!-- Timeline Item 7 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
+                        <p class="text-lg font-bold">19:40 - 19:55</p>
+                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Q&A với các diễn giả trình bày</h3>
+                        <p class="text-black/70">Người tham dự đặt câu hỏi trực tiếp hoặc qua Mentimeter</p>
+                    </div>
+                    <!-- Timeline Item 8 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
+                        <p class="text-lg font-bold">19:55 - 20:00</p>
+                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Trao quà</h3>
+                        <p class="text-black/70">Trao quà tặng cho các nhóm phản hồi tốt</p>
+                    </div>
+                    <!-- Timeline Item 9 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
+                        <p class="text-lg font-bold">20:00 - 20:10</p>
+                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Cảm ơn + Tặng hoa</h3>
+                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                            <li>MC cảm ơn các diễn giả trả lời câu hỏi + tặng hoa cho các diễn giả</li>
+                            <li>MC kết thúc buổi Worshop</li>
+                        </ul>
+                    </div>
+                    <!-- Timeline Item 10 -->
+                    <div class="timeline-item">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-icon "><i class="fa-solid fa-comments"></i></div>
+                        <p class="text-lg font-bold">20:10 - 20:30</p>
+                        <h3 class="text-xl font-semibold text-amber-400 mt-1">Phỏng vấn</h3>
+                        <p class="text-black/70">Phỏng vấn khách mời:</p>
+                        <ul class="list-disc list-inside text-black/70 text-sm mt-2 pl-2 space-y-1">
+                            <li> ATD phỏng vấn hai diễn giả</li>
+                            <li>Phỏng vấn 3 người đã tham dự</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>

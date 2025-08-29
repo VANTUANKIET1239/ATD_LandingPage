@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./audio.css">
     <link rel="stylesheet" href="./footer.css">
     <link rel="stylesheet" href="./carousel.css">
+    <link rel="stylesheet" href="./header.css">
 </head>
 
 <body>
@@ -129,31 +130,30 @@
     <!-- Purpose -->
     <section id="purpose">
         <div class="podcast-player">
-            <p class="podcast-text">To learn more about our Purpose, listen to the podcast</p>
-            <div class="audio-overview">
-                <div class="audio-image">
-                    <img src="./Assets/images/doichan.png" alt="Podcast Cover">
+                <p class="podcast-text" style="font-size: clamp(1rem, 3vw, 1.3rem);">To learn more about our Purpose, listen to the podcast</p>
+                <div class="audio-overview" style="flex-direction: column; width: 100%; align-items: center;">
+                    <div class="audio-image" style="width: 100%; max-width: 350px; margin-bottom: 1rem;">
+                        <img src="./Assets/images/doichan.png" alt="Podcast Cover" style="width: 100%; height: auto; min-width: 120px; min-height: 120px; max-width: 350px; border-radius: 12px;" >
+                    </div>
+                    <div class="audio-content" style="width: 100%; text-align: center; font-size: clamp(0.9rem, 2vw, 1.1rem);">
+                        Trong một thế giới đầy biến động, ATD UEH không chỉ trang bị cho bạn kỹ năng nhất thời,<br>
+                        chúng tôi trao cho bạn một triết lý và một hệ thống tư duy để làm chủ tương lai sự nghiệp của
+                        mình.<br>
+                        Đây là lộ trình dành cho những người muốn kiến tạo nên cuộc đua của riêng mình.<br>
+                    </div>
                 </div>
-                <div class="audio-content">
-                    Trong một thế giới đầy biến động, ATD UEH không chỉ trang bị cho bạn kỹ năng nhất thời,<br>
-                    chúng tôi trao cho bạn một triết lý và một hệ thống tư duy để làm chủ tương lai sự nghiệp của
-                    mình.<br>
-                    Đây là lộ trình dành cho những người muốn kiến tạo nên cuộc đua của riêng mình.<br>
+                <div class="controls-audio" style="flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%;">
+                    <button class="icon-btn" id="back10">⟲<span>10</span></button>
+                    <button class="play-btn" id="playPause">▶</button>
+                    <button class="icon-btn" id="forward10"><span>10</span>⟳</button>
+                    <span class="time" id="currentTime">0:00</span>
+                    <input type="range" class="progress" id="progressBar" value="0" max="100">
+                    <span class="time" id="duration">0:00</span>
+                    <span class="volume-icon">🔊</span>
+                    <input type="range" class="volume" id="volumeControl" value="80" max="100">
                 </div>
-            </div>
-            <div class="controls-audio">
-                <button class="icon-btn" id="back10">⟲<span>10</span></button>
-                <button class="play-btn" id="playPause">▶</button>
-                <button class="icon-btn" id="forward10"><span>10</span>⟳</button>
-                <span class="time" id="currentTime">0:00</span>
-                <input type="range" class="progress" id="progressBar" value="0" max="100">
-                <span class="time" id="duration">0:00</span>
-                <span class="volume-icon">🔊</span>
-                <input type="range" class="volume" id="volumeControl" value="80" max="100">
-            </div>
-            <!-- Hidden audio element -->
-            <audio id="audioPlayer" src="./Assets/m5b3nbikv5.mp3"></audio>
-        </div>
+                <!-- Hidden audio element -->
+                <audio id="audioPlayer" src="./Assets/m5b3nbikv5.mp3"></audio>
     </section>
 
     <!-- Leader -->
