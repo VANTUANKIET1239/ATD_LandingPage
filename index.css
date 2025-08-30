@@ -118,6 +118,7 @@
 
 
 body {
+    min-height: 100vh;
     font-family: SourceSans3, Helvetica, sans-serif;
     line-height: 1.6;
     color: #222;
@@ -561,3 +562,4 @@ transform: translate(-600px, 1340px);
         opacity: 1;
     }
 }
+
