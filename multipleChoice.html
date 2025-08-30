@@ -1,243 +1,541 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài Trắc Nghiệm Kiến Thức AI</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="./footer.css">
-    <link rel="stylesheet" href="./header.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* Custom styles */
-        /* @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        } */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Productivity Quiz | ATD UEH</title>
 
-        body {
-            font-family: SourceSans3, Helvetica, sans-serif;
-            background: linear-gradient(90deg, #ffffff, #7fe9ff, #00d4ff);
-            background-size: 600% 600%;
-            animation: gradientAnimation 15s ease infinite;
-        }
-        
-        /* Custom radio button style */
-        .quiz-option input[type="radio"] {
-            display: none;
-        }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .quiz-option label {
-            display: block;
-            padding: 1rem;
-            border: 2px solid #d1d5db;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-        }
+  <!-- Fonts & your shared css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./footer.css" />
+  <link rel="stylesheet" href="./header.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 
-        .quiz-option input[type="radio"]:checked + label {
-            background-color: #3b82f6;
-            border-color: #2563eb;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .quiz-option label:hover {
-            border-color: #3b82f6;
-        }
-    </style>
+  <style>
+    :root{
+      --brand: rgb(18,45,119);
+      --accent: rgb(255,123,0);
+    }
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(18,45,119,.10), transparent 60%),
+        radial-gradient(900px 500px at 110% 20%, rgba(255,123,0,.10), transparent 60%),
+        #ffffff;
+    }
+
+    /* Card-like radio */
+    .option-card input[type="radio"]{ display:none; }
+    .option-card label{
+      display:flex; gap:.75rem; align-items:flex-start;
+      border:2px solid #e5e7eb; border-radius:14px;
+      padding:14px 16px; cursor:pointer; background:#fff;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .option-card label:hover{ border-color: var(--brand); box-shadow: 0 6px 18px rgba(18,45,119,.08); transform: translateY(-1px); }
+    .option-card input[type="radio"]:checked + label{
+      border-color: var(--brand);
+      box-shadow: 0 10px 26px rgba(18,45,119,.12);
+    }
+    .choice-dot{
+      width:18px; height:18px; border-radius:9999px; flex:0 0 auto;
+      border:2px solid #cbd5e1; margin-top:2px; position:relative;
+    }
+    .option-card input[type="radio"]:checked + label .choice-dot{
+      border-color: var(--brand);
+    }
+    .option-card input[type="radio"]:checked + label .choice-dot::after{
+      content:""; position:absolute; inset:3px; border-radius:9999px; background: var(--brand);
+    }
+
+    /* Step bullets */
+    .step-dot{ width:10px; height:10px; border-radius:9999px; background:#e5e7eb;}
+    .step-dot.active{ background: var(--brand); }
+    .step-dot.done{ background: linear-gradient(90deg, var(--brand), var(--accent)); }
+
+    /* Progress bar */
+    .progress{
+      height:10px; background:#eef2ff; border-radius:9999px; overflow:hidden;
+      box-shadow: inset 0 0 0 1px rgba(18,45,119,.06);
+    }
+    .progress > span{
+      display:block; height:100%;
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+      transition: width .25s ease;
+    }
+
+    /* Result cards */
+    .result-card{
+      border:1px solid #e5e7eb; border-radius:16px; padding:20px; background:#fff;
+      transition: box-shadow .2s ease;
+    }
+    .result-card:hover{ box-shadow: 0 10px 28px rgba(18,45,119,.12); }
+
+    /* CTA Button */
+    .btn-primary{
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+      color:#fff; font-weight:700; border-radius:12px; padding:12px 18px;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn-primary:hover{ filter:brightness(1.05); transform: translateY(-1px); }
+
+    @media (max-width: 640px){
+      .quiz-shell{ padding: 1rem !important; }
+    }
+  </style>
 </head>
-<body>
-     <div style="display: flex;width: 100%;justify-content: center;">
-        <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
+<body class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <div class="w-full flex justify-center py-4">
+    <a href="index.html"><img src="./Assets/images/atdlogo.png" class="w-[90px]" alt="ATD UEH logo"/></a>
+  </div>
+  <!-- Nav -->
+  <nav class="menu-bar" role="navigation" aria-label="Chính">
+    <div class="menu-wrap">
+      <div class="brand-mini">
+        <img src="./Assets/images/atdlogo.png" alt="ATD">
+        <span>ATD UEH</span>
+      </div>
+      <div class="menu-links" id="menuLinks">
+        <a href="events.html">Sự kiện</a>
+        <a href="#purpose">Mục đích</a>
+        <a href="#differ">Khác biệt</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+      </button>
     </div>
-    <nav class="menu-bar">
+  </nav>
 
-        <div class="menu-links">
-            <a href="events.html">Sự kiện</a>
-            <!-- <a href="register-event.html">Đăng ký</a> -->
-        </div>
-    </nav>
-    <div style="max-width: 1200px;margin: 3rem auto;" class="bg-white w-full  mx-auto rounded-2xl shadow-xl overflow-hidden p-8 md:p-12">
-        <h1 style="font-weight: 700;" class="text-3xl  text-center text-gray-800 mb-8">Bài Trắc Nghiệm Vui Về AI</h1>
-        
-        <form id="quizForm">
-            <div class="space-y-8">
-                
-                <!-- Question 1 -->
-                <div class="question-block">
-                    <p class="text-lg font-semibold text-gray-700 mb-4">1. "AI" là viết tắt của cụm từ nào sau đây?</p>
-                    <div class="space-y-3">
-                        <div class="quiz-option">
-                            <input type="radio" id="q1a1" name="question1" value="a">
-                            <label for="q1a1">A) Automated Intelligence</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q1a2" name="question1" value="b">
-                            <label for="q1a2">B) Artificial Intelligence</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q1a3" name="question1" value="c">
-                            <label for="q1a3">C) Augmented Intellect</label>
-                        </div>
-                    </div>
-                </div>
+  <!-- Quiz container -->
+  <main class="max-w-3xl mx-auto my-10 bg-white rounded-2xl shadow-xl overflow-hidden quiz-shell p-10 flex-1">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl font-extrabold text-[rgb(18,45,119)]">AI Productivity Quiz</h1>
+      <p class="text-gray-600 mt-2">Chỉ mất ~60 giây. Nhận gợi ý khóa học AI phù hợp tại ATD UEH.</p>
+    </header>
 
-                <!-- Question 2 -->
-                <div class="question-block">
-                    <p class="text-lg font-semibold text-gray-700 mb-4">2. Mô hình ngôn ngữ lớn (LLM) nào được phát triển bởi Google?</p>
-                    <div class="space-y-3">
-                        <div class="quiz-option">
-                            <input type="radio" id="q2a1" name="question2" value="a">
-                            <label for="q2a1">A) ChatGPT</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q2a2" name="question2" value="b">
-                            <label for="q2a2">B) LLaMA</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q2a3" name="question2" value="c">
-                            <label for="q2a3">C) Gemini</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 3 -->
-                <div class="question-block">
-                    <p class="text-lg font-semibold text-gray-700 mb-4">3. Lĩnh vực nào của AI tập trung vào việc cho phép máy tính "nhìn" và diễn giải thế giới hình ảnh?</p>
-                    <div class="space-y-3">
-                        <div class="quiz-option">
-                            <input type="radio" id="q3a1" name="question3" value="a">
-                            <label for="q3a1">A) Natural Language Processing (NLP)</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q3a2" name="question3" value="b">
-                            <label for="q3a2">B) Computer Vision</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q3a3" name="question3" value="c">
-                            <label for="q3a3">C) Robotics</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Question 4 -->
-                <div class="question-block">
-                    <p class="text-lg font-semibold text-gray-700 mb-4">4. Phép thử nào được dùng để xác định xem một cỗ máy có thể thể hiện hành vi thông minh tương đương hoặc không thể phân biệt được với con người hay không?</p>
-                    <div class="space-y-3">
-                        <div class="quiz-option">
-                            <input type="radio" id="q4a1" name="question4" value="a">
-                            <label for="q4a1">A) Phép thử Turing</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q4a2" name="question4" value="b">
-                            <label for="q4a2">B) Phép thử Voight-Kampff</label>
-                        </div>
-                        <div class="quiz-option">
-                            <input type="radio" id="q4a3" name="question4" value="c">
-                            <label for="q4a3">C) Phép thử Bechdel</label>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Submit Button -->
-            <div class="mt-10 text-center">
-                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-12 rounded-lg transition-transform transform hover:scale-105">
-                    Nộp bài
-                </button>
-            </div>
-        </form>
-
-        <!-- Results Section -->
-        <div id="results" class="hidden text-center mt-8">
-            <h2 class="text-2xl font-bold text-gray-800">Kết quả của bạn</h2>
-            <p id="score" class="text-4xl font-extrabold text-blue-600 my-4"></p>
-            <p id="feedback" class="text-gray-600"></p>
-        </div>
-
+    <!-- Progress -->
+    <div class="flex items-center justify-between mb-4">
+      <div class="text-sm font-semibold text-gray-700">Tiến độ: <span id="progressText">1/5</span></div>
+      <div class="flex gap-2">
+        <span class="step-dot active" id="sd1"></span>
+        <span class="step-dot" id="sd2"></span>
+        <span class="step-dot" id="sd3"></span>
+        <span class="step-dot" id="sd4"></span>
+        <span class="step-dot" id="sd5"></span>
+      </div>
     </div>
-     <footer>
-        <!-- Top row -->
-        <div class="footer-top">
-            <div class="footer-logo">
-                <img src="./Assets/images/atdlogo.png" alt="CMA CGM Logo">
-            </div>
-            <div class="footer-text">
-                © ATD 2025 - All rights reserved -
-                <a href="#">Legal Notices</a> -
-                <a href="#">Cookies Policy</a>
-            </div>
-            <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <span>Back to top</span>
-                <img src="./Assets/images/up-arrow.png" alt="Up Arrow">
-            </div>
+    <div class="progress mb-8"><span id="progressBar" style="width: 20%"></span></div>
+
+    <!-- Form -->
+    <form id="quizForm" class="space-y-8">
+      <!-- Step 1 -->
+      <section class="step" data-step="1">
+        <p class="text-lg font-semibold text-gray-800 mb-4">1) Khi cần viết email/báo cáo/bài đăng, bạn thường làm thế nào?</p>
+        <div class="space-y-3">
+          <div class="option-card">
+            <input type="radio" id="q1a" name="q1" value="A"/>
+            <label for="q1a">
+              <span class="choice-dot"></span>
+              <span>Tự viết từ đầu, khá tốn thời gian.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q1b" name="q1" value="A"/>
+            <label for="q1b">
+              <span class="choice-dot"></span>
+              <span>Dùng mẫu cũ rồi chỉnh sửa.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q1c" name="q1" value="B"/>
+            <label for="q1c">
+              <span class="choice-dot"></span>
+              <span>Đã thử AI hỗ trợ nhưng chưa tối ưu.</span>
+            </label>
+          </div>
         </div>
+      </section>
 
-        <!-- Social icons -->
-        <div class="social-icons">
-            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-                    alt="Facebook Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg"></a>
-            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-                    alt="Linkedin Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg"></a>
-            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-                    alt="Youtube Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg"></a>
-            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-                    alt="Instagram Logo" loading="lazy" decoding="async" data-nimg="fill"
-                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg"></a>
+      <!-- Step 2 -->
+      <section class="step hidden" data-step="2">
+        <p class="text-lg font-semibold text-gray-800 mb-4">2) Công cụ AI bạn dùng nhiều nhất?</p>
+        <div class="space-y-3">
+          <div class="option-card">
+            <input type="radio" id="q2a" name="q2" value="A"/>
+            <label for="q2a">
+              <span class="choice-dot"></span>
+              <span>Công cụ tạo nội dung (ChatGPT/Jasper...).</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q2b" name="q2" value="B"/>
+            <label for="q2b">
+              <span class="choice-dot"></span>
+              <span>Công cụ nghiên cứu/học tập (Perplexity, Elicit...).</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q2c" name="q2" value="C"/>
+            <label for="q2c">
+              <span class="choice-dot"></span>
+              <span>Tự động hóa (Zapier, Power Automate, Notion AI...).</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q2d" name="q2" value="C"/>
+            <label for="q2d">
+              <span class="choice-dot"></span>
+              <span>Chưa dùng nhiều, mới tìm hiểu.</span>
+            </label>
+          </div>
         </div>
-    </footer>
-    <script>
-        const quizForm = document.getElementById('quizForm');
-        const resultsDiv = document.getElementById('results');
-        const scoreEl = document.getElementById('score');
-        const feedbackEl = document.getElementById('feedback');
+      </section>
 
-        quizForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+      <!-- Step 3 -->
+      <section class="step hidden" data-step="3">
+        <p class="text-lg font-semibold text-gray-800 mb-4">3) Vấn đề khiến bạn đau đầu nhất?</p>
+        <div class="space-y-3">
+          <div class="option-card">
+            <input type="radio" id="q3a" name="q3" value="A"/>
+            <label for="q3a">
+              <span class="choice-dot"></span>
+              <span>Viết nội dung/email/báo cáo mất thời gian.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q3b" name="q3" value="B"/>
+            <label for="q3b">
+              <span class="choice-dot"></span>
+              <span>Tìm tài liệu, tổng hợp kiến thức khó.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q3c" name="q3" value="C"/>
+            <label for="q3c">
+              <span class="choice-dot"></span>
+              <span>Quá nhiều việc lặp lại, tốn 5–7h/tuần.</span>
+            </label>
+          </div>
+        </div>
+      </section>
 
-            const correctAnswers = {
-                question1: 'b',
-                question2: 'c',
-                question3: 'b',
-                question4: 'a'
-            };
+      <!-- Step 4 -->
+      <section class="step hidden" data-step="4">
+        <p class="text-lg font-semibold text-gray-800 mb-4">4) Mục tiêu chính của bạn khi học AI là gì?</p>
+        <div class="space-y-3">
+          <div class="option-card">
+            <input type="radio" id="q4a" name="q4" value="A"/>
+            <label for="q4a">
+              <span class="choice-dot"></span>
+              <span>Tạo nội dung nhanh & chất lượng cho truyền thông/marketing.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q4b" name="q4" value="B"/>
+            <label for="q4b">
+              <span class="choice-dot"></span>
+              <span>Phương pháp nghiên cứu/học tập khoa học, viết báo cáo logic.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q4c" name="q4" value="C"/>
+            <label for="q4c">
+              <span class="choice-dot"></span>
+              <span>Tự động hóa việc thủ công để tập trung việc quan trọng.</span>
+            </label>
+          </div>
+        </div>
+      </section>
 
-            let score = 0;
-            const totalQuestions = Object.keys(correctAnswers).length;
+      <!-- Step 5 -->
+      <section class="step hidden" data-step="5">
+        <p class="text-lg font-semibold text-gray-800 mb-4">5) Mức độ sẵn sàng ứng dụng AI của bạn?</p>
+        <div class="space-y-3">
+          <div class="option-card">
+            <input type="radio" id="q5a" name="q5" value="A"/>
+            <label for="q5a">
+              <span class="choice-dot"></span>
+              <span>Đã dùng vài lần, cần làm bài bản hơn cho content.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q5b" name="q5" value="B"/>
+            <label for="q5b">
+              <span class="choice-dot"></span>
+              <span>Khá mới, muốn học từ cơ bản đến ứng dụng cho học tập/nghiên cứu.</span>
+            </label>
+          </div>
+          <div class="option-card">
+            <input type="radio" id="q5c" name="q5" value="C"/>
+            <label for="q5c">
+              <span class="choice-dot"></span>
+              <span>Đang dùng thường xuyên, muốn hệ thống hoá & tự động hóa mạnh.</span>
+            </label>
+          </div>
+        </div>
+      </section>
 
-            for (const [question, answer] of Object.entries(correctAnswers)) {
-                const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
-                if (selectedOption && selectedOption.value === answer) {
-                    score++;
-                }
-            }
-            
-            // Display results
-            scoreEl.textContent = `${score} / ${totalQuestions}`;
-            
-            if (score === totalQuestions) {
-                feedbackEl.textContent = "Tuyệt vời! Bạn là một chuyên gia AI thực thụ!";
-            } else if (score >= totalQuestions / 2) {
-                feedbackEl.textContent = "Làm tốt lắm! Bạn có kiến thức khá tốt về AI.";
-            } else {
-                feedbackEl.textContent = "Cố gắng lên nhé! Hãy tham gia workshop để tìm hiểu thêm.";
-            }
+      <!-- Nav buttons -->
+      <div class="flex items-center justify-between pt-2">
+        <button type="button" id="btnPrev" class="px-5 py-3 rounded-xl border border-gray-300 font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-40">
+          ← Quay lại
+        </button>
+        <button type="button" id="btnNext" class="px-6 py-3 rounded-xl btn-primary">
+          Tiếp tục →
+        </button>
+        <button type="submit" id="btnSubmit" class="hidden px-6 py-3 rounded-xl btn-primary">
+          Xem gợi ý khóa học
+        </button>
+      </div>
+    </form>
 
-            quizForm.style.display = 'none';
-            resultsDiv.classList.remove('hidden');
-        });
-    </script>
+    <!-- Results -->
+    <section id="results" class="hidden mt-10">
+      <h2 class="text-2xl font-extrabold text-[rgb(18,45,119)] text-center">Gợi ý dành cho bạn</h2>
+      <p class="text-center text-gray-600 mt-2">Dựa trên lựa chọn của bạn, đây là lộ trình phù hợp nhất.</p>
 
+      <div id="primaryCourse" class="result-card mt-6"></div>
+
+      <div id="secondaryWrap" class="grid md:grid-cols-2 gap-4 mt-6"></div>
+
+      <div class="text-center mt-8">
+        <a href="#" id="ctaLink" target='_blank' class="btn-primary inline-block">Đăng ký ngay</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo"><img src="./Assets/images/atdlogo.png" alt="ATD UEH"></div>
+      <div class="footer-text">
+        © ATD 2025 - All rights reserved -
+        <a href="#">Legal Notices</a> -
+        <a href="#">Cookies Policy</a>
+      </div>
+      <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <span>Back to top</span>
+        <img src="./Assets/images/up-arrow.png" alt="Up Arrow">
+      </div>
+    </div>
+    <div class="social-icons">
+      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm">
+        <img alt="Facebook" loading="lazy" decoding="async" data-nimg="fill" style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg">
+      </a>
+      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm">
+        <img alt="LinkedIn" loading="lazy" decoding="async" data-nimg="fill" style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg">
+      </a>
+      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm">
+        <img alt="YouTube" loading="lazy" decoding="async" data-nimg="fill" style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg">
+      </a>
+      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm">
+        <img alt="Instagram" loading="lazy" decoding="async" data-nimg="fill" style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // ====== CONFIG: Course metadata (link/benefits) ======
+    const COURSES = {
+      A: {
+        key: "A",
+        title: "Hacking Content Marketing with AI",
+        desc: "Tăng tốc sáng tạo nội dung 3–5x, bám sát insight & đa kênh.",
+        bullets: [
+          "Framework prompt cho email, bài đăng, landing nhanh – đúng giọng điệu.",
+          "Quy trình tái chế nội dung đa kênh (FB/LinkedIn/Email) trong vài phút.",
+          "Kho mẫu có thể dùng ngay + checklist tối ưu."
+        ],
+        cta: "https://atd.ueh.edu.vn/hacking-content-marketing-with-ai-p39.html"
+      },
+      B: {
+        key: "B",
+        title: "Ứng dụng AI trong học tập & nghiên cứu khoa học",
+        desc: "Tìm tài liệu, tổng hợp & viết báo cáo khoa học có cấu trúc, logic.",
+        bullets: [
+          "Khai thác Perplexity/Elicit, chuẩn hoá & kiểm chứng nguồn.",
+          "Dàn ý báo cáo, luận văn; trích dẫn và quản lý tài liệu.",
+          "Tăng tốc 50% thời gian tổng hợp & viết."
+        ],
+        cta: "https://atd.ueh.edu.vn/ung-dung-ai-trong-hoc-tap-nghien-cuu-khoa-hoc-p46.html?specification=40"
+      },
+      C: {
+        key: "C",
+        title: "Ứng dụng AI để tự động hóa & tối ưu hiệu suất công việc",
+        desc: "Cắt giảm 5–7h/tuần với tự động hoá quy trình hằng ngày.",
+        bullets: [
+          "Zapier/Power Automate/Notion AI: chuẩn hoá workflow.",
+          "Kết nối AI với Excel, Slides, Email để auto hoá lặp lại.",
+          "Dashboard ưu tiên công việc – tập trung việc quan trọng."
+        ],
+        cta: "https://atd.ueh.edu.vn/ung-dung-ai-de-tu-dong-hoa-toi-uu-hieu-suat-cong-viec-p47.html?specification=40"
+      }
+    };
+
+    // ====== State ======
+    const steps = Array.from(document.querySelectorAll(".step"));
+    let currentStep = 1;
+    const totalSteps = steps.length;
+
+    const btnPrev = document.getElementById("btnPrev");
+    const btnNext = document.getElementById("btnNext");
+    const btnSubmit = document.getElementById("btnSubmit");
+
+    const progressText = document.getElementById("progressText");
+    const progressBar = document.getElementById("progressBar");
+
+    const dots = [
+      document.getElementById("sd1"),
+      document.getElementById("sd2"),
+      document.getElementById("sd3"),
+      document.getElementById("sd4"),
+      document.getElementById("sd5"),
+    ];
+
+    function updateProgressUI(){
+      progressText.textContent = `${currentStep}/${totalSteps}`;
+      const pct = (currentStep / totalSteps) * 100;
+      progressBar.style.width = `${pct}%`;
+
+      dots.forEach((d, idx)=>{
+        d.classList.remove("active","done");
+        if(idx+1 < currentStep) d.classList.add("done");
+        if(idx+1 === currentStep) d.classList.add("active");
+      });
+
+      btnPrev.disabled = currentStep === 1;
+
+      // Toggle Next/Submit
+      btnNext.classList.toggle("hidden", currentStep === totalSteps);
+      btnSubmit.classList.toggle("hidden", currentStep !== totalSteps);
+    }
+
+    function showStep(step){
+      steps.forEach(s => s.classList.add("hidden"));
+      const target = steps.find(s => Number(s.dataset.step) === step);
+      if(target) target.classList.remove("hidden");
+      currentStep = step;
+      updateProgressUI();
+      ensureSelectionCheck();
+    }
+
+    function ensureSelectionCheck(){
+      // Disable Next/Submit until an option selected in current step
+      const name = `q${currentStep}`;
+      const anyChecked = !!document.querySelector(`input[name="${name}"]:checked`);
+      if(currentStep < totalSteps){
+        btnNext.disabled = !anyChecked;
+      }else{
+        btnSubmit.disabled = !anyChecked;
+      }
+    }
+
+    // Initial bind to radios
+    document.querySelectorAll('input[type="radio"]').forEach(r=>{
+      r.addEventListener('change', ensureSelectionCheck);
+    });
+
+    btnPrev.addEventListener("click", ()=> showStep(currentStep - 1));
+    btnNext.addEventListener("click", ()=> showStep(currentStep + 1));
+
+    // Start
+    showStep(1);
+
+    // ====== Result calculation ======
+    const quizForm = document.getElementById("quizForm");
+    const results = document.getElementById("results");
+    const primaryCourseEl = document.getElementById("primaryCourse");
+    const secondaryWrap = document.getElementById("secondaryWrap");
+    const ctaLink = document.getElementById("ctaLink");
+
+    quizForm.addEventListener("submit", (e)=>{
+      e.preventDefault();
+
+      // Tally: A (Content), B (Research), C (Automation)
+      const values = {
+        q1: getVal("q1"),
+        q2: getVal("q2"),
+        q3: getVal("q3"),
+        q4: getVal("q4"),
+        q5: getVal("q5"),
+      };
+      const tally = {A:0, B:0, C:0};
+      Object.values(values).forEach(v => { if(v) tally[v]++; });
+
+      // Determine ranking
+      const ranked = Object.keys(tally).sort((a,b)=> tally[b]-tally[a]);
+      const top = ranked[0];
+      const second = ranked[1];
+      const third = ranked[2];
+
+      renderPrimary(COURSES[top], tally[top]);
+      renderSecondary([COURSES[second], COURSES[third]]);
+      ctaLink.href = COURSES[top].cta;
+
+      // UX: hide form, show results
+      quizForm.classList.add("hidden");
+      results.classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    function getVal(name){
+      const el = document.querySelector(`input[name="${name}"]:checked`);
+      return el?.value ?? null;
+    }
+
+   function renderPrimary(course, score){
+  primaryCourseEl.innerHTML = `
+    <div class="result-card border-2 border-[var(--accent)] shadow-lg">
+      <h3 class="text-2xl font-extrabold text-[rgb(18,45,119)] mb-2">${course.title}</h3>
+      <p class="mt-1 text-gray-700">${course.desc}</p>
+      <ul class="mt-3 space-y-2 text-gray-700">
+        ${course.bullets.map(b=>`
+          <li class="flex gap-2">
+            <span class="mt-1 inline-block w-2 h-2 rounded-full" 
+              style="background:linear-gradient(90deg, var(--brand), var(--accent))"></span>
+            <span>${b}</span>
+          </li>`).join("")}
+      </ul>
+      <div class="mt-4 text-sm text-gray-500 italic">
+        ✅ Đây là khóa học phù hợp nhất dựa trên ${score}/5 lựa chọn của bạn.
+      </div>
+    </div>
+  `;
+}
+
+function renderSecondary(courses){
+  // Add heading before listing
+  secondaryWrap.innerHTML = `
+    <h4 class="col-span-full text-lg font-semibold text-gray-700 mb-2">
+      Những khóa học có thể tham khảo thêm:
+    </h4>
+    ${courses.map(c=>`
+      <div class="result-card">
+        <div class="text-[rgb(18,45,119)] font-bold">${c.title}</div>
+        <p class="text-gray-700 mt-1">${c.desc}</p>
+        <ul class="mt-3 space-y-2 text-gray-700">
+          ${c.bullets.slice(0,2).map(b=>`
+            <li class="flex gap-2">
+              <span class="mt-1 inline-block w-2 h-2 rounded-full" 
+                style="background:linear-gradient(90deg, var(--brand), var(--accent))"></span>
+              <span>${b}</span>
+            </li>`).join("")}
+        </ul>
+        <a href="${c.cta}" target='_blank' class="mt-4 inline-block font-semibold text-[var(--brand)] hover:underline">
+          Tìm hiểu thêm →
+        </a>
+      </div>
+    `).join("")}
+  `;
+}
+
+  </script>
 </body>
 </html>

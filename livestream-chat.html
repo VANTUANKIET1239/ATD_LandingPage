@@ -37,21 +37,6 @@
       }
     }
 
-    /* @keyframes pop {
-      0% {
-        transform: translateY(10px) scale(.96);
-        opacity: .5;
-      }
-
-      60% {
-        transform: translateY(-2px) scale(1.02);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(0) scale(1);
-      }
-    } */
 
     /* Nền gradient chuyển động chậm */
 
@@ -167,10 +152,6 @@
       line-height: 1.55
     }
 
-    a {
-      color: var(--brand);
-      text-decoration: none
-    }
 
     img {
       max-width: 100%;
@@ -347,7 +328,8 @@
       margin-top: 16px;
       display: flex;
       gap: 12px;
-      flex-wrap: wrap
+      flex-wrap: wrap;
+          justify-content: end;
     }
 
     .primary {
@@ -505,13 +487,6 @@
       font-weight: 700
     }
 
-    /* Footer */
-    footer {
-      padding: 22px 0;
-      color: #94a3b8;
-      border-top: 1px solid #eef2f7;
-      text-align: center
-    }
 
     /* Responsive */
     @media (max-width: 960px) {
@@ -608,13 +583,26 @@
   <div style="display: flex;width: 100%;justify-content: center;">
     <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
   </div>
-  <nav class="menu-bar">
-
-    <div class="menu-links">
-      <a href="events.html">Sự kiện</a>
-      <!-- <a href="register-event.html">Đăng ký</a> -->
+  <!-- Nav -->
+  <nav class="menu-bar" role="navigation" aria-label="Chính">
+    <div class="menu-wrap">
+      <div class="brand-mini">
+        <img src="./Assets/images/atdlogo.png" alt="ATD">
+        <span>ATD UEH</span>
+      </div>
+      <div class="menu-links" id="menuLinks">
+        <a href="events.html">Sự kiện</a>
+        <a href="#purpose">Mục đích</a>
+        <a href="#differ">Khác biệt</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+      </button>
     </div>
   </nav>
+
   <main>
     <!-- <div class="container nav">
     <div class="brand">

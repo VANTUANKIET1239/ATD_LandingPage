@@ -1,70 +1,61 @@
- /* Menu Bar */
-    .menu-bar {
-        width: 100%;
-        background-color: rgb(18, 45, 119);
-        color: white;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0 60px;
-        height: 64px;
-        position: sticky;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+ /* ====== HEADER / NAV ====== */
+   :root{
+      --brand:#122D77;            /* rgb(18,45,119) */
+      --accent:#FF7B00;           /* rgb(255,123,0) */
+      --ink:#222;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --bg-accent:#f5f8ff;
+      --radius:14px;
+      --shadow: 0 6px 24px rgba(18,45,119,.12);
+      --shadow-soft: 0 2px 12px rgba(18,45,119,.08);
+      --container: clamp(16px, 5vw, 80px);
+    }   
+ 
+ .topbar{
+      display:flex; gap:12px;
+      align-items:center; justify-content:center;
+      padding:12px var(--container);
+    }
+    .topbar img{ width:110px; height:auto; }
 
-         /* transform: translateY(-100%); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; */
+    .menu-bar{
+      position: sticky; top:0; left:0; z-index:1000;
+      background: var(--brand); color:#fff;
+      box-shadow: var(--shadow-soft);
     }
+    .menu-wrap{
+      max-width: 1200px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px var(--container);
+    }
+    .brand-mini{ display:flex; gap:10px; align-items:center; color:#fff; font-weight:700; }
+    .brand-mini img{ width:34px; border-radius: 8px; }
 
-    /* .menu-bar.visible {
-        transform: translateY(0);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    } */
+    .menu-links{ display:flex; gap:24px; align-items:center; }
+    .menu-links a{
+      padding:10px 14px; border-radius: 999px; font-weight:600;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .menu-links a:hover{ background: rgba(255,255,255,.12); transform: translateY(-1px); }
 
-    .menu-bar .menu-links {
-        display: flex;
-        gap: 32px;
+    /* burger */
+    .burger{ display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,.15); }
+    .burger span, .burger::before, .burger::after{
+      content:""; display:block; width:22px; height:2px; background:#fff; border-radius:2px;
+      transition: transform .3s, opacity .3s;
     }
-    .menu-bar .menu-links a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.15rem;
-        font-weight: 600;
-        padding: 8px 0;
-        transition: color 0.2s;
-        position: relative;
-    }
-    .menu-bar .menu-links a:hover,
-    .menu-bar .menu-links a.selected {
-        color: rgb(255, 123, 0);
-    }
-    .menu-bar .menu-links a::after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 2px;
-        background: rgb(255, 123, 0);
-        transition: width 0.3s;
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-    }
-    .menu-bar .menu-links a:hover::after,
-    .menu-bar .menu-links a.selected::after {
-        width: 100%;
-    }
+    .burger::before{ transform: translateY(-6px); }
+    .burger::after{ transform: translateY(6px); }
+    .burger.active span{ opacity:0; }
+    .burger.active::before{ transform: translateY(0) rotate(45deg); }
+    .burger.active::after{ transform: translateY(0) rotate(-45deg); }
 
-    @media (max-width: 768px) {
-        .menu-bar {
-            padding: 0 20px;
-            height: 48px;
-        }
-        .menu-bar .menu-links {
-            gap: 18px;
-        }
-        .menu-bar .menu-links a {
-            font-size: 1rem;
-        }
+    @media (max-width: 860px){
+      .menu-links{ display:none; flex-direction:column; align-items:stretch; padding:10px var(--container); }
+      .menu-links a{ background: rgba(255,255,255,.08); }
+      .menu-links.show{ display:flex; }
+      .burger{ display:flex; }
+      .brand-mini{ gap:8px; }
     }
+    a{ color:inherit; text-decoration: none; }

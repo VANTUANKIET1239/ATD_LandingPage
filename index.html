@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./header.css">
+  <link rel="stylesheet" href="./footer.css">
   <title>RUN ON NUMBERS | ATD UEH</title>
 
   <!-- ====== BASE STYLES / THEME ====== -->
@@ -22,7 +24,7 @@
 
     /* Reset */
     *,*::before,*::after{ box-sizing: border-box; }
-    html,body{ height:100%; }
+    html,body{ }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -36,57 +38,9 @@
     a{ color:inherit; text-decoration: none; }
     button{ font: inherit; }
 
-    @keyframes bgShift{
+    @keyframes bgShift{ 
       0%,100% { background-position: 0% 50%; }
       50%     { background-position: 100% 50%; }
-    }
-
-    /* ====== HEADER / NAV ====== */
-    .topbar{
-      display:flex; gap:12px;
-      align-items:center; justify-content:center;
-      padding:12px var(--container);
-    }
-    .topbar img{ width:110px; height:auto; }
-
-    .menu-bar{
-      position: sticky; top:0; left:0; z-index:1000;
-      background: var(--brand); color:#fff;
-      box-shadow: var(--shadow-soft);
-    }
-    .menu-wrap{
-      max-width: 1200px; margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 12px var(--container);
-    }
-    .brand-mini{ display:flex; gap:10px; align-items:center; color:#fff; font-weight:700; }
-    .brand-mini img{ width:34px; border-radius: 8px; }
-
-    .menu-links{ display:flex; gap:24px; align-items:center; }
-    .menu-links a{
-      padding:10px 14px; border-radius: 999px; font-weight:600;
-      transition: background .2s, color .2s, transform .2s;
-    }
-    .menu-links a:hover{ background: rgba(255,255,255,.12); transform: translateY(-1px); }
-
-    /* burger */
-    .burger{ display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(255,255,255,.15); }
-    .burger span, .burger::before, .burger::after{
-      content:""; display:block; width:22px; height:2px; background:#fff; border-radius:2px;
-      transition: transform .3s, opacity .3s;
-    }
-    .burger::before{ transform: translateY(-6px); }
-    .burger::after{ transform: translateY(6px); }
-    .burger.active span{ opacity:0; }
-    .burger.active::before{ transform: translateY(0) rotate(45deg); }
-    .burger.active::after{ transform: translateY(0) rotate(-45deg); }
-
-    @media (max-width: 860px){
-      .menu-links{ display:none; flex-direction:column; align-items:stretch; padding:10px var(--container); }
-      .menu-links a{ background: rgba(255,255,255,.08); }
-      .menu-links.show{ display:flex; }
-      .burger{ display:flex; }
-      .brand-mini{ gap:8px; }
     }
 
     /* ====== POSTER / HERO ====== */
@@ -278,29 +232,7 @@
       .detail-section{ grid-template-columns: 1fr; }
     }
 
-    /* ====== FOOTER ====== */
-    footer{ margin-top: clamp(3rem, 6vw, 8rem); background:#0f2661; color:#c7d2fe; }
-    .footer-top{
-      max-width: 1800px; margin:0 auto; padding: 20px var(--container);
-      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap: wrap;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .footer-logo img{ width: 96px;  }
-    .footer-text a{ color:#fff; text-decoration: underline; }
-    .back-to-top{ display:flex; gap:8px; align-items:center; cursor:pointer; }
-    .back-to-top img{ width:18px; filter: invert(1); }
-
-    .social-icons{
-      max-width: 1800px; margin:0 auto; padding: 10px var(--container) 24px;
-      display:flex; gap:18px; align-items:center;
-    }
-    .social-icons img{ width:22px; height:22px; }
-
-    /* ====== ACCESSIBILITY ====== */
-    @media (prefers-reduced-motion: reduce){
-      *{ animation: none !important; transition: none !important; }
-    }
-
+  
 
 
     /* atd UEH */
@@ -493,13 +425,13 @@
       <input type="radio" name="slides" id="s2" />
       <div class="slides">
         <div class="slide">
-          <a href="register-event.html">
-            <img src="./Assets/images/backgroundPhase2.png" alt="Sự kiện Phase 2">
+          <a href="livestream-chat.html">
+            <img src="./Assets/images/background_phase1.png" alt="Sự kiện Phase 2">
           </a>
         </div>
         <div class="slide">
           <a href="register-event.html">
-            <img src="./Assets/images/background_phase1.png" alt="Sự kiện Phase 1">
+            <img src="./Assets/images/backgroundPhase2.png" alt="Sự kiện Phase 1">
           </a>
         </div>
       </div>
@@ -588,8 +520,8 @@
       </p>
 
       <div class="atd-cta">
-        <a href="register-event.html" class="btn-primary">Học cách “dọn bàn làm việc” với AI</a>
-        <a href="#purpose" class="btn-ghost">Xem cách ATD giúp bạn</a>
+        <a href="multipleChoice.html" class="btn-primary">Học cách “dọn bàn làm việc” với AI</a>
+        <a target="_blank" href="multipleChoice.html" class="btn-ghost">Xem cách ATD giúp bạn</a>
       </div>
     </div>
   </div>

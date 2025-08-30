@@ -56,13 +56,25 @@
     <div style="display: flex;width: 100%;justify-content: center;">
         <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
     </div>
-    <nav class="menu-bar">
-        <div class="menu-links">
-            <a href="index.html">Trang chủ</a>
-            <a href="events.html">Sự kiện</a>
-
-        </div>
-    </nav>
+  <!-- Nav -->
+  <nav class="menu-bar" role="navigation" aria-label="Chính">
+    <div class="menu-wrap">
+      <div class="brand-mini">
+        <img src="./Assets/images/atdlogo.png" alt="ATD">
+        <span>ATD UEH</span>
+      </div>
+      <div class="menu-links" id="menuLinks">
+        <a href="events.html">Sự kiện</a>
+        <a href="#purpose">Mục đích</a>
+        <a href="#differ">Khác biệt</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+      </button>
+    </div>
+  </nav>
     <!-- Main Content -->
     <main class="py-12 md:py-20">
         <div class="container mx-auto px-4">
