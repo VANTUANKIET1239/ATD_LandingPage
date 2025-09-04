@@ -695,6 +695,74 @@
             margin: 0;
             color: var(--muted)
         }
+
+     #ask-question {
+      padding: 40px 0;
+    }
+
+    .question-box {
+      background: #fff;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #122D77
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 15px;
+      resize: vertical;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #122D77;
+      box-shadow: 0 0 0 3px rgba(18, 45, 119, .2);
+    }
+
+    .submit-btn {
+      background: #122D77;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .submit-btn:hover {
+      background: #1a3aa0
+    }
+
+    .msg {
+      margin-top: 14px;
+      font-weight: 600
+    }
+
+    .msg.success {
+      color: green
+    }
+
+    .msg.error {
+      color: red
+    }
     </style>
 </head>
 
@@ -1041,7 +1109,35 @@
             </div>
         </div>
     </section>
+<section class="section reveal" id="ask-question">
+    <div class="container">
+        <h2 class="headline" style="font-size:28px">Đặt câu hỏi cho buổi Livestream</h2>
+      <div class="question-box">
+      
+        <p class="subhead">Hãy để lại thắc mắc của bạn, chúng tôi sẽ chọn và trả lời trực tiếp trong chương
+          trình</p>
 
+        <form id="questionForm">
+          <div class="form-group">
+            <label for="fullname">Họ và tên</label>
+            <input type="text" id="fullname" name="fullname" required placeholder="Nhập họ và tên của bạn">
+          </div>
+
+          <div class="form-group">
+            <label for="question">Câu hỏi của bạn</label>
+            <textarea id="question" name="question" rows="4" required
+              placeholder="Nhập câu hỏi bạn muốn gửi..."></textarea>
+          </div>
+
+          <div style="width: 100%;display: flex;justify-content: end;">
+             <button type="submit" class="submit-btn">Gửi câu hỏi</button>
+          </div>
+        </form>
+
+        <div id="msg" class="msg"></div>
+      </div>
+    </div>
+  </section>
     <!-- AFTER LIVE (for long-term) -->
     <section class="after reveal">
         <div class="container">
@@ -1207,6 +1303,26 @@
             } catch { document.getElementById('event-time').textContent = 'Sẽ cập nhật'; }
         }
         updateEventTime();
+
+
+const form = document.getElementById('questionForm');
+    const msg = document.getElementById('msg');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = form.fullname.value.trim();
+      const q = form.question.value.trim();
+
+      if (!name || !q) {
+        msg.textContent = "Vui lòng nhập đầy đủ thông tin!";
+        msg.className = "msg error";
+        return;
+      }
+
+      // Giả lập gửi (ở thực tế sẽ dùng fetch/ajax)
+      msg.textContent = "Câu hỏi của bạn đã được gửi thành công!";
+      msg.className = "msg success";
+      form.reset();
+    });
 
         // ======= HERO COUNTDOWN =======
         function startHeroCountdown(iso) {
