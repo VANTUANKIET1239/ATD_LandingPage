@@ -2,979 +2,1263 @@
 <html lang="vi">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chinh phục AI – Bứt phá sự nghiệp | Livestream</title>
-  <meta name="description" content="Livestream: Chinh phục AI – Bứt phá sự nghiệp. Từ kiến thức đến hành động." />
-  <link rel="stylesheet" href="./footer.css">
-  <link rel="stylesheet" href="./header.css">
-  <style>
-    @keyframes bgShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(18, 45, 119, .28);
-      }
-
-      50% {
-        transform: scale(1.08);
-        box-shadow: 0 0 0 8px rgba(18, 45, 119, .08);
-      }
-    }
-
-
-    /* Nền gradient chuyển động chậm */
-
-    /* Header có bóng khi cuộn */
-    header.scrolled {
-      box-shadow: 0 10px 25px rgba(2, 6, 23, .06);
-    }
-
-    /* Hover nhỏ cho poster + card */
-    .poster {
-      transition: transform .5s cubic-bezier(.22, .8, .3, 1), box-shadow .5s;
-    }
-
-    .poster:hover {
-      transform: scale(1.01);
-      box-shadow: 0 20px 40px rgba(2, 6, 23, .12);
-    }
-
-    .card,
-    .hero-card,
-    .speaker {
-      transition: transform .4s ease, box-shadow .4s ease;
-    }
-
-    .card:hover,
-    .hero-card:hover,
-    .speaker:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 34px rgba(2, 6, 23, .10);
-    }
-
-    /* Timeline dots pulse nhẹ */
-    .tl-dot {
-      animation: pulse 2.2s ease-in-out infinite;
-    }
-
-    /* Nút có micro-interaction */
-    .primary,
-    .submit-btn,
-    .ghost {
-      transition: transform .15s ease, box-shadow .2s ease;
-    }
-
-    .primary:active,
-    .submit-btn:active,
-    .ghost:active {
-      transform: translateY(1px) scale(.99);
-    }
-
-    /* ====== SCROLL REVEAL ====== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px) scale(.98);
-      transition: opacity .7s cubic-bezier(.22, .8, .3, 1), transform .7s cubic-bezier(.22, .8, .3, 1);
-      will-change: transform, opacity;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: none;
-    }
-
-    .reveal[data-delay="1"] {
-      transition-delay: .05s
-    }
-
-    .reveal[data-delay="2"] {
-      transition-delay: .12s
-    }
-
-    .reveal[data-delay="3"] {
-      transition-delay: .18s
-    }
-
-    .reveal[data-delay="4"] {
-      transition-delay: .24s
-    }
-
-    /* Countdown – số nhảy “pop” khi đổi */
-    .timebox .num.tick {
-      animation: pop .45s ease;
-    }
-
-    :root {
-      --brand: #122D77;
-      /* rgb(18,45,119) */
-      --brand-600: #1a3aa0;
-      --accent: #ff6a3d;
-      --ink: #0f172a;
-      --muted: #64748b;
-      --bg: #ffffff;
-      --card: #f8fafc;
-      --ring: 0 0 0 3px rgba(18, 45, 119, .15);
-      --shadow: 0 8px 30px rgba(2, 6, 23, .08);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --gap: clamp(16px, 3vw, 28px);
-      --maxw: 1150px;
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      margin: 0;
-      /* background: var(--bg); */
-      background: linear-gradient(90deg, #ffffff, #7fe9ff, #00d4ff);
-      background-size: 600% 600%;
-      color: var(--ink);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
-      line-height: 1.55
-    }
-
-
-    img {
-      max-width: 100%;
-      display: block
-    }
-
-    .container {
-      max-width: var(--maxw);
-      margin: auto;
-      padding: 0 18px
-    }
-
-    .section {
-      padding: clamp(28px, 5vw, 56px) 0
-    }
-
-    .headline {
-      font-size: clamp(28px, 5.8vw, 44px);
-      line-height: 1.15;
-      margin: 0 0 10px;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
-
-    .subhead {
-      color: var(--muted);
-      margin-top: 6px
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: saturate(180%) blur(8px);
-      background: rgba(255, 255, 255, .9);
-      border-bottom: 1px solid #eef2f7;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      gap: 12px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      color: var(--brand)
-    }
-
-    .brand .logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--brand), #2a5cd6);
-      box-shadow: var(--shadow);
-    }
-
-    .follow-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: .2s;
-    }
-
-    .follow-btn:hover {
-      transform: translateY(-1px);
-      background: var(--brand-600)
-    }
-
-    .follow-btn[data-state="following"] {
-      background: #16a34a
-    }
-
-    .follow-btn svg {
-      width: 18px;
-      height: 18px
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      /* grid-template-columns: 1.2fr .8fr; */
-      gap: var(--gap);
-      align-items: center
-    }
-
-    .poster {
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--card);
-      box-shadow: var(--shadow);
-      margin: 0 auto 18px auto;
-      width: 100%;
-      display: block;
-    }
-
-    .poster img {
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      width: 100%
-    }
-
-    .hero-card {
-      padding: 22px;
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    .meta {
-      display: grid;
-      gap: 8px;
-      margin-top: 12px;
-      color: var(--muted)
-    }
-
-    .meta span {
-      display: flex;
-      align-items: center;
-      gap: 10px
-    }
-
-    .meta svg {
-      width: 18px;
-      height: 18px;
-      color: var(--brand)
-    }
-
-    /* Countdown */
-    #countdown .timer {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 18px
-    }
-
-    .timebox {
-      background: #fff;
-      border: 1px solid #eef2f7;
-      border-radius: 16px;
-      padding: 14px 10px;
-      text-align: center;
-      box-shadow: var(--shadow)
-    }
-
-    .timebox .num {
-      font-size: clamp(24px, 4.4vw, 36px);
-      font-weight: 800;
-      color: var(--brand)
-    }
-
-    .timebox .lbl {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--muted)
-    }
-
-    .count-cta {
-      margin-top: 16px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-          justify-content: end;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-weight: 700;
-      cursor: pointer
-    }
-
-    .ghost {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--brand)
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      display: grid;
-      gap: 18px;
-      margin-top: 8px
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 16px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(var(--brand), #6ea2ff);
-      border-radius: 8px
-    }
-
-    .tl-item {
-      display: grid;
-      grid-template-columns: 46px 1fr;
-      gap: 14px;
-      align-items: start
-    }
-
-    .tl-dot {
-      position: relative;
-      width: 32px;
-      height: 32px;
-      margin-left: 0;
-      border-radius: 999px;
-      background: #fff;
-      border: 3px solid var(--brand);
-      box-shadow: 0 0 0 4px rgba(18, 45, 119, .08)
-    }
-
-    .tl-time {
-      font-weight: 800;
-      color: var(--brand);
-      font-size: 14px;
-      margin-top: 2px
-    }
-
-    .tl-card {
-      background: #fff;
-      border: 1px solid #eef2f7;
-      border-radius: 16px;
-      padding: 14px 16px;
-      box-shadow: var(--shadow)
-    }
-
-    .tl-title {
-      margin: 0 0 6px 0;
-      font-weight: 800
-    }
-
-    .tl-desc {
-      margin: 0;
-      color: var(--muted)
-    }
-
-    /* Content & Mini-game */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: var(--gap)
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid #eef2f7;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px
-    }
-
-    .list {
-      margin: 8px 0 0 0;
-      padding: 0 0 0 18px
-    }
-
-    .rules {
-      display: grid;
-      gap: 10px
-    }
-
-    .prizes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 10px
-    }
-
-    .prizes img {
-      border-radius: 14px;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border: 1px solid #e5e7eb
-    }
-
-    /* Speakers */
-    .speakers {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: var(--gap)
-    }
-
-    .speaker {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 16px;
-      align-items: center
-    }
-
-    .avatar {
-      width: 110px;
-      height: 110px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      box-shadow: var(--shadow)
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(18, 45, 119, .08);
-      color: var(--brand);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700
-    }
-
-
-    /* Responsive */
-    @media (max-width: 960px) {
-      .hero {
-        grid-template-columns: 1fr
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr
-      }
-
-      .speakers {
-        grid-template-columns: 1fr
-      }
-    }
-
-
-    #ask-question {
-      padding: 40px 0;
-    }
-
-    .question-box {
-      background: #fff;
-      padding: 24px;
-      border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #122D77
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      font-size: 15px;
-      resize: vertical;
-      outline: none;
-      transition: border-color .2s, box-shadow .2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #122D77;
-      box-shadow: 0 0 0 3px rgba(18, 45, 119, .2);
-    }
-
-    .submit-btn {
-      background: #122D77;
-      color: #fff;
-      font-weight: 700;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .submit-btn:hover {
-      background: #1a3aa0
-    }
-
-    .msg {
-      margin-top: 14px;
-      font-weight: 600
-    }
-
-    .msg.success {
-      color: green
-    }
-
-    .msg.error {
-      color: red
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Livestream AI cho người đi làm – Bí kíp vượt KPI & Burnout | ATD UEH</title>
+    <meta name="description"
+        content="Tham gia Livestream miễn phí từ ATD UEH để học cách ứng dụng AI giảm áp lực công việc, tối ưu hiệu suất và vượt KPI. Đăng ký ngay!" />
+    <link rel="canonical" href="https://atd.ueh.edu.vn/livestream-ai-2025" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Livestream AI cho người đi làm – Bí kíp vượt KPI & Burnout" />
+    <meta property="og:description"
+        content="Khám phá cách ứng dụng AI để tối ưu hiệu suất, giảm áp lực và bứt phá trong công việc. Miễn phí 100% – chỉ có tại ATD UEH." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atd.ueh.edu.vn/livestream-ai-2025" />
+    <meta property="og:image" content="/assets/og-livestream-ai.jpg" />
+
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="./header.css">
+
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(18, 45, 119, .28);
+            }
+
+            50% {
+                transform: scale(1.08);
+                box-shadow: 0 0 0 8px rgba(18, 45, 119, .08);
+            }
+        }
+
+        :root {
+            --brand: rgb(18, 45, 119);
+            --accent: rgb(255, 123, 0);
+            --white: #fff;
+            --ink: #0f172a;
+            --muted: #475569;
+            --card: #ffffff;
+            --shadow: 0 10px 30px rgba(18, 45, 119, .15);
+            --radius: 16px;
+        }
+
+        img.transparent {
+            background: transparent;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+    .qa button span.toggle { transition: transform .28s ease; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; }
+    .qa.open button span.toggle { transform: rotate(90deg); }
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            scroll-behavior: smooth;
+            background: linear-gradient(90deg, #ffffff, #7fe9ff, #00d4ff);
+            background-size: 600% 600%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin-inline: auto
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, .7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(15, 23, 42, .06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            color: var(--brand)
+        }
+
+        .brand-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            box-shadow: var(--shadow)
+        }
+
+        .nav a.btn {
+            margin-left: 10px
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s transform ease, .25s box-shadow ease
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(255, 123, 0, .25)
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 14px 32px rgba(255, 123, 0, .35)
+        }
+
+        .btn-outline {
+            border-color: rgba(15, 23, 42, .15);
+            background: #fff
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            isolation: isolate;
+            padding: 80px 0 40px;
+            overflow: hidden
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            z-index: -2;
+            filter: blur(10px);
+            animation: bgShift 14s ease-in-out infinite alternate
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        @keyframes bgShift {
+            0% {
+                transform: translateY(-2%) scale(1)
+            }
+
+            100% {
+                transform: translateY(2%) scale(1.05)
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .kicker {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(18, 45, 119, .08);
+            color: var(--brand);
+            font-weight: 700;
+            margin-bottom: 12px
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.1;
+            margin: 0 0 14px
+        }
+
+        .sub {
+            font-size: clamp(16px, 2.4vw, 18px);
+            color: var(--muted);
+            max-width: 52ch
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 22px 0
+        }
+
+        /* Hero countdown */
+        .countdown {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            color: var(--brand);
+            font-size: 16px;
+            background: rgba(255,255,255,0.9);
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(15,23,42,.06);
+            box-shadow: 0 6px 18px rgba(18,45,119,.06);
+            width: min(720px, 100%);
+        }
+
+        .countdown .part { display:flex; flex-direction:column; align-items:center; min-width:56px }
+        .countdown .part .n { font-size:18px }
+        .countdown .label { font-weight:600; font-size:12px; color:var(--muted) }
+
+        .info .i {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid rgba(15, 23, 42, .06);
+            padding: 10px 12px;
+            border-radius: 12px;
+            box-shadow: var(--shadow)
+        }
+
+        .icon {
+            inline-size: 22px;
+            block-size: 22px;
+            flex: 0 0 22px
+        }
+
+        /* Card / form */
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(15, 23, 42, .06);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow)
+        }
+
+        .form {
+            padding: 18px
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px
+        }
+
+        .field label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px
+        }
+
+        .input {
+            padding: 12px 14px;
+            border: 1px solid rgba(15, 23, 42, .15);
+            border-radius: 12px;
+            outline: none
+        }
+
+        .input:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 4px rgba(18, 45, 119, .1)
+        }
+
+        .note {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px
+        }
+
+        /* Sections */
+        section {
+            padding: 48px 0
+        }
+
+        h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            margin: 0 0 16px
+        }
+
+        .lead {
+            color: var(--muted);
+            max-width: 65ch
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px
+        }
+
+        .benefit {
+            padding: 18px
+        }
+
+        .benefit h3 {
+            margin: 10px 0 6px;
+            font-size: 18px
+        }
+
+        .benefit p {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .content-block {
+            padding: 22px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start
+        }
+
+        .content-block .icon {
+            inline-size: 28px;
+            block-size: 28px
+        }
+
+        .content-block h3 {
+            margin: 4px 0 6px
+        }
+
+        /* Speaker cards */
+        .speaker {
+            overflow: hidden
+        }
+
+        .speaker img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(15, 23, 42, .06)
+        }
+
+        .speaker .meta {
+            padding: 14px
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(255, 123, 0, .1);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 12px
+        }
+
+        /* CTA band */
+        .cta-band {
+            position: relative;
+            isolation: isolate;
+            border-radius: 24px;
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            color: #fff;
+            padding: 28px;
+            overflow: hidden
+        }
+
+        .cta-band::after {
+            content: "";
+            position: absolute;
+            inset: auto -10% -40% -10%;
+            height: 140%;
+            background: radial-gradient(60% 50% at 50% 50%, rgba(255, 255, 255, .18), transparent 60%);
+            filter: blur(30px);
+            z-index: 0
+        }
+
+        .cta-band>* {
+            position: relative;
+            z-index: 1
+        }
+
+        /* FAQ */
+        .faq {
+            border-top: 1px solid rgba(15, 23, 42, .08)
+        }
+
+        .qa {
+            border-bottom: 1px solid rgba(15, 23, 42, .08)
+        }
+
+        .qa button {
+            all: unset;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            padding: 18px;
+            cursor: pointer
+        }
+
+        .qa .q {
+            font-weight: 700
+        }
+
+        .qa .a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+            padding: 0 18px;
+            color: var(--muted)
+        }
+
+        .qa.open .a {
+            max-height: 240px;
+            padding: 0 18px 18px
+        }
+
+        /* After live */
+        .after {
+            /* background: linear-gradient(180deg, #fff 0%, rgba(18, 45, 119, .03) 100%) */
+        }
+
+        .video {
+            position: relative;
+            /* padding-top: 56.25%; */
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(15, 23, 42, .08)
+        }
+
+        .video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            color: #64748b;
+            font-size: 14px
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: .6s ease
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: none
+        }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr
+            }
+
+            .info {
+                grid-template-columns: 1fr
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr
+            }
+
+            .grid-4 {
+                grid-template-columns: 1fr
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+
+        /* Speakers */
+        .speakers {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 18px;
+        }
+
+        .speaker {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 16px;
+            align-items: center
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            box-shadow: var(--shadow)
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(18, 45, 119, .08);
+            color: var(--brand);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .hero-card {
+            padding: 22px;
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eef2f7;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px
+        }
+
+        .list {
+            list-style: none;
+            padding: 0 0 0 2px;
+            margin: 8px 0 14px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .list li {
+            color: var(--muted);
+            background: #f7f8fb;
+            border: 1px solid #eef1f7;
+            border-radius: 12px;
+            padding: 10px 12px 10px 40px;
+            position: relative;
+        }
+
+        .list li::before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            box-shadow: 0 4px 10px rgba(18, 45, 119, .25);
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M9 16.2 4.8 12 3.4 13.4 9 19l12-12-1.4-1.4z"/></svg>') no-repeat center / 70% 70%;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M9 16.2 4.8 12 3.4 13.4 9 19l12-12-1.4-1.4z"/></svg>') no-repeat center / 70% 70%;
+        }
+
+        /* Smooth FAQ collapse/expand */
+        .faq .qa .a {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height .36s cubic-bezier(.2, .9, .2, 1), opacity .24s ease;
+        }
+
+        .faq .qa.open .a {
+            /* opacity handled by JS when animating to natural height */
+            opacity: 1;
+        }
+
+        .qa button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer
+        }
+
+        .qa button .q {
+            text-align: left
+        }
+
+        .qa button span.toggle {
+            transition: transform .28s ease
+        }
+
+        .qa.open button span.toggle {
+            transform: rotate(45deg)
+        }
+
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 18px;
+            margin-top: 8px
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(var(--brand), #6ea2ff);
+            border-radius: 8px
+        }
+
+        .tl-item {
+            display: grid;
+            grid-template-columns: 46px 1fr;
+            gap: 14px;
+            align-items: start
+        }
+
+        .tl-dot {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            margin-left: 0;
+            border-radius: 999px;
+            background: #fff;
+            border: 3px solid var(--brand);
+            box-shadow: 0 0 0 4px rgba(18, 45, 119, .08);
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+
+        .tl-time {
+            font-weight: 800;
+            color: var(--brand);
+            font-size: 14px;
+            margin-top: 2px
+        }
+
+        .tl-card {
+            background: #fff;
+            border: 1px solid #eef2f7;
+            border-radius: 16px;
+            padding: 14px 16px;
+            box-shadow: var(--shadow)
+        }
+
+        .tl-title {
+            margin: 0 0 6px 0;
+            font-weight: 800
+        }
+
+        .tl-desc {
+            margin: 0;
+            color: var(--muted)
+        }
+    </style>
 </head>
 
 <body>
-
-  <!-- <header>
-
-</header> -->
-
-  <div class="topbar">
-    <a href="index.html" aria-label="ATD Home">
-      <img src="./Assets/images/atdlogo.png" alt="ATD UEH Logo">
-    </a>
-  </div>
-  <!-- Nav -->
-  <nav class="menu-bar" role="navigation" aria-label="Chính">
-    <div class="menu-wrap">
-      <div class="brand-mini">
-        <img src="./Assets/images/atdlogo.png" alt="ATD">
-        <span>ATD UEH</span>
-      </div>
-      <div class="menu-links" id="menuLinks">
-        <a href="events.html">Sự kiện</a>
-        <a href="#purpose">Mục đích</a>
-        <a href="#differ">Khác biệt</a>
-      </div>
-      <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-      </button>
+    <!-- HEADER -->
+    <div class="topbar">
+        <a href="index.html" aria-label="ATD Home">
+            <img src="./Assets/images/atdlogo.png" alt="ATD UEH Logo">
+        </a>
     </div>
-  </nav>
+    <!-- Nav -->
+    <nav class="menu-bar" role="navigation" aria-label="Chính">
+        <div class="menu-wrap">
+            <div class="brand-mini">
+                <img src="./Assets/images/atdlogo.png" alt="ATD">
+                <span>ATD UEH</span>
+            </div>
+            <div class="menu-links" id="menuLinks">
+                <a href="events.html">Sự kiện</a>
+                <a href="#purpose">Mục đích</a>
+                <a href="#differ">Khác biệt</a>
+            </div>
+            <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </div>
+    </nav>
 
-  <main>
-    <!-- <div class="container nav">
-    <div class="brand">
-    <img style="width: 70px;height: 50px;" src="./Assets/images/atdlogo.png" alt="">
-      <span>ATD Livestream</span>
-    </div>
-    <button class="follow-btn" id="followBtn" aria-pressed="false" aria-label="Theo dõi fanpage">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="2"/></svg>
-      <span>Theo dõi</span>
-    </button> -->
-    </div>
-    <!-- HERO: Poster + summary -->
-    <section class="section">
-      <div class="container">
-        <figure class="poster reveal">
-          <img src="./Assets/images/poster-livestream.jpeg" alt="Poster Livestream: Chinh phục AI – Bứt phá sự nghiệp">
-        </figure>
-      </div>
-      <div class="container hero">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="kicker">Livestream miễn phí</span>
+                <h1>Livestream AI cho người đi làm: <span style="color:var(--brand)">Bí kíp vượt KPI</span> & <span
+                        style="color:var(--accent)">Burnout</span></h1>
+                <p class="sub">Khám phá cách ứng dụng AI để tối ưu hiệu suất, giảm áp lực và bứt phá trong công việc.
+                    Miễn phí 100% – chỉ có tại ATD UEH.</p>
 
-        <div class="hero-card reveal">
-          <div class="container">
+                <div class="info" aria-label="Thông tin chung">
+                    <div class="i">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z" />
+                        </svg>
+                        <span><strong>📅 Ngày & giờ:</strong> <span id="event-time">19:30 – 21:00 • 17/10/2025</span></span>
+                    </div>
+                    <div class="i">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M12 12c2.761 0 5-2.686 5-6S14.761 0 12 0 7 2.686 7 6s2.239 6 5 6Zm0 2c-4.418 0-8 3.582-8 8h2a6 6 0 0 1 12 0h2c0-4.418-3.582-8-8-8Z"
+                                transform="scale(.92) translate(1 1)" />
+                        </svg>
+                        <span><strong>👨‍🏫 Khách mời:</strong> Giảng viên ATD + HR</span>
+                    </div>
+                    <div class="i">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 10l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z" />
+                            <path d="M9 22V12h6v10" />
+                        </svg>
+                        <span><strong>🎥 Hình thức:</strong> Facebook Live</span>
+                    </div>
+                </div>
+
+                <!-- Inline email capture (above CTA) -->
+                <!-- Countdown to event -->
+                <p>Đếm ngược tới giờ lên sóng</p>
+                <div id="hero-countdown" class="countdown" aria-live="polite" style="margin-top:12px">
+                    <div class="part d"><div class="n">0</div><div class="label">ngày</div></div>
+                    <div class="part h"><div class="n">00</div><div class="label">giờ</div></div>
+                    <div class="part m"><div class="n">00</div><div class="label">phút</div></div>
+                    <div class="part s"><div class="n">00</div><div class="label">giây</div></div>
+                </div>
+                <form id="form-hero" style="margin-top:14px;display:flex;gap:8px;align-items:center;max-width:720px" aria-label="Đăng ký nhận link bằng email">
+                    <input id="hero_email" name="email" type="email" aria-label="Email" placeholder="email@domain.com" required style="flex:1;min-width:0;padding:10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px">
+                    <button class="btn btn-primary" type="submit" style="white-space:nowrap;padding:10px 14px;border-radius:10px">Đăng ký ngay – Nhận link</button>
+                    <div id="heroEmailMsg" class="msg" style="margin-left:12px;font-size:13px"></div>
+                </form>
+
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
+                    <a href="#faq" class="btn btn-outline">Giải đáp nhanh</a>
+                </div>
+            </div>
+
+
+            <div class="cta-band grid-1" id="register">
+                <div>
+                    <h2 class="headline" style="font-size:28px">Mini game &amp; quà tặng</h2>
+                    <div class="rules">
+                        <p><strong>Thể lệ:</strong> Ở cuối chương trình, MC đặt 1 câu hỏi. Người xem trả lời bằng cách
+                            bình luận ngay dưới livestream.</p>
+                        <ul class="list">
+                            <li>Chọn <strong>30 bình luận hợp lệ</strong> (đúng yêu cầu, không spam).</li>
+                            <li>Ưu tiên bình luận sớm &amp; có lý giải ngắn gọn.</li>
+                            <li>Kết quả sẽ được công bố trong phần kết và trên fanpage.</li>
+                        </ul>
+                        <p><strong>Quà tặng:</strong> 30 tấm voucher đến từ ATD UEH</p>
+                    </div>
+
+                    <div style="width: 100%;display: flex;justify-content: center;">
+                        <img style="max-width: 300px; border-radius: 15px;" src="./Assets/images/voucher-1.png"
+                            alt="Voucher quà tặng 1"
+                            onerror="this.src='https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits" class="reveal">
+        <div class="container">
+            <h2>Bạn nhận được gì khi tham gia Livestream này?</h2>
+            <p class="lead">Những giá trị thực tiễn, dùng được ngay cho công việc ngày mai.</p>
+            <div class="grid-4" style="margin-top:18px">
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    <h3>Hiểu cách AI giảm tải deadline & áp lực KPI</h3>
+                    <p>Khung ứng dụng AI vào quy trình để tiết kiệm 5–7 giờ/tuần.</p>
+                </div>
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5V4.5a2 2 0 0 1 2-2h7.5L20 8v11.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" />
+                        <path d="M13 2v6h6" />
+                    </svg>
+                    <h3>Ứng dụng AI vào quản lý công việc & nội dung</h3>
+                    <p>Mẫu prompt & workflow tối ưu cho quản lý dự án, marketing, báo cáo.</p>
+                </div>
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20l9-16H3l9 16Z" />
+                    </svg>
+                    <h3>Học từ câu chuyện thực tế</h3>
+                    <p>Case study từ học viên ATD đã tăng hiệu suất, vượt KPI.</p>
+                </div>
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M12 8c-3.866 0-7 1.79-7 4v6h14v-6c0-2.21-3.134-4-7-4Zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                    </svg>
+                    <h3>Ưu đãi đặc biệt từ ATD UEH</h3>
+                    <p>Quà tặng tài liệu & ưu đãi học phí dành riêng cho người tham dự.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDA / CONTENT -->
+    <section id="agenda" class="reveal">
+        <div class="container">
+            <h2>Nội dung Livestream</h2>
+            <div class="grid-3" style="margin-top:12px">
+                <div class="card content-block">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>
+                    <div>
+                        <h3>Áp lực KPI & burnout của Gen Y – góc nhìn thực tế</h3>
+                        <p class="lead">Nhận diện gốc rễ căng thẳng & điểm nghẽn trong công việc hiện đại.</p>
+                    </div>
+                </div>
+                <div class="card content-block">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20" />
+                    </svg>
+                    <div>
+                        <h3>AI như người bạn đồng hành: Giải pháp tăng hiệu suất</h3>
+                        <p class="lead">Blueprint các công cụ & quy trình AI để tự động hoá tác vụ lặp.</p>
+                    </div>
+                </div>
+                <div class="card content-block">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16v6H4z" />
+                        <path d="M4 14h10v6H4z" />
+                    </svg>
+                    <div>
+                        <h3>Giới thiệu khóa học AI thực chiến tại ATD UEH</h3>
+                        <p class="lead">Lộ trình nâng cấp kỹ năng AI cho người đi làm: từ cơ bản đến triển khai thật.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPEAKERS -->
+    <section id="speakers" class="reveal">
+        <div class="container">
             <h2 class="headline" style="margin-bottom:6px">Diễn giả </h2>
             <p class="subhead">Những người đồng hành cùng bạn trong hành trình “làm chủ AI”.</p>
 
             <div class="speakers" style="margin-top:18px">
-              <div class="card speaker">
-                <div class="avatar">
-                  <img src="./Assets/images/diengia1-phas1.png" alt="HR. Huỳnh Thái"
-                    onerror="this.src='https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500&auto=format&fit=crop'">
+                <div class="card speaker">
+                    <div class="avatar">
+                        <img src="./Assets/images/diengia1-phas1.png" alt="HR. Huỳnh Thái"
+                            onerror="this.src='https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500&auto=format&fit=crop'">
+                    </div>
+                    <div>
+                        <span class="badge">HOST</span>
+                        <h3 style="margin:6px 0 4px">HR. Huỳnh Thái</h3>
+                        <p class="subhead" style="margin:0">Chuyên gia nhân sự • Kết nối &amp; dẫn dắt
+                            chương trình
+                        </p>
+                    </div>
                 </div>
-                <div>
-                  <span class="badge">HOST</span>
-                  <h3 style="margin:6px 0 4px">HR. Huỳnh Thái</h3>
-                  <p class="subhead" style="margin:0">Chuyên gia nhân sự • Kết nối &amp; dẫn dắt
-                    chương trình
-                  </p>
-                </div>
-              </div>
 
-              <div class="card speaker">
-                <div class="avatar">
-                  <img src="./Assets/images/diengia2-phase1.png" alt="ThS. Nguyễn Phát Đạt"
-                    onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=500&auto=format&fit=crop'">
+                <div class="card speaker">
+                    <div class="avatar">
+                        <img src="./Assets/images/diengia2-phase1.png" alt="ThS. Nguyễn Phát Đạt"
+                            onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=500&auto=format&fit=crop'">
+                    </div>
+                    <div>
+                        <span class="badge">KHÁCH MỜI</span>
+                        <h3 style="margin:6px 0 4px">ThS. Nguyễn Phát Đạt</h3>
+                        <p class="subhead" style="margin:0">Giảng viên AI tại ATD • Chia sẻ case thực tế
+                            &amp; demo
+                            công cụ</p>
+                    </div>
                 </div>
-                <div>
-                  <span class="badge">KHÁCH MỜI</span>
-                  <h3 style="margin:6px 0 4px">ThS. Nguyễn Phát Đạt</h3>
-                  <p class="subhead" style="margin:0">Giảng viên AI tại ATD • Chia sẻ case thực tế
-                    &amp; demo
-                    công cụ</p>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-        <div class="hero-card reveal">
-          <h1 class="headline">Chinh phục AI – Bứt phá sự nghiệp</h1>
-          <p class="subhead">Từ kiến thức đến hành động • Dẫn đầu với AI</p>
-
-          <div class="meta">
-            <span>
-              <!-- calendar icon -->
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M7 3v4M17 3v4M4 11h16M5 7h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"
-                  stroke="currentColor" stroke-width="2" />
-              </svg>
-              19:30 – 21:00 • 17/10/2025 (UTC+7)
-            </span>
-            <span>
-              <!-- live icon -->
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 7v10M7 12h10" stroke="currentColor" stroke-width="2" />
-                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
-              </svg>
-              Trực tiếp trên Facebook Fanpage ATD
-            </span>
-          </div>
-
-          <!-- COUNTDOWN -->
-          <section id="countdown" class="section reveal" style="padding-top:16px"
-            data-start="2025-10-17T19:30:00+07:00">
-            <h3 style="margin:0;font-size:18px">Đếm ngược tới giờ lên sóng</h3>
-            <div class="timer" role="timer" aria-live="polite">
-              <div class="timebox">
-                <div class="num" id="dd">--</div>
-                <div class="lbl">ngày</div>
-              </div>
-              <div class="timebox">
-                <div class="num" id="hh">--</div>
-                <div class="lbl">giờ</div>
-              </div>
-              <div class="timebox">
-                <div class="num" id="mm">--</div>
-                <div class="lbl">phút</div>
-              </div>
-              <div class="timebox">
-                <div class="num" id="ss">--</div>
-                <div class="lbl">giây</div>
-              </div>
-            </div>
-            <div class="count-cta">
-              <a class="primary" href="https://facebook.com" target="_blank" rel="noopener">Nhận nhắc
-                lịch</a>
-            </div>
-          </section>
-        </div>
-      </div>
     </section>
-    <!-- CONTENT + MINI GAME -->
-    <section class="section reveal" id="content">
-      <div class="container grid-2">
-        <div class="card">
-          <h2 class="headline" style="font-size:28px">Nội dung chính</h2>
-          <ul class="list">
-            <li>Xu hướng AI mới nhất và tác động đến công việc.</li>
-            <li>Khung kỹ năng AI nền tảng để “đi làm được”.</li>
-            <li>Demo công cụ giúp tăng tốc 2–3× hiệu suất.</li>
-            <li>Lộ trình 30–60–90 ngày để bứt phá sự nghiệp.</li>
-          </ul>
-          <figure style="margin:16px 0 0">
-            <!-- Hình minh hoạ nội dung -->
-            <img src="livestreamcontent.jpg" alt="Minh hoạ nội dung buổi livestream"
-              onerror="this.src='https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop'">
-          </figure>
-        </div>
-
-        <div class="card">
-          <h2 class="headline" style="font-size:28px">Mini game &amp; quà tặng</h2>
-          <div class="rules">
-            <p><strong>Thể lệ:</strong> Ở cuối chương trình, MC đặt 1 câu hỏi. Người xem trả lời bằng cách
-              bình luận ngay dưới livestream.</p>
-            <ul class="list">
-              <li>Chọn <strong>30 bình luận hợp lệ</strong> (đúng yêu cầu, không spam).</li>
-              <li>Ưu tiên bình luận sớm &amp; có lý giải ngắn gọn.</li>
-              <li>Kết quả sẽ được công bố trong phần kết và trên fanpage.</li>
-            </ul>
-            <p><strong>Quà tặng:</strong> Voucher khoá học/nghiệp vụ tại ATD.</p>
-          </div>
-          <div class="prizes">
-            <!-- Thay bằng ảnh quà thực tế -->
-          
-          </div>
-            <img src="./Assets/images/voucher-phase1.png" alt="Voucher quà tặng 1"
-                            onerror="this.src='https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800&auto=format&fit=crop'">
-        
-        </div>
-      </div>
-    </section>
-
     <!-- TIMELINE -->
     <section class="section reveal" id="timeline">
-      <div class="container">
-        <h2 style="margin:0 0 8px" class="headline" aria-label="Timeline nội dung">Timeline</h2>
-        <p class="subhead">60–90 phút, chia 4 phần rõ ràng để dễ theo dõi</p>
+        <div class="container">
+            <h2 style="margin:0 0 8px" class="headline" aria-label="Timeline nội dung">Timeline</h2>
+            <p class="subhead">60–90 phút, chia 4 phần rõ ràng để dễ theo dõi</p>
 
-        <div class="timeline" style="margin-top:18px">
-          <div class="tl-item">
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card">
-              <div class="tl-time">19:30 – 19:35</div>
-              <h3 class="tl-title">Opening</h3>
-              <p class="tl-desc">MC chào khán giả, giới thiệu ATD, khách mời, chủ đề. Tạo FOMO: “Nếu bạn
-                chưa biết AI, 1 năm nữa bạn sẽ ở đâu?”</p>
-            </div>
-          </div>
+            <div class="timeline" style="margin-top:18px">
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">19:30 – 19:35</div>
+                        <h3 class="tl-title">Opening</h3>
+                        <p class="tl-desc">MC chào khán giả, giới thiệu ATD, khách mời, chủ đề. Tạo FOMO: “Nếu bạn
+                            chưa biết AI, 1 năm nữa bạn sẽ ở đâu?”</p>
+                    </div>
+                </div>
 
-          <div class="tl-item">
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card">
-              <div class="tl-time">19:35 – 19:45</div>
-              <h3 class="tl-title">Phần 1 – Xu hướng &amp; Insight</h3>
-              <p class="tl-desc">AI tác động đến Gen Y/Gen Z như thế nào? Những ngành bị ảnh hưởng mạnh
-                &amp; cơ hội mới.</p>
-            </div>
-          </div>
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">19:35 – 19:45</div>
+                        <h3 class="tl-title">Phần 1 – Xu hướng &amp; Insight</h3>
+                        <p class="tl-desc">AI tác động đến Gen Y/Gen Z như thế nào? Những ngành bị ảnh hưởng mạnh
+                            &amp; cơ hội mới.</p>
+                    </div>
+                </div>
 
-          <div class="tl-item">
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card">
-              <div class="tl-time">19:45 – 20:05</div>
-              <h3 class="tl-title">Phần 2 – Ứng dụng thực tiễn (Demo)</h3>
-              <p class="tl-desc">3 công cụ nhanh: ChatGPT (soạn email/báo cáo), Canva AI (slide vài phút),
-                Notion AI (lập kế hoạch & quản lý công việc).</p>
-            </div>
-          </div>
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">19:45 – 20:05</div>
+                        <h3 class="tl-title">Phần 2 – Ứng dụng thực tiễn (Demo)</h3>
+                        <p class="tl-desc">3 công cụ nhanh: ChatGPT (soạn email/báo cáo), Canva AI (slide vài phút),
+                            Notion AI (lập kế hoạch & quản lý công việc).</p>
+                    </div>
+                </div>
 
-          <div class="tl-item">
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card">
-              <div class="tl-time">20:05 – 20:20</div>
-              <h3 class="tl-title">Phần 3 – Tương tác &amp; Hỏi đáp</h3>
-              <p class="tl-desc">Giải đáp câu hỏi trực tiếp, chia sẻ case study chuyển đổi hiệu suất cá
-                nhân.</p>
-            </div>
-          </div>
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">20:05 – 20:20</div>
+                        <h3 class="tl-title">Phần 3 – Tương tác &amp; Hỏi đáp</h3>
+                        <p class="tl-desc">Giải đáp câu hỏi trực tiếp, chia sẻ case study chuyển đổi hiệu suất cá
+                            nhân.</p>
+                    </div>
+                </div>
 
-          <div class="tl-item">
-            <div class="tl-dot" aria-hidden="true"></div>
-            <div class="tl-card">
-              <div class="tl-time">20:20 – 20:30</div>
-              <h3 class="tl-title">Phần 4 – Mini game &amp; Tổng kết</h3>
-              <p class="tl-desc">Mini game trả lời câu hỏi ngay trên livestream – chọn 30 bình luận hợp lệ
-                để trao quà.</p>
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">20:20 – 20:30</div>
+                        <h3 class="tl-title">Phần 4 – Mini game &amp; Tổng kết</h3>
+                        <p class="tl-desc">Mini game trả lời câu hỏi ngay trên livestream – chọn 30 bình luận hợp lệ
+                            để trao quà.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
+    <!-- MID CTA + FORM -->
+    <section class="reveal">
+        <div class="container">
+            <!-- <div class="cta-band grid-2" id="register">
+        <div>
+          <h2 style="margin:0 0 6px">Số lượng chỗ giới hạn – Đăng ký ngay để giữ chỗ!</h2>
+          <p style="margin:0 0 12px;opacity:.9">Nhập thông tin để nhận link Livestream qua Email/Zalo.</p>
+           <div style="width: 100%;display: flex;justify-content: center;">
+            <img style="max-width: 300px; border-radius: 15px;" src="./Assets/images/voucher-1.png" alt="Voucher quà tặng 1"
+                            onerror="this.src='https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800&auto=format&fit=crop'">
+           </div>
+        </div>
+        <div class="card form" style="background:#fff;color:var(--ink)">
+          <form id="form-mid" novalidate>
+            <div class="field">
+              <label for="name2">Họ và tên</label>
+              <input id="name2" name="name" class="input" required />
+            </div>
+            <div class="field">
+              <label for="email2">Email</label>
+              <input id="email2" name="email" type="email" class="input" required />
+            </div>
+            <div class="field">
+              <label for="phone2">Số điện thoại</label>
+              <input id="phone2" name="phone" class="input" pattern="^[0-9\s+()-]{8,}$" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Giữ chỗ ngay</button>
+          </form>
+        </div>
+      </div> -->
+        </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="reveal">
+        <div class="container">
+            <h2>Giải đáp thắc mắc nhanh</h2>
+            <div class="faq card">
+                <div class="qa">
+                    <button aria-expanded="false"><span class="q">Livestream có thu phí không?</span><span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg></span></button>
+                    <div class="a">
+                        <p>Không, hoàn toàn miễn phí.</p>
+                    </div>
+                </div>
 
-    <!-- SPEAKERS -->
+                <div class="qa">
+                    <button aria-expanded="false"><span class="q">Không tham gia trực tiếp thì xem lại được không?</span><span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg></span></button>
+                    <div class="a">
+                        <p>Có. ATD sẽ gửi link ghi hình cho người đăng ký qua Email/Zalo.</p>
+                    </div>
+                </div>
 
-  </main>
-  <section class="section reveal" id="ask-question">
-    <div class="container">
-      <div class="question-box">
-        <h2 class="headline" style="font-size:28px">Đặt câu hỏi cho buổi Livestream</h2>
-        <p class="subhead">Hãy để lại thắc mắc của bạn, chúng tôi sẽ chọn và trả lời trực tiếp trong chương
-          trình</p>
+                <div class="qa">
+                    <button aria-expanded="false"><span class="q">Cần chuẩn bị gì trước Livestream?</span><span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg></span></button>
+                    <div class="a">
+                        <p>Chỉ cần đăng ký &amp; kiểm tra email để nhận link và nhắc lịch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <form id="questionForm">
-          <div class="form-group">
-            <label for="fullname">Họ và tên</label>
-            <input type="text" id="fullname" name="fullname" required placeholder="Nhập họ và tên của bạn">
-          </div>
+    <!-- AFTER LIVE (for long-term) -->
+    <section class="after reveal">
+        <div class="container">
+            <h2>Xem lại Livestream</h2>
+            <p class="lead">Khi sự kiện kết thúc, nhúng video ghi hình vào đây để tiếp tục thu hút người xem.</p>
+            <div class="video" aria-label="Xem lại Livestream">
+                <!-- TODO: Thay src bằng link video ghi hình -->
+                <!-- <iframe
+                    src="https://www.youtube.com/embed/8x5IVXtVX3s"
+                    title="Livestream AI ATD UEH – Video"
+                    frameborder="0"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen> -->
+                <img style="width:100%;border-radius:16px;box-shadow:var(--shadow);border:1px solid rgba(15,23,42,.08)" src="./Assets/images/poster-livestream.jpeg" alt="Xem lại Livestream AI cho người đi làm">
+                <!-- <img src="./Assets/images/ytblogo.png" alt="Youtube Logo" style="width: 100px; height: auto;"> -->
+  <!-- </iframe> -->
+            </div>
+            <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+                <a class="btn btn-outline" href="https://atd.ueh.edu.vn/khoa-hoc-ai" target="_blank" rel="noopener">Tìm
+                    hiểu khóa học AI tại ATD</a>
+                <a class="btn btn-primary" href="#register">Nhận ưu đãi học phí</a>
+            </div>
+        </div>
+    </section>
 
-          <div class="form-group">
-            <label for="question">Câu hỏi của bạn</label>
-            <textarea id="question" name="question" rows="4" required
-              placeholder="Nhập câu hỏi bạn muốn gửi..."></textarea>
-          </div>
+    <footer>
+        <!-- Top row -->
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="./Assets/images/atdlogo.png" alt="CMA CGM Logo">
+            </div>
+            <div class="footer-text">
+                © ATD 2025 - All rights reserved -
+                <a href="#">Legal Notices</a> -
+                <a href="#">Cookies Policy</a>
+            </div>
+            <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span>Back to top</span>
+                <img src="./Assets/images/up-arrow.png" alt="Up Arrow">
+            </div>
+        </div>
 
-          <div style="width: 100%;display: flex;justify-content: end;">
-             <button type="submit" class="submit-btn">Gửi câu hỏi</button>
-          </div>
-        </form>
+        <!-- Social icons -->
+        <div class="social-icons">
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Facebook Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Linkedin Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Youtube Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg"></a>
+            <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
+                    alt="Instagram Logo" loading="lazy" decoding="async" data-nimg="fill"
+                    style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg"></a>
+        </div>
+    </footer>
 
-        <div id="msg" class="msg"></div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <!-- Top row -->
-    <div class="footer-top">
-      <div class="footer-logo">
-        <img src="./Assets/images/atdlogo.png" alt="CMA CGM Logo">
-      </div>
-      <div class="footer-text">
-        © ATD 2025 - All rights reserved -
-        <a href="#">Legal Notices</a> -
-        <a href="#">Cookies Policy</a>
-      </div>
-      <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <span>Back to top</span>
-        <img src="./Assets/images/up-arrow.png" alt="Up Arrow">
-      </div>
-    </div>
+    <!-- JSON-LD Schema: Event -->
+    <script id="event-schema" type="application/ld+json"></script>
 
-    <!-- Social icons -->
-    <div class="social-icons">
-      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-          alt="Facebook Logo" loading="lazy" decoding="async" data-nimg="fill"
-          style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/facebook.svg"></a>
-      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-          alt="Linkedin Logo" loading="lazy" decoding="async" data-nimg="fill"
-          style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/linkedin.svg"></a>
-      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-          alt="Youtube Logo" loading="lazy" decoding="async" data-nimg="fill"
-          style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/youtube.svg"></a>
-      <a class="h-[2vw] w-[0.9vw] relative" target="_blank" href="https://www.facebook.com/cmacgm"><img
-          alt="Instagram Logo" loading="lazy" decoding="async" data-nimg="fill"
-          style="left:0;top:0;right:0;bottom:0;color:transparent" src="./Assets/images/instagram.svg"></a>
-    </div>
-  </footer>
+    <script>
+        // ======= CONFIG – CẬP NHẬT NHANH TẠI ĐÂY =======
+        const EVENT_NAME = 'Livestream AI cho người đi làm: Bí kíp vượt KPI & Burnout';
+        // Điền ngày giờ thật của bạn (ví dụ): 2025-09-15 19:30 GMT+7
+        const EVENT_START_ISO = '2025-10-17T19:30:00+07:00'; // TODO: cập nhật
+        const EVENT_URL = 'https://atd.ueh.edu.vn/livestream-ai-2025';
+        const LIVE_URL = 'https://zoom.us/j/your-room'; // TODO: link Zoom thật
+        const ORGANIZER = { name: 'ATD UEH', url: 'https://atd.ueh.edu.vn' };
 
-  <script>
-    // Theo dõi: toggle trạng thái
-    const followBtn = document.getElementById('followBtn');
-    followBtn?.addEventListener('click', () => {
-      const isFollowing = followBtn.dataset.state === 'following';
-      followBtn.dataset.state = isFollowing ? '' : 'following';
-      followBtn.setAttribute('aria-pressed', String(!isFollowing));
-      followBtn.querySelector('span').textContent = isFollowing ? 'Theo dõi' : 'Đang theo dõi';
-    });
+        // ======= REVEAL ON SCROLL =======
+        const io = new IntersectionObserver((ents) => {
+            ents.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+        }, { threshold: .18 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Countdown
-    (function () {
-      const wrap = document.getElementById('countdown');
-      if (!wrap) return;
-      const start = wrap.dataset.start; // ISO string with timezone offset
-      const target = new Date(start).getTime();
+        // ======= FAQ ACCORDION (smooth) =======
+        (function () {
+            const qs = document.querySelectorAll('.qa');
+            qs.forEach(qa => {
+                const btn = qa.querySelector('button');
+                const panel = qa.querySelector('.a');
+                // initialize collapsed state
+                panel.style.maxHeight = '0px';
+                panel.style.overflow = 'hidden';
+                btn.setAttribute('aria-expanded', 'false');
+                btn.addEventListener('click', () => {
+                    const isOpen = qa.classList.contains('open');
+                    if (isOpen) {
+                        // collapse
+                        const from = panel.scrollHeight;
+                        panel.style.maxHeight = from + 'px';
+                        // allow layout then animate to 0
+                        requestAnimationFrame(() => {
+                            panel.style.transition = 'max-height .36s cubic-bezier(.2,.9,.2,1), opacity .24s ease';
+                            panel.style.maxHeight = '0px';
+                            panel.style.opacity = '0';
+                        });
+                        qa.classList.remove('open');
+                        btn.setAttribute('aria-expanded', 'false');
+                    } else {
+                        // expand
+                        qa.classList.add('open');
+                        panel.style.transition = 'none';
+                        panel.style.maxHeight = '0px';
+                        panel.style.opacity = '0';
+                        // measure then set to measured height
+                        requestAnimationFrame(() => {
+                            const h = panel.scrollHeight;
+                            panel.style.transition = 'max-height .36s cubic-bezier(.2,.9,.2,1), opacity .24s ease';
+                            panel.style.maxHeight = h + 'px';
+                            panel.style.opacity = '1';
+                            btn.setAttribute('aria-expanded', 'true');
+                        });
+                    }
+                });
+            });
+        })();
 
-      function pad(n) { return String(n).padStart(2, '0'); }
-
-      function tick() {
-        const now = Date.now();
-        let diff = Math.max(0, target - now);
-
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        diff -= d * (1000 * 60 * 60 * 24);
-        const h = Math.floor(diff / (1000 * 60 * 60));
-        diff -= h * (1000 * 60 * 60);
-        const m = Math.floor(diff / (1000 * 60));
-        diff -= m * (1000 * 60);
-        const s = Math.floor(diff / 1000);
-
-        document.getElementById('dd').textContent = pad(d);
-        document.getElementById('hh').textContent = pad(h);
-        document.getElementById('mm').textContent = pad(m);
-        document.getElementById('ss').textContent = pad(s);
-
-        if (target - now <= 0) {
-          wrap.querySelector('h3').textContent = 'Đang phát trực tiếp';
-          clearInterval(loop);
+        // ======= FORMS (demo only) =======
+        function wireForm(id) {
+            const form = document.getElementById(id);
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const data = Object.fromEntries(new FormData(form).entries());
+                // TODO: Gửi về backend/Google Sheet/Zapier
+                console.log('Register:', data);
+                localStorage.setItem('atd_livestream_reg', JSON.stringify({ ...data, t: Date.now() }));
+                form.reset();
+                const btn = form.querySelector('button[type="submit"]');
+                const old = btn.textContent;
+                btn.textContent = '✓ Đã nhận đăng ký!';
+                btn.style.filter = 'saturate(1.2)';
+                setTimeout(() => { btn.textContent = old; btn.style.filter = ''; }, 2600);
+                alert('Cảm ơn bạn! Chúng tôi sẽ gửi link tham gia qua Email/Zalo.');
+            });
         }
-      }
+        wireForm('form-hero');
+      //  wireForm('form-mid');
 
-      tick();
-      const loop = setInterval(tick, 1000);
-    })();
+        // Lightweight hero email feedback (avoid double-alert if wireForm also fires)
+        (function(){
+            const h = document.getElementById('form-hero');
+            const msg = document.getElementById('heroEmailMsg');
+            if(!h) return;
+            h.addEventListener('submit', (e)=>{
+                // silently handle and show inline message (wireForm already stores)
+                try{ msg.textContent = 'Cảm ơn! Email của bạn đã được ghi nhận.'; msg.className='msg success'; }
+                catch{}
+            });
+        })();
 
+        // ======= EVENT TIME (UI) =======
+        function updateEventTime() {
+            try {
+                const d = new Date(EVENT_START_ISO);
+                const opts = { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+                const f = new Intl.DateTimeFormat('vi-VN', opts).format(d);
+                document.getElementById('event-time').textContent = f;
+            } catch { document.getElementById('event-time').textContent = 'Sẽ cập nhật'; }
+        }
+        updateEventTime();
 
+        // ======= HERO COUNTDOWN =======
+        function startHeroCountdown(iso) {
+            const el = document.getElementById('hero-countdown');
+            if(!el) return;
+            function tick(){
+                const now = new Date();
+                const target = new Date(iso);
+                let diff = Math.max(0, target - now);
+                if(diff <= 0){
+                    el.innerHTML = '<div style="font-weight:700;color:var(--brand)">Sự kiện đã bắt đầu</div>';
+                    clearInterval(timer);
+                    return;
+                }
+                const days = Math.floor(diff / (24*60*60*1000));
+                diff -= days * 24*60*60*1000;
+                const hours = Math.floor(diff / (60*60*1000));
+                diff -= hours * 60*60*1000;
+                const minutes = Math.floor(diff / (60*1000));
+                diff -= minutes * 60*1000;
+                const seconds = Math.floor(diff / 1000);
+                el.querySelector('.part.d .n').textContent = days;
+                el.querySelector('.part.h .n').textContent = String(hours).padStart(2,'0');
+                el.querySelector('.part.m .n').textContent = String(minutes).padStart(2,'0');
+                el.querySelector('.part.s .n').textContent = String(seconds).padStart(2,'0');
+            }
+            tick();
+            const timer = setInterval(tick, 1000);
+        }
 
-    const form = document.getElementById('questionForm');
-    const msg = document.getElementById('msg');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = form.fullname.value.trim();
-      const q = form.question.value.trim();
+        // start countdown using existing EVENT_START_ISO
+        startHeroCountdown(EVENT_START_ISO);
 
-      if (!name || !q) {
-        msg.textContent = "Vui lòng nhập đầy đủ thông tin!";
-        msg.className = "msg error";
-        return;
-      }
+        // ======= JSON-LD EVENT SCHEMA =======
+        const schema = {
+            '@context': 'https://schema.org',
+            '@type': 'Event',
+            name: EVENT_NAME,
+            startDate: EVENT_START_ISO,
+            eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+            eventStatus: 'https://schema.org/EventScheduled',
+            location: { '@type': 'VirtualLocation', url: LIVE_URL },
+            image: ['https://atd.ueh.edu.vn/assets/og-livestream-ai.jpg'],
+            description: 'Livestream miễn phí: ứng dụng AI giảm áp lực công việc, tối ưu hiệu suất và vượt KPI.',
+            organizer: { '@type': 'Organization', name: ORGANIZER.name, url: ORGANIZER.url },
+            offers: { '@type': 'Offer', url: EVENT_URL, price: '0', priceCurrency: 'VND', availability: 'https://schema.org/InStock' }
+        };
+        document.getElementById('event-schema').textContent = JSON.stringify(schema);
 
-      // Giả lập gửi (ở thực tế sẽ dùng fetch/ajax)
-      msg.textContent = "Câu hỏi của bạn đã được gửi thành công!";
-      msg.className = "msg success";
-      form.reset();
-    });
-
-
-    (function () {
-      const h = document.querySelector('header');
-      if (!h) return;
-      const set = () => h.classList.toggle('scrolled', window.scrollY > 8);
-      set(); window.addEventListener('scroll', set, { passive: true });
-    })();
-
-    // Scroll-reveal bằng IntersectionObserver
-    (function () {
-      const els = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window) || !els.length) {
-        // fallback: hiện hết
-        els.forEach(e => e.classList.add('show'));
-        return;
-      }
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(en => {
-          if (en.isIntersecting) {
-            en.target.classList.add('show');
-            io.unobserve(en.target);
-          }
-        });
-      }, { threshold: .12 });
-      els.forEach(e => io.observe(e));
-    })();
-  </script>
+        // ======= FOOTER YEAR =======
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>

@@ -450,8 +450,8 @@
 
 
             function openSite(name, email, phone) {
-                const baseUrl = `${baseUrl}/user-ticket.html`;
-                const url = `${baseUrl}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
+                const ticketUrl = `${baseUrl}/user-ticket.html`;
+                const url = `${ticketUrl}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
                 window.open(url, "_blank");
                 // Or use window.open(url, "_blank"); // To open in a new tab
             }

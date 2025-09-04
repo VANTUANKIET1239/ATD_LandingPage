@@ -1,279 +1,1045 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RUN ON NUMBERS</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./audio.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Livestream AI cho người đi làm – Bí kíp vượt KPI & Burnout | ATD UEH</title>
+    <meta name="description"
+        content="Tham gia Livestream miễn phí từ ATD UEH để học cách ứng dụng AI giảm áp lực công việc, tối ưu hiệu suất và vượt KPI. Đăng ký ngay!" />
+    <link rel="canonical" href="https://atd.ueh.edu.vn/livestream-ai-2025" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Livestream AI cho người đi làm – Bí kíp vượt KPI & Burnout" />
+    <meta property="og:description"
+        content="Khám phá cách ứng dụng AI để tối ưu hiệu suất, giảm áp lực và bứt phá trong công việc. Miễn phí 100% – chỉ có tại ATD UEH." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atd.ueh.edu.vn/livestream-ai-2025" />
+    <meta property="og:image" content="/assets/og-livestream-ai.jpg" />
+
     <link rel="stylesheet" href="./footer.css">
-    <link rel="stylesheet" href="./carousel.css">
     <link rel="stylesheet" href="./header.css">
+
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(18, 45, 119, .28);
+            }
+
+            50% {
+                transform: scale(1.08);
+                box-shadow: 0 0 0 8px rgba(18, 45, 119, .08);
+            }
+        }
+
+        :root {
+            --brand: rgb(18, 45, 119);
+            --accent: rgb(255, 123, 0);
+            --white: #fff;
+            --ink: #0f172a;
+            --muted: #475569;
+            --card: #ffffff;
+            --shadow: 0 10px 30px rgba(18, 45, 119, .15);
+            --radius: 16px;
+        }
+
+        img.transparent {
+            background: transparent;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+    .qa button span.toggle { transition: transform .28s ease; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; }
+    .qa.open button span.toggle { transform: rotate(90deg); }
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            scroll-behavior: smooth;
+            background: linear-gradient(90deg, #ffffff, #7fe9ff, #00d4ff);
+            background-size: 600% 600%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        .container {
+            width: min(1120px, 92vw);
+            margin-inline: auto
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, .7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(15, 23, 42, .06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            color: var(--brand)
+        }
+
+        .brand-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            box-shadow: var(--shadow)
+        }
+
+        .nav a.btn {
+            margin-left: 10px
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s transform ease, .25s box-shadow ease
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(255, 123, 0, .25)
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 14px 32px rgba(255, 123, 0, .35)
+        }
+
+        .btn-outline {
+            border-color: rgba(15, 23, 42, .15);
+            background: #fff
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            isolation: isolate;
+            padding: 80px 0 40px;
+            overflow: hidden
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            z-index: -2;
+            filter: blur(10px);
+            animation: bgShift 14s ease-in-out infinite alternate
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        @keyframes bgShift {
+            0% {
+                transform: translateY(-2%) scale(1)
+            }
+
+            100% {
+                transform: translateY(2%) scale(1.05)
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .kicker {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(18, 45, 119, .08);
+            color: var(--brand);
+            font-weight: 700;
+            margin-bottom: 12px
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            line-height: 1.1;
+            margin: 0 0 14px
+        }
+
+        .sub {
+            font-size: clamp(16px, 2.4vw, 18px);
+            color: var(--muted);
+            max-width: 52ch
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 22px 0
+        }
+
+        .info .i {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid rgba(15, 23, 42, .06);
+            padding: 10px 12px;
+            border-radius: 12px;
+            box-shadow: var(--shadow)
+        }
+
+        .icon {
+            inline-size: 22px;
+            block-size: 22px;
+            flex: 0 0 22px
+        }
+
+        /* Card / form */
+        .card {
+            background: var(--card);
+            border: 1px solid rgba(15, 23, 42, .06);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow)
+        }
+
+        .form {
+            padding: 18px
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px
+        }
+
+        .field label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px
+        }
+
+        .input {
+            padding: 12px 14px;
+            border: 1px solid rgba(15, 23, 42, .15);
+            border-radius: 12px;
+            outline: none
+        }
+
+        .input:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 4px rgba(18, 45, 119, .1)
+        }
+
+        .note {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px
+        }
+
+        /* Sections */
+        section {
+            padding: 48px 0
+        }
+
+        h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            margin: 0 0 16px
+        }
+
+        .lead {
+            color: var(--muted);
+            max-width: 65ch
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px
+        }
+
+        .benefit {
+            padding: 18px
+        }
+
+        .benefit h3 {
+            margin: 10px 0 6px;
+            font-size: 18px
+        }
+
+        .benefit p {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .content-block {
+            padding: 22px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start
+        }
+
+        .content-block .icon {
+            inline-size: 28px;
+            block-size: 28px
+        }
+
+        .content-block h3 {
+            margin: 4px 0 6px
+        }
+
+        /* Speaker cards */
+        .speaker {
+            overflow: hidden
+        }
+
+        .speaker img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(15, 23, 42, .06)
+        }
+
+        .speaker .meta {
+            padding: 14px
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(255, 123, 0, .1);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 12px
+        }
+
+        /* CTA band */
+        .cta-band {
+            position: relative;
+            isolation: isolate;
+            border-radius: 24px;
+            background: linear-gradient(90deg, var(--brand), var(--accent));
+            color: #fff;
+            padding: 28px;
+            overflow: hidden
+        }
+
+        .cta-band::after {
+            content: "";
+            position: absolute;
+            inset: auto -10% -40% -10%;
+            height: 140%;
+            background: radial-gradient(60% 50% at 50% 50%, rgba(255, 255, 255, .18), transparent 60%);
+            filter: blur(30px);
+            z-index: 0
+        }
+
+        .cta-band>* {
+            position: relative;
+            z-index: 1
+        }
+
+        /* FAQ */
+        .faq {
+            border-top: 1px solid rgba(15, 23, 42, .08)
+        }
+
+        .qa {
+            border-bottom: 1px solid rgba(15, 23, 42, .08)
+        }
+
+        .qa button {
+            all: unset;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            padding: 18px;
+            cursor: pointer
+        }
+
+        .qa .q {
+            font-weight: 700
+        }
+
+        .qa .a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+            padding: 0 18px;
+            color: var(--muted)
+        }
+
+        .qa.open .a {
+            max-height: 240px;
+            padding: 0 18px 18px
+        }
+
+        /* After live */
+        .after {
+            background: linear-gradient(180deg, #fff 0%, rgba(18, 45, 119, .03) 100%)
+        }
+
+        .video {
+            position: relative;
+            /* padding-top: 56.25%; */
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(15, 23, 42, .08)
+        }
+
+        .video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            color: #64748b;
+            font-size: 14px
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: .6s ease
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: none
+        }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr
+            }
+
+            .info {
+                grid-template-columns: 1fr
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr
+            }
+
+            .grid-4 {
+                grid-template-columns: 1fr
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+
+        /* Speakers */
+        .speakers {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 18px;
+        }
+
+        .speaker {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 16px;
+            align-items: center
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            box-shadow: var(--shadow)
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(18, 45, 119, .08);
+            color: var(--brand);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .hero-card {
+            padding: 22px;
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eef2f7;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px
+        }
+
+        .list {
+            list-style: none;
+            padding: 0 0 0 2px;
+            margin: 8px 0 14px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .list li {
+            color: var(--muted);
+            background: #f7f8fb;
+            border: 1px solid #eef1f7;
+            border-radius: 12px;
+            padding: 10px 12px 10px 40px;
+            position: relative;
+        }
+
+        .list li::before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            box-shadow: 0 4px 10px rgba(18, 45, 119, .25);
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M9 16.2 4.8 12 3.4 13.4 9 19l12-12-1.4-1.4z"/></svg>') no-repeat center / 70% 70%;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M9 16.2 4.8 12 3.4 13.4 9 19l12-12-1.4-1.4z"/></svg>') no-repeat center / 70% 70%;
+        }
+
+        /* Smooth FAQ collapse/expand */
+        .faq .qa .a {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height .36s cubic-bezier(.2, .9, .2, 1), opacity .24s ease;
+        }
+
+        .faq .qa.open .a {
+            /* opacity handled by JS when animating to natural height */
+            opacity: 1;
+        }
+
+        .qa button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer
+        }
+
+        .qa button .q {
+            text-align: left
+        }
+
+        .qa button span.toggle {
+            transition: transform .28s ease
+        }
+
+        .qa.open button span.toggle {
+            transform: rotate(45deg)
+        }
+
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 18px;
+            margin-top: 8px
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(var(--brand), #6ea2ff);
+            border-radius: 8px
+        }
+
+        .tl-item {
+            display: grid;
+            grid-template-columns: 46px 1fr;
+            gap: 14px;
+            align-items: start
+        }
+
+        .tl-dot {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            margin-left: 0;
+            border-radius: 999px;
+            background: #fff;
+            border: 3px solid var(--brand);
+            box-shadow: 0 0 0 4px rgba(18, 45, 119, .08);
+            animation: pulse 2.2s ease-in-out infinite;
+        }
+
+        .tl-time {
+            font-weight: 800;
+            color: var(--brand);
+            font-size: 14px;
+            margin-top: 2px
+        }
+
+        .tl-card {
+            background: #fff;
+            border: 1px solid #eef2f7;
+            border-radius: 16px;
+            padding: 14px 16px;
+            box-shadow: var(--shadow)
+        }
+
+        .tl-title {
+            margin: 0 0 6px 0;
+            font-weight: 800
+        }
+
+        .tl-desc {
+            margin: 0;
+            color: var(--muted)
+        }
+    </style>
 </head>
 
 <body>
-    <div style="display: flex;width: 100%;justify-content: center;">
-        <a href="index.html"> <img src="./Assets/images/atdlogo.png" style="width: 100px;" alt=""></a>
+    <!-- HEADER -->
+    <div class="topbar">
+        <a href="index.html" aria-label="ATD Home">
+            <img src="./Assets/images/atdlogo.png" alt="ATD UEH Logo">
+        </a>
     </div>
-    <nav class="menu-bar">
-
-        <div class="menu-links">
-            <a href="events.html">Sự kiện</a>
-            <!-- <a href="register-event.html">Đăng ký</a> -->
+    <!-- Nav -->
+    <nav class="menu-bar" role="navigation" aria-label="Chính">
+        <div class="menu-wrap">
+            <div class="brand-mini">
+                <img src="./Assets/images/atdlogo.png" alt="ATD">
+                <span>ATD UEH</span>
+            </div>
+            <div class="menu-links" id="menuLinks">
+                <a href="events.html">Sự kiện</a>
+                <a href="#purpose">Mục đích</a>
+                <a href="#differ">Khác biệt</a>
+            </div>
+            <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
         </div>
     </nav>
-    <div class="poster">
-        <!-- Title -->
-        <div class="title">
-            <span>AI dẫn lối</span>
-            <span>bứt phá vị thế</span>
-            <div class="underline"></div>
-        </div>
 
-        <!-- Waves + binary -->
-        <div class="binary-wave">
-            <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
-                <defs>
-                    <linearGradient id="waveColor1" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#003366" />
-                        <stop offset="100%" stop-color="#0099cc" />
-                    </linearGradient>
-                    <linearGradient id="waveColor2" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#006699" />
-                        <stop offset="100%" stop-color="#66ccff" />
-                    </linearGradient>
-                </defs>
-                <!-- Back wave -->
-                <path id="wavePath1" d="M0 150 
-                     C 150 120, 300 180, 450 150 
-                     S 750 120, 900 150 
-                     S 1050 180, 1200 150" fill="none" stroke="url(#waveColor1)" stroke-width="2" />
-                <!-- Front wave -->
-                <path id="wavePath2" d="M0 160 
-                     C 150 110, 300 190, 450 160 
-                     S 750 110, 900 160 
-                     S 1050 190, 1200 160" fill="none" stroke="url(#waveColor2)" stroke-width="1.5" />
-            </svg>
-            <div class="binary-text" id="binaryContainer"></div>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="kicker">Livestream miễn phí</span>
+                <h1>Livestream AI cho người đi làm: <span style="color:var(--brand)">Bí kíp vượt KPI</span> & <span
+                        style="color:var(--accent)">Burnout</span></h1>
+                <p class="sub">Khám phá cách ứng dụng AI để tối ưu hiệu suất, giảm áp lực và bứt phá trong công việc.
+                    Miễn phí 100% – chỉ có tại ATD UEH.</p>
 
-        <!-- Logo -->
-        <!-- <div style="display: flex;justify-content: space-between;width: 100%;">
-           
-             <img class="logo" src="./Assets/images/atdlogo.png" alt="">
-        </div> -->
-    </div>
-    <!-- Hero Section -->
-   <div class="wrap">
-            <h1 style="color: rgb(18, 45, 119);">Sự kiện đang diễn ra</h1>
-
-            <div class="carousel" role="region" aria-label="Image Carousel">
-                <!-- Radios control which slide is visible -->
-                <input type="radio" name="slides" id="s1" checked />
-                <input type="radio" name="slides" id="s2" />
-
-                <!-- Slides -->
-                <div class="slides">
-                    <div class="slide">
-                    <a href="register-event.html">    <img src="./Assets/images/backgroundPhase2.png" /></a>
+                <div class="info" aria-label="Thông tin chung">
+                    <div class="i">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z" />
+                        </svg>
+                        <span><strong>📅 Ngày & giờ:</strong> <span id="event-time">Sẽ cập nhật</span></span>
                     </div>
-                    <div class="slide">
-                    <a href="register-event.html">    <img src="./Assets/images/background_phase1.png" /></a>
+                    <div class="i">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M12 12c2.761 0 5-2.686 5-6S14.761 0 12 0 7 2.686 7 6s2.239 6 5 6Zm0 2c-4.418 0-8 3.582-8 8h2a6 6 0 0 1 12 0h2c0-4.418-3.582-8-8-8Z"
+                                transform="scale(.92) translate(1 1)" />
+                        </svg>
+                        <span><strong>👨‍🏫 Khách mời:</strong> Giảng viên ATD + HR</span>
+                    </div>
+                    <div class="i">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 10l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9Z" />
+                            <path d="M9 22V12h6v10" />
+                        </svg>
+                        <span><strong>🎥 Hình thức:</strong> Facebook Live</span>
                     </div>
                 </div>
 
-                <!-- Arrow controls for each active slide (previous/next) -->
-                <div class="controls" aria-hidden="true">
-                    <!-- When slide 1 is active -->
-                    <div class="c1">
-                        <label class="ctrl prev" for="s4" title="Previous slide">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                            </svg>
-   
-                            <span class="sr-only">Previous</span>
-                        </label>
-                        <label class="ctrl next" for="s2" title="Next slide">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
-                            </svg>
-                            <span class="sr-only">Next</span>
-                        </label>
-                    </div>
-                    <!-- When slide 2 is active -->
-                    <div class="c2">
-                        <label class="ctrl prev" for="s1" title="Previous slide">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                            </svg>
-                            <span class="sr-only">Previous</span>
-                        </label>
-                        <label class="ctrl next" for="s3" title="Next slide">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
-                            </svg>
-                            <span class="sr-only">Next</span>
-                        </label>
-                    </div>
+                <!-- Inline email capture (above CTA) -->
+                <form id="form-hero" style="margin-top:14px;display:flex;gap:8px;align-items:center;max-width:720px" aria-label="Đăng ký nhận link bằng email">
+                    <input id="hero_email" name="email" type="email" aria-label="Email" placeholder="email@domain.com" required style="flex:1;min-width:0;padding:10px;border-radius:10px;border:1px solid #d1d5db;font-size:14px">
+                    <button class="btn btn-primary" type="submit" style="white-space:nowrap;padding:10px 14px;border-radius:10px">Đăng ký ngay – Nhận link</button>
+                    <div id="heroEmailMsg" class="msg" style="margin-left:12px;font-size:13px"></div>
+                </form>
 
-        
-                </div>
-
-                <!-- Dots / pagination -->
-                <div class="dots">
-                    <label for="s1" aria-label="Go to slide 1"></label>
-                    <label for="s2" aria-label="Go to slide 2"></label>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
+                    <a href="#faq" class="btn btn-outline">Giải đáp nhanh</a>
                 </div>
             </div>
-        </div>
 
-    <!-- Purpose -->
-    <section id="purpose">
-        <div class="podcast-player">
-                <p class="podcast-text" style="font-size: clamp(1rem, 3vw, 1.3rem);">To learn more about our Purpose, listen to the podcast</p>
-                <div class="audio-overview" style="flex-direction: column; width: 100%; align-items: center;">
-                    <div class="audio-image" style="width: 100%; max-width: 350px; margin-bottom: 1rem;">
-                        <img src="./Assets/images/doichan.png" alt="Podcast Cover" style="width: 100%; height: auto; min-width: 120px; min-height: 120px; max-width: 350px; border-radius: 12px;" >
-                    </div>
-                    <div class="audio-content" style="width: 100%; text-align: center; font-size: clamp(0.9rem, 2vw, 1.1rem);">
-                        Trong một thế giới đầy biến động, ATD UEH không chỉ trang bị cho bạn kỹ năng nhất thời,<br>
-                        chúng tôi trao cho bạn một triết lý và một hệ thống tư duy để làm chủ tương lai sự nghiệp của
-                        mình.<br>
-                        Đây là lộ trình dành cho những người muốn kiến tạo nên cuộc đua của riêng mình.<br>
-                    </div>
-                </div>
-                <div class="controls-audio" style="flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%;">
-                    <button class="icon-btn" id="back10">⟲<span>10</span></button>
-                    <button class="play-btn" id="playPause">▶</button>
-                    <button class="icon-btn" id="forward10"><span>10</span>⟳</button>
-                    <span class="time" id="currentTime">0:00</span>
-                    <input type="range" class="progress" id="progressBar" value="0" max="100">
-                    <span class="time" id="duration">0:00</span>
-                    <span class="volume-icon">🔊</span>
-                    <input type="range" class="volume" id="volumeControl" value="80" max="100">
-                </div>
-                <!-- Hidden audio element -->
-                <audio id="audioPlayer" src="./Assets/m5b3nbikv5.mp3"></audio>
-    </section>
 
-    <!-- Leader -->
-    <!-- <section id="leader">
-    <div>
-        <h1>
-            OUR PURPOSE
-        </h1>
-        <div class="line"></div>
-    </div>
-    <div class="overview-body">
-        <h1 class="overview-title">
-            We imagine better ways
-            to serve a world in motion
-        </h1>
-    </div>
-</section> -->
-
-   
-    <section class="section-container">
-
-        <!-- Left Column -->
-        <div class="left-column slide-left">
-            <h1>BẠN CÓ ĐANG THẤY HÌNH ẢNH CỦA MÌNH TRONG ĐÓ?<br>
-            <img src="./Assets/images/anhmodau.png" alt="Ship Image">
-
-        </div>
-
-        <!-- Right Column -->
-        <div class="right-column slide-right">
-            <img src="./Assets/images/anh2-land.png" alt="Navy Officers">
-            <div class="text-box">
+            <div class="cta-band grid-1" id="register">
                 <div>
-                    Trong một thế giới đầy biến động, ATD UEH không chỉ trang bị cho bạn kỹ năng nhất thời, <br>
-                    chúng tôi trao cho bạn một triết lý và một hệ thống tư duy để làm chủ tương lai sự nghiệp của mình.
-                    <br>
-                    Đây là lộ trình dành cho những người muốn kiến tạo nên cuộc đua của riêng mình. <br>
+                    <h2 class="headline" style="font-size:28px">Mini game &amp; quà tặng</h2>
+                    <div class="rules">
+                        <p><strong>Thể lệ:</strong> Ở cuối chương trình, MC đặt 1 câu hỏi. Người xem trả lời bằng cách
+                            bình luận ngay dưới livestream.</p>
+                        <ul class="list">
+                            <li>Chọn <strong>30 bình luận hợp lệ</strong> (đúng yêu cầu, không spam).</li>
+                            <li>Ưu tiên bình luận sớm &amp; có lý giải ngắn gọn.</li>
+                            <li>Kết quả sẽ được công bố trong phần kết và trên fanpage.</li>
+                        </ul>
+                        <p><strong>Quà tặng:</strong> 30 tấm voucher đến từ ATD UEH</p>
+                    </div>
+
+                    <div style="width: 100%;display: flex;justify-content: center;">
+                        <img style="max-width: 300px; border-radius: 15px;" src="./Assets/images/voucher-1.png"
+                            alt="Voucher quà tặng 1"
+                            onerror="this.src='https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800&auto=format&fit=crop'">
+                    </div>
                 </div>
             </div>
-
         </div>
-        <!-- <img alt="Down Arrow" loading="lazy" decoding="async" data-nimg="fill" class="arrow-style"
-            src="./Assets/Icons/arrow-down.svg"> -->
     </section>
-     <div class="container-title">
-        <h1>
-            SỰ KHÁC BIỆT ĐẾN TỪ ATD
-        </h1>
-        <div class="line"></div>
-    </div>
-    <section class="detail-section slide-left">
-        <div class="left">
-            <div class="big-number">1</div>
-            <h2>NÂNG CẤP TƯ DUY NỀN TẢNG</h2>
-            <div>
-                <b style="color: rgb(255, 123, 0);">Không chỉ là "What", mà là "Why"</b><br> <br>
 
-                Hãy quên đi việc học các kỹ năng riêng lẻ. Tại ATD, bạn sẽ được tiếp cận các mô hình tư duy
-                (mental models) và framework chiến lược - những thứ giúp bạn giải quyết không chỉ một,
-                mà là vô số vấn đề trong tương lai. Chúng tôi dạy bạn cách đặt câu hỏi đúng cho dữ liệu, cách nhìn
-                ra "bức tranh lớn" đằng sau mỗi con số, và cách kiến tạo nên các giải pháp có giá trị bền vững.
+    <!-- BENEFITS -->
+    <section id="benefits" class="reveal">
+        <div class="container">
+            <h2>Bạn nhận được gì khi tham gia Livestream này?</h2>
+            <p class="lead">Những giá trị thực tiễn, dùng được ngay cho công việc ngày mai.</p>
+            <div class="grid-4" style="margin-top:18px">
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    <h3>Hiểu cách AI giảm tải deadline & áp lực KPI</h3>
+                    <p>Khung ứng dụng AI vào quy trình để tiết kiệm 5–7 giờ/tuần.</p>
+                </div>
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5V4.5a2 2 0 0 1 2-2h7.5L20 8v11.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" />
+                        <path d="M13 2v6h6" />
+                    </svg>
+                    <h3>Ứng dụng AI vào quản lý công việc & nội dung</h3>
+                    <p>Mẫu prompt & workflow tối ưu cho quản lý dự án, marketing, báo cáo.</p>
+                </div>
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20l9-16H3l9 16Z" />
+                    </svg>
+                    <h3>Học từ câu chuyện thực tế</h3>
+                    <p>Case study từ học viên ATD đã tăng hiệu suất, vượt KPI.</p>
+                </div>
+                <div class="card benefit">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M12 8c-3.866 0-7 1.79-7 4v6h14v-6c0-2.21-3.134-4-7-4Zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                    </svg>
+                    <h3>Ưu đãi đặc biệt từ ATD UEH</h3>
+                    <p>Quà tặng tài liệu & ưu đãi học phí dành riêng cho người tham dự.</p>
+                </div>
             </div>
-            <img alt="Down Arrow" loading="lazy" decoding="async" data-nimg="fill" class="arrow-style-right"
-                src="./Assets/Icons/arrow-down.svg">
-
-        </div>
-        <div class="right-reverse">
-            <img style="max-height: 700px" src="./Assets/images/tuduynentang.jpg" alt="Ballet Dancer">
         </div>
     </section>
 
-
-
-
-    <section class="detail-section slide-right">
-        <div class="right">
-            <img src="./Assets/images/lotrinhtinhgon.jpg" alt="Ballet Dancer">
-        </div>
-        <div class="left">
-            <div class="big-number">2</div>
-            <h2>TĂNG TỐC TRÊN LỘ TRÌNH TINH GỌN</h2>
-            <div>
-                <b style="color: rgb(255, 123, 0);">Hiệu quả trong từng giờ học</b><br> <br>
-
-                Chúng tôi thấu hiểu quỹ thời gian của một nhà quản lý là vô giá. Vì vậy, mỗi khóa học tại ATD đều được
-                thiết kế như một "lộ trình chiến lược": chắt lọc, tinh gọn và tập trung vào những kiến thức cốt lõi
-                nhất. Học phần được sắp xếp logic, linh hoạt, giúp bạn có thể áp dụng ngay những gì đã học vào công việc
-                mà không làm gián đoạn nhịp sống bận rộn.
+    <!-- AGENDA / CONTENT -->
+    <section id="agenda" class="reveal">
+        <div class="container">
+            <h2>Nội dung Livestream</h2>
+            <div class="grid-3" style="margin-top:12px">
+                <div class="card content-block">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>
+                    <div>
+                        <h3>Áp lực KPI & burnout của Gen Y – góc nhìn thực tế</h3>
+                        <p class="lead">Nhận diện gốc rễ căng thẳng & điểm nghẽn trong công việc hiện đại.</p>
+                    </div>
+                </div>
+                <div class="card content-block">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20" />
+                    </svg>
+                    <div>
+                        <h3>AI như người bạn đồng hành: Giải pháp tăng hiệu suất</h3>
+                        <p class="lead">Blueprint các công cụ & quy trình AI để tự động hoá tác vụ lặp.</p>
+                    </div>
+                </div>
+                <div class="card content-block">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16v6H4z" />
+                        <path d="M4 14h10v6H4z" />
+                    </svg>
+                    <div>
+                        <h3>Giới thiệu khóa học AI thực chiến tại ATD UEH</h3>
+                        <p class="lead">Lộ trình nâng cấp kỹ năng AI cho người đi làm: từ cơ bản đến triển khai thật.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <img alt="Down Arrow" loading="lazy" decoding="async" data-nimg="fill" class="arrow-style-right"
-                src="./Assets/Icons/arrow-down.svg">
-
         </div>
     </section>
-    <section class="detail-section slide-left">
-        <div class="left">
-            <div class="big-number">3</div>
-            <h2>ĐỒNG HÀNH CÙNG NGƯỜI DẪN ĐƯỜNG KHÔN NGOAN</h2>
-            <div>
-                <b style="color: rgb(255, 123, 0);">Không chỉ là giảng viên, họ là cố vấn chiến lược</b><br> <br>
-                Trong một hành trình đầy thử thách, bạn cần một người dẫn đường chứ không chỉ là một người thầy. Đội ngũ
-                chuyên gia của ATD sẽ đóng vai trò là những cố vấn khôn ngoan: lắng nghe, thấu hiểu và đưa ra những định
-                hướng mang tính chiến lược, cá nhân hóa cho riêng bạn. Họ sẽ giúp bạn nhìn ra những "điểm mù", kết nối
-                kiến thức với mục tiêu sự nghiệp và trao cho bạn sự tự tin để đưa ra những quyết định lớn.
+
+    <!-- SPEAKERS -->
+    <section id="speakers" class="reveal">
+        <div class="container">
+            <h2 class="headline" style="margin-bottom:6px">Diễn giả </h2>
+            <p class="subhead">Những người đồng hành cùng bạn trong hành trình “làm chủ AI”.</p>
+
+            <div class="speakers" style="margin-top:18px">
+                <div class="card speaker">
+                    <div class="avatar">
+                        <img src="./Assets/images/diengia1-phas1.png" alt="HR. Huỳnh Thái"
+                            onerror="this.src='https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=500&auto=format&fit=crop'">
+                    </div>
+                    <div>
+                        <span class="badge">HOST</span>
+                        <h3 style="margin:6px 0 4px">HR. Huỳnh Thái</h3>
+                        <p class="subhead" style="margin:0">Chuyên gia nhân sự • Kết nối &amp; dẫn dắt
+                            chương trình
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card speaker">
+                    <div class="avatar">
+                        <img src="./Assets/images/diengia2-phase1.png" alt="ThS. Nguyễn Phát Đạt"
+                            onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=500&auto=format&fit=crop'">
+                    </div>
+                    <div>
+                        <span class="badge">KHÁCH MỜI</span>
+                        <h3 style="margin:6px 0 4px">ThS. Nguyễn Phát Đạt</h3>
+                        <p class="subhead" style="margin:0">Giảng viên AI tại ATD • Chia sẻ case thực tế
+                            &amp; demo
+                            công cụ</p>
+                    </div>
+                </div>
             </div>
-            <!-- <img alt="Down Arrow" loading="lazy" decoding="async" data-nimg="fill" class="arrow-style-right"
-                src="./Assets/Icons/arrow-down.svg"> -->
-
         </div>
-        <div class="right-reverse">
-            <img style="max-height: 700px" src="./Assets/images/nguoidanduong.jpg" alt="Ballet Dancer">
+    </section>
+    <!-- TIMELINE -->
+    <section class="section reveal" id="timeline">
+        <div class="container">
+            <h2 style="margin:0 0 8px" class="headline" aria-label="Timeline nội dung">Timeline</h2>
+            <p class="subhead">60–90 phút, chia 4 phần rõ ràng để dễ theo dõi</p>
+
+            <div class="timeline" style="margin-top:18px">
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">19:30 – 19:35</div>
+                        <h3 class="tl-title">Opening</h3>
+                        <p class="tl-desc">MC chào khán giả, giới thiệu ATD, khách mời, chủ đề. Tạo FOMO: “Nếu bạn
+                            chưa biết AI, 1 năm nữa bạn sẽ ở đâu?”</p>
+                    </div>
+                </div>
+
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">19:35 – 19:45</div>
+                        <h3 class="tl-title">Phần 1 – Xu hướng &amp; Insight</h3>
+                        <p class="tl-desc">AI tác động đến Gen Y/Gen Z như thế nào? Những ngành bị ảnh hưởng mạnh
+                            &amp; cơ hội mới.</p>
+                    </div>
+                </div>
+
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">19:45 – 20:05</div>
+                        <h3 class="tl-title">Phần 2 – Ứng dụng thực tiễn (Demo)</h3>
+                        <p class="tl-desc">3 công cụ nhanh: ChatGPT (soạn email/báo cáo), Canva AI (slide vài phút),
+                            Notion AI (lập kế hoạch & quản lý công việc).</p>
+                    </div>
+                </div>
+
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">20:05 – 20:20</div>
+                        <h3 class="tl-title">Phần 3 – Tương tác &amp; Hỏi đáp</h3>
+                        <p class="tl-desc">Giải đáp câu hỏi trực tiếp, chia sẻ case study chuyển đổi hiệu suất cá
+                            nhân.</p>
+                    </div>
+                </div>
+
+                <div class="tl-item">
+                    <div class="tl-dot" aria-hidden="true"></div>
+                    <div class="tl-card">
+                        <div class="tl-time">20:20 – 20:30</div>
+                        <h3 class="tl-title">Phần 4 – Mini game &amp; Tổng kết</h3>
+                        <p class="tl-desc">Mini game trả lời câu hỏi ngay trên livestream – chọn 30 bình luận hợp lệ
+                            để trao quà.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- MID CTA + FORM -->
+    <section class="reveal">
+        <div class="container">
+            <!-- <div class="cta-band grid-2" id="register">
+        <div>
+          <h2 style="margin:0 0 6px">Số lượng chỗ giới hạn – Đăng ký ngay để giữ chỗ!</h2>
+          <p style="margin:0 0 12px;opacity:.9">Nhập thông tin để nhận link Livestream qua Email/Zalo.</p>
+           <div style="width: 100%;display: flex;justify-content: center;">
+            <img style="max-width: 300px; border-radius: 15px;" src="./Assets/images/voucher-1.png" alt="Voucher quà tặng 1"
+                            onerror="this.src='https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800&auto=format&fit=crop'">
+           </div>
+        </div>
+        <div class="card form" style="background:#fff;color:var(--ink)">
+          <form id="form-mid" novalidate>
+            <div class="field">
+              <label for="name2">Họ và tên</label>
+              <input id="name2" name="name" class="input" required />
+            </div>
+            <div class="field">
+              <label for="email2">Email</label>
+              <input id="email2" name="email" type="email" class="input" required />
+            </div>
+            <div class="field">
+              <label for="phone2">Số điện thoại</label>
+              <input id="phone2" name="phone" class="input" pattern="^[0-9\s+()-]{8,}$" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Giữ chỗ ngay</button>
+          </form>
+        </div>
+      </div> -->
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="reveal">
+        <div class="container">
+            <h2>Giải đáp thắc mắc nhanh</h2>
+            <div class="faq card">
+                <div class="qa">
+                    <button aria-expanded="false"><span class="q">Livestream có thu phí không?</span><span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg></span></button>
+                    <div class="a">
+                        <p>Không, hoàn toàn miễn phí.</p>
+                    </div>
+                </div>
 
+                <div class="qa">
+                    <button aria-expanded="false"><span class="q">Không tham gia trực tiếp thì xem lại được không?</span><span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg></span></button>
+                    <div class="a">
+                        <p>Có. ATD sẽ gửi link ghi hình cho người đăng ký qua Email/Zalo.</p>
+                    </div>
+                </div>
 
-    <!-- Footer -->
+                <div class="qa">
+                    <button aria-expanded="false"><span class="q">Cần chuẩn bị gì trước Livestream?</span><span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" /></svg></span></button>
+                    <div class="a">
+                        <p>Chỉ cần đăng ký &amp; kiểm tra email để nhận link và nhắc lịch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AFTER LIVE (for long-term) -->
+    <section class="after reveal">
+        <div class="container">
+            <h2>Xem lại Livestream</h2>
+            <p class="lead">Khi sự kiện kết thúc, nhúng video ghi hình vào đây để tiếp tục thu hút người xem.</p>
+            <div class="video" aria-label="Xem lại Livestream">
+                <!-- TODO: Thay src bằng link video ghi hình -->
+                <!-- <iframe
+                    src="https://www.youtube.com/embed/8x5IVXtVX3s"
+                    title="Livestream AI ATD UEH – Video"
+                    frameborder="0"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen> -->
+                <img style="width:100%;border-radius:16px;box-shadow:var(--shadow);border:1px solid rgba(15,23,42,.08)" src="./Assets/images/poster-livestream.jpeg" alt="Xem lại Livestream AI cho người đi làm">
+                <!-- <img src="./Assets/images/ytblogo.png" alt="Youtube Logo" style="width: 100px; height: auto;"> -->
+  <!-- </iframe> -->
+            </div>
+            <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+                <a class="btn btn-outline" href="https://atd.ueh.edu.vn/khoa-hoc-ai" target="_blank" rel="noopener">Tìm
+                    hiểu khóa học AI tại ATD</a>
+                <a class="btn btn-primary" href="#register">Nhận ưu đãi học phí</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <!-- Top row -->
         <div class="footer-top">
@@ -308,22 +1074,130 @@
         </div>
     </footer>
 
-        <script src="./Assets/index.js"></script>
-        <script src="./Assets/audio.js"></script>
-        <script>
-        // Auto-advance carousel every 5 seconds
-        (function() {
-            const radios = [
-                document.getElementById('s1'),
-                document.getElementById('s2')
-            ];
-            let current = 0;
-            setInterval(() => {
-                current = (current + 1) % radios.length;
-                radios[current].checked = true;
-            }, 3000);
+    <!-- JSON-LD Schema: Event -->
+    <script id="event-schema" type="application/ld+json"></script>
+
+    <script>
+        // ======= CONFIG – CẬP NHẬT NHANH TẠI ĐÂY =======
+        const EVENT_NAME = 'Livestream AI cho người đi làm: Bí kíp vượt KPI & Burnout';
+        // Điền ngày giờ thật của bạn (ví dụ): 2025-09-15 19:30 GMT+7
+        const EVENT_START_ISO = '2025-09-15T19:30:00+07:00'; // TODO: cập nhật
+        const EVENT_URL = 'https://atd.ueh.edu.vn/livestream-ai-2025';
+        const LIVE_URL = 'https://zoom.us/j/your-room'; // TODO: link Zoom thật
+        const ORGANIZER = { name: 'ATD UEH', url: 'https://atd.ueh.edu.vn' };
+
+        // ======= REVEAL ON SCROLL =======
+        const io = new IntersectionObserver((ents) => {
+            ents.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+        }, { threshold: .18 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // ======= FAQ ACCORDION (smooth) =======
+        (function () {
+            const qs = document.querySelectorAll('.qa');
+            qs.forEach(qa => {
+                const btn = qa.querySelector('button');
+                const panel = qa.querySelector('.a');
+                // initialize collapsed state
+                panel.style.maxHeight = '0px';
+                panel.style.overflow = 'hidden';
+                btn.setAttribute('aria-expanded', 'false');
+                btn.addEventListener('click', () => {
+                    const isOpen = qa.classList.contains('open');
+                    if (isOpen) {
+                        // collapse
+                        const from = panel.scrollHeight;
+                        panel.style.maxHeight = from + 'px';
+                        // allow layout then animate to 0
+                        requestAnimationFrame(() => {
+                            panel.style.transition = 'max-height .36s cubic-bezier(.2,.9,.2,1), opacity .24s ease';
+                            panel.style.maxHeight = '0px';
+                            panel.style.opacity = '0';
+                        });
+                        qa.classList.remove('open');
+                        btn.setAttribute('aria-expanded', 'false');
+                    } else {
+                        // expand
+                        qa.classList.add('open');
+                        panel.style.transition = 'none';
+                        panel.style.maxHeight = '0px';
+                        panel.style.opacity = '0';
+                        // measure then set to measured height
+                        requestAnimationFrame(() => {
+                            const h = panel.scrollHeight;
+                            panel.style.transition = 'max-height .36s cubic-bezier(.2,.9,.2,1), opacity .24s ease';
+                            panel.style.maxHeight = h + 'px';
+                            panel.style.opacity = '1';
+                            btn.setAttribute('aria-expanded', 'true');
+                        });
+                    }
+                });
+            });
         })();
-        </script>
+
+        // ======= FORMS (demo only) =======
+        function wireForm(id) {
+            const form = document.getElementById(id);
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const data = Object.fromEntries(new FormData(form).entries());
+                // TODO: Gửi về backend/Google Sheet/Zapier
+                console.log('Register:', data);
+                localStorage.setItem('atd_livestream_reg', JSON.stringify({ ...data, t: Date.now() }));
+                form.reset();
+                const btn = form.querySelector('button[type="submit"]');
+                const old = btn.textContent;
+                btn.textContent = '✓ Đã nhận đăng ký!';
+                btn.style.filter = 'saturate(1.2)';
+                setTimeout(() => { btn.textContent = old; btn.style.filter = ''; }, 2600);
+                alert('Cảm ơn bạn! Chúng tôi sẽ gửi link tham gia qua Email/Zalo.');
+            });
+        }
+        wireForm('form-hero');
+        wireForm('form-mid');
+
+        // Lightweight hero email feedback (avoid double-alert if wireForm also fires)
+        (function(){
+            const h = document.getElementById('form-hero');
+            const msg = document.getElementById('heroEmailMsg');
+            if(!h) return;
+            h.addEventListener('submit', (e)=>{
+                // silently handle and show inline message (wireForm already stores)
+                try{ msg.textContent = 'Cảm ơn! Email của bạn đã được ghi nhận.'; msg.className='msg success'; }
+                catch{}
+            });
+        })();
+
+        // ======= EVENT TIME (UI) =======
+        function updateEventTime() {
+            try {
+                const d = new Date(EVENT_START_ISO);
+                const opts = { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+                const f = new Intl.DateTimeFormat('vi-VN', opts).format(d);
+                document.getElementById('event-time').textContent = f;
+            } catch { document.getElementById('event-time').textContent = 'Sẽ cập nhật'; }
+        }
+        updateEventTime();
+
+        // ======= JSON-LD EVENT SCHEMA =======
+        const schema = {
+            '@context': 'https://schema.org',
+            '@type': 'Event',
+            name: EVENT_NAME,
+            startDate: EVENT_START_ISO,
+            eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+            eventStatus: 'https://schema.org/EventScheduled',
+            location: { '@type': 'VirtualLocation', url: LIVE_URL },
+            image: ['https://atd.ueh.edu.vn/assets/og-livestream-ai.jpg'],
+            description: 'Livestream miễn phí: ứng dụng AI giảm áp lực công việc, tối ưu hiệu suất và vượt KPI.',
+            organizer: { '@type': 'Organization', name: ORGANIZER.name, url: ORGANIZER.url },
+            offers: { '@type': 'Offer', url: EVENT_URL, price: '0', priceCurrency: 'VND', availability: 'https://schema.org/InStock' }
+        };
+        document.getElementById('event-schema').textContent = JSON.stringify(schema);
+
+        // ======= FOOTER YEAR =======
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
