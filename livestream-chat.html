@@ -696,6 +696,28 @@
             color: var(--muted)
         }
 
+        /* Page entrance animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px) scale(.998); }
+            to { opacity: 1; transform: none; }
+        }
+
+        .page-enter .topbar,
+        .page-enter .hero,
+        .page-enter .cta-band
+
+        .page-enter.entered .topbar { animation: fadeUp .42s ease .06s both; }
+        .page-enter.entered .hero { animation: fadeUp .52s cubic-bezier(.2,.9,.2,1) .18s both; }
+        .page-enter.entered .cta-band { animation: fadeUp .48s ease .28s both; }
+        .page-enter.entered footer { animation: fadeUp .42s ease .36s both; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-enter .topbar,
+            .page-enter .hero,
+            .page-enter .cta-band
+             { opacity: 1; transform: none; animation: none; }
+        }
+
      #ask-question {
       padding: 40px 0;
     }
@@ -850,6 +872,32 @@
 
 
             <div class="cta-band grid-1" id="register">
+                <!-- <div>
+                    <h2 class="headline" style="font-size:28px">Mini game &amp; quà tặng</h2>
+                    <div class="rules">
+                        <p><strong>Thể lệ:</strong> Ở cuối chương trình, MC đặt 1 câu hỏi. Người xem trả lời bằng cách
+                            bình luận ngay dưới livestream.</p>
+                        <ul class="list">
+                            <li>Chọn <strong>30 bình luận hợp lệ</strong> (đúng yêu cầu, không spam).</li>
+                            <li>Ưu tiên bình luận sớm &amp; có lý giải ngắn gọn.</li>
+                            <li>Kết quả sẽ được công bố trong phần kết và trên fanpage.</li>
+                        </ul>
+                        <p><strong>Quà tặng:</strong> 30 tấm voucher đến từ ATD UEH</p>
+                    </div>
+
+                    <div style="width: 100%;display: flex;justify-content: center;">
+                        <img style="max-width: 300px; border-radius: 15px;" src="./Assets/images/voucher-1.png"
+                            alt="Voucher quà tặng 1"
+                            onerror="this.src='https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                </div> -->
+                <img style="border-radius: 24px;" src="./Assets/images/vertical-poster-phase1.jpg" alt="Voucher quà tặng 1">
+            </div>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="container">
+  <div class="cta-band grid-1" id="register">
                 <div>
                     <h2 class="headline" style="font-size:28px">Mini game &amp; quà tặng</h2>
                     <div class="rules">
@@ -869,10 +917,10 @@
                             onerror="this.src='https://images.unsplash.com/photo-1556745753-b2904692b3cd?q=80&w=800&auto=format&fit=crop'">
                     </div>
                 </div>
+              
             </div>
         </div>
     </section>
-
     <!-- BENEFITS -->
     <section id="benefits" class="reveal">
         <div class="container">
@@ -1373,7 +1421,23 @@ const form = document.getElementById('questionForm');
         document.getElementById('event-schema').textContent = JSON.stringify(schema);
 
         // ======= FOOTER YEAR =======
-        document.getElementById('y').textContent = new Date().getFullYear();
+        // document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        // Page entrance: add class then 'entered' to trigger staggered animations
+        (function(){
+            try{
+                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if(reduce) return; // skip animations
+                document.documentElement.classList.add('page-enter');
+                // wait for first paint and a small delay
+                requestAnimationFrame(()=>{
+                    setTimeout(()=>{
+                        document.documentElement.classList.add('entered');
+                    }, 120);
+                });
+            }catch(e){ /* noop */ }
+        })();
     </script>
 </body>
 
