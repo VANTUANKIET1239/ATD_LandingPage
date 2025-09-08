@@ -789,31 +789,34 @@
 </head>
 
 <body>
-    <!-- HEADER -->
-    <div class="topbar">
-        <a href="index.html" aria-label="ATD Home">
-            <img src="./Assets/images/atdlogo.png" alt="ATD UEH Logo">
+   <!-- Top brand -->
+  <div class="topbar">
+    <a href="https://atd.ueh.edu.vn/gioi-thieu" aria-label="ATD Home">
+      <img src="./Assets/images/atdlogo.png" alt="ATD UEH Logo">
+    </a>
+  </div>
+
+  <!-- Nav -->
+  <nav class="menu-bar" role="navigation" aria-label="Chính">
+    <div class="menu-wrap">
+      <div class="brand-mini">
+        <a style="display: flex;" href="index.html">
+           <img src="./Assets/images/atdlogo.png" alt="ATD">
+          <span>ATD UEH</span>
         </a>
+      </div>
+      <div class="menu-links" id="menuLinks">
+        <a href="events.html">Sự kiện</a>
+        <a href="#purpose">Mục đích</a>
+        <a href="#differ">Khác biệt</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+      </button>
     </div>
-    <!-- Nav -->
-    <nav class="menu-bar" role="navigation" aria-label="Chính">
-        <div class="menu-wrap">
-            <div class="brand-mini">
-                <img src="./Assets/images/atdlogo.png" alt="ATD">
-                <span>ATD UEH</span>
-            </div>
-            <div class="menu-links" id="menuLinks">
-                <a href="events.html">Sự kiện</a>
-                <a href="#purpose">Mục đích</a>
-                <a href="#differ">Khác biệt</a>
-            </div>
-            <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-        </div>
-    </nav>
+  </nav>
 
     <!-- HERO -->
     <section class="hero">

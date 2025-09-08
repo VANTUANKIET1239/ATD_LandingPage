@@ -90,17 +90,21 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-   <div class="topbar">
-    <a href="index.html" aria-label="ATD Home">
+  <!-- Top brand -->
+  <div class="topbar">
+    <a href="https://atd.ueh.edu.vn/gioi-thieu" aria-label="ATD Home">
       <img src="./Assets/images/atdlogo.png" alt="ATD UEH Logo">
     </a>
   </div>
+
   <!-- Nav -->
   <nav class="menu-bar" role="navigation" aria-label="Chính">
     <div class="menu-wrap">
       <div class="brand-mini">
-        <img src="./Assets/images/atdlogo.png" alt="ATD">
-        <span>ATD UEH</span>
+        <a style="display: flex;" href="index.html">
+           <img src="./Assets/images/atdlogo.png" alt="ATD">
+          <span>ATD UEH</span>
+        </a>
       </div>
       <div class="menu-links" id="menuLinks">
         <a href="events.html">Sự kiện</a>
@@ -114,7 +118,6 @@
       </button>
     </div>
   </nav>
-
   <!-- Quiz container -->
   <main class="max-w-3xl mx-auto my-10 bg-white rounded-2xl shadow-xl overflow-hidden quiz-shell p-10 flex-1">
     <header class="text-center mb-6">
